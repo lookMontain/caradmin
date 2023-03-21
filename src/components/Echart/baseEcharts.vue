@@ -34,8 +34,11 @@
       this.echartsInstance.setOption(this.options);
       //适应屏幕缩放
       window.addEventListener("resize", () => {
-        this.echartsInstance.resize();
+        this.reload()
       });
+      this.echartsInstance.on('click', (params)=> {
+        this.$emit('click',params)
+      })
     },
     watch:{
       options:{
@@ -44,6 +47,11 @@
           this.echartsInstance.setOption(this.options);
         },
         deep:true
+      }
+    },
+    methods:{
+      reload(){
+        this.echartsInstance.resize();
       }
     }
   };

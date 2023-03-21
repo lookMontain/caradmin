@@ -50,7 +50,12 @@ export default {
       menuList: [{
         path: '/',
         meta: { title: '首页', icon: 'shouye' }
-      },{
+      },
+      {
+        path: '/dataOverview',
+        meta: { title: '数据总览', icon: 'dataOverview' }
+      },
+      {
         path: '/kehu',
         meta: { title: '客户', icon: 'kehu' }
       },{

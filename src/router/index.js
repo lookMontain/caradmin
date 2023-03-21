@@ -53,6 +53,11 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: 'shouye' }
     },{
+      path: 'dataOverview',
+      name: 'dataOverview',
+      component: () => import('@/views/pages/DataOverview/index.vue'),
+      meta: { title: '数据总览', icon: 'dataOverview' }
+    },{
       path: 'kehu',
       name: 'kehu',
       component: () => import('@/views/pages/kehu.vue'),
