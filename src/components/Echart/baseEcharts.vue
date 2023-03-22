@@ -52,6 +52,9 @@
     methods:{
       reload(){
         this.echartsInstance.resize();
+      },
+      setOption(options){
+        this.echartsInstance.setOption(options);
       }
     }
   };
