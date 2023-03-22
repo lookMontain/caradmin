@@ -52,36 +52,7 @@
                 </el-card>
             </el-col>
         </el-row>
-        <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <el-card class="box-card">
-                    <div slot="header" class="clearfix">
-                        <span>核心词Top1</span>
-                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
-                    </div>
-                    <base-echarts :options="heixinciTop1"></base-echarts>
-                </el-card>
-
-            </el-col>
-            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <el-card class="box-card">
-                    <div slot="header" class="clearfix">
-                        <span>核心词Top2</span>
-                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
-                    </div>
-                    <base-echarts :options="heixinciTop2"></base-echarts>
-                </el-card>
-            </el-col>
-            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
-                <el-card>
-                    <div slot="header" class="clearfix">
-                        <span>核心词Top3</span>
-                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
-                    </div>
-                    <base-echarts :options="heixinciTop3"></base-echarts>
-                </el-card>
-            </el-col>
-        </el-row>
+  
         <el-row :gutter="10" class="row">
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
                 <el-card class="box-card">
@@ -109,6 +80,27 @@
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
                     <base-echarts :options="hexinciTop3"></base-echarts>
+                </el-card>
+            </el-col>
+        </el-row>
+        <el-row :gutter="10" class="row">
+            <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                        <span>核心词Top1</span>
+                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
+                    </div>
+                    <base-echarts :options="heixinciTop1"></base-echarts>
+                </el-card>
+
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                        <span>核心词Top2</span>
+                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
+                    </div>
+                    <base-echarts :options="heixinciTop2"></base-echarts>
                 </el-card>
             </el-col>
         </el-row>
@@ -447,7 +439,7 @@ export default {
             hexinciTop1: {
                 title: {
                     show: false,
-                    text: '核心词Top1'
+                    text: 'levele1'
                 },
                 xAxis: {
                     type: 'category',
@@ -456,14 +448,14 @@ export default {
                         // interval: 0,
                         // rotate: 70,
                     },
-                    data: ['保养', '驾驶', '售后', '记录仪', '系统', '救援', '气囊']
+                    data: ['售后服务', '销售服务', '中央服务']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [120, 200, 150, 80, 70, 110, 130],
+                        data: [120, 200, 150],
                         type: 'line',
                         label: {
                             normal: {
@@ -479,7 +471,7 @@ export default {
                         }
                     },
                     {
-                        data: [120, 200, 150, 80, 70, 110, 130],
+                        data: [120, 200, 150],
                         type: 'bar',
                         label: {
                             normal: {
@@ -505,17 +497,17 @@ export default {
                     type: 'category',
                     axisLabel: {
 
-                        // interval: 0,
-                        // rotate: 70,
+                        interval: 0,
+                        rotate: 70,
                     },
-                    data: ['救援', '车型', '刹车', '保养', '配件', '道路', '仪表盘']
+                    data: ['售后服务产品', '人员和服务质量', '流程和进度', '道路救援']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [90, 100, 50, 180, 20, 90, 70],
+                        data: [90, 100, 50, 180],
                         type: 'line',
                         label: {
                             normal: {
@@ -531,7 +523,7 @@ export default {
                         }
                     },
                     {
-                        data: [90, 100, 50, 180, 20, 90, 70],
+                        data: [90, 100, 50, 180],
                         type: 'bar',
                         label: {
                             normal: {
@@ -557,17 +549,17 @@ export default {
                     type: 'category',
                     axisLabel: {
 
-                        // interval: 0,
-                        // rotate: 70,
+                        interval: 0,
+                        rotate: 70,
                     },
-                    data: ['道路', '售后', '维修', '手机', '车型', '驾驶', '地址']
+                    data: ['零件质量', '售后服务态度', '销售服务态度', '维修保养']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [10, 80, 30, 10, 20, 70, 20],
+                        data: [10, 80, 30, 10],
                         type: 'line',
                         label: {
                             normal: {
@@ -583,7 +575,7 @@ export default {
                         }
                     },
                     {
-                        data: [10, 80, 30, 10, 20, 70, 20],
+                        data: [10, 80, 30, 10],
                         type: 'bar',
                         label: {
                             normal: {
