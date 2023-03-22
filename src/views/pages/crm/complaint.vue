@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="24" :md="17" :lg="17" :xl="17">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>总览</span>
@@ -12,56 +12,6 @@
                             @click="showItemDetail"></base-echarts>
                         <base-echarts ref="allDataViewDetailRef" style="flex: 1;" v-if="itemDetailVisible"
                             :options="allDataViewDetail"></base-echarts>
-                    </div>
-                </el-card>
-            </el-col>
-            <el-col :xs="24" :sm="24" :md="7" :lg="7" :xl="7">
-                <el-card class="box-card">
-                    <el-tabs v-model="activeName" @tab-click="handleClick">
-                        <el-tab-pane label="搜索" name="first">
-                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-                                <el-button slot="append" icon="el-icon-search"></el-button>
-                            </el-input>
-                        </el-tab-pane>
-                        <el-tab-pane label="项目" name="second">
-                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-                                <el-button slot="append" icon="el-icon-search"></el-button>
-                            </el-input>
-                        </el-tab-pane>
-                        <el-tab-pane label="客户" name="third">
-                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-                                <el-button slot="append" icon="el-icon-search"></el-button>
-                            </el-input>
-                        </el-tab-pane>
-                        <el-tab-pane label="流程" name="fourth">
-                            <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-                                <el-button slot="append" icon="el-icon-search"></el-button>
-                            </el-input>
-                        </el-tab-pane>
-                    </el-tabs>
-                </el-card>
-                <el-card class="box-card" style="margin-top: 70px;">
-                    <div slot="header" class="clearfix">
-                        <span>常用功能</span>
-                        <!-- <i class="el-icon-more" style="float: right; padding: 3px 0"></i> -->
-                    </div>
-                    <div class="toolbox">
-                        <div>
-                            <img style="width:64px;height:64px" :src="fankuiIcon">
-                            <div class="toolbox-text">反馈</div>
-                        </div>
-                        <div>
-                            <img style="width:64px;height:64px" :src="guanliIcon">
-                            <div class="toolbox-text">管理</div>
-                        </div>
-                        <div>
-                            <img style="width:64px;height:64px" :src="fenxiIcon">
-                            <div class="toolbox-text">分析</div>
-                        </div>
-                        <div>
-                            <img style="width:64px;height:64px" :src="zixunIcon">
-                            <div class="toolbox-text">咨询</div>
-                        </div>
                     </div>
                 </el-card>
             </el-col>
@@ -133,17 +83,6 @@
             </el-col>
         </el-row>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                <el-card class="box-card">
-                    <div slot="header" class="clearfix">
-                        <span>核心词综合Top10</span>
-                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
-                    </div>
-                    <base-echarts :options="heixinciTop10"></base-echarts>
-                </el-card>
-            </el-col>
-        </el-row>
-        <el-row :gutter="10" class="row">
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
@@ -177,10 +116,10 @@
             <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
-                        <span>车系统计</span>
+                        <span>状态</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="chexi"></base-echarts>
+                    <base-echarts :options="statusData"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -219,7 +158,7 @@ import guanliIcon from '@/assets/guanli.png'
 import fenxiIcon from '@/assets/fenxi.png'
 import zixunIcon from '@/assets/zixun.png'
 export default {
-    name: "dataOverview",// 数据总览
+    name: "consult",// 咨询
     components: {
         PieEcharts,
         BaseEcharts
@@ -293,28 +232,7 @@ export default {
                 ],
                 series: [
 
-                    {
-                        name: '咨询',
-                        type: 'bar',
-                        stack: 'Ad',
-                        emphasis: {
-                            focus: 'series'
-                        },
-                        barWidth: '50px',
-                        label: {
-                            normal: {
-                                show: true,
-                                position: "top",
-                                formatter: "{c}",
-                                color: '#fff'
-                            }
-                        },
-                        itemStyle:{
-                            color:'#5e9bef'
-                        },
-                        data: [120, 132, 101, 134]
-                    },
-                    {
+                {
                         name: '投诉',
                         type: 'bar',
                         stack: 'Ad',
@@ -334,29 +252,7 @@ export default {
                             color:'#66bb5f'
                         },
                         data: [220, 182, 191, 234]
-                    },
-                    {
-                        name: '预警',
-                        type: 'bar',
-                        stack: 'Ad',
-                        barWidth: '50px',
-                        emphasis: {
-                            focus: 'series'
-                        },
-                        label: {
-                            normal: {
-                                show: true,
-                                position: "top",
-                                formatter: "{c}",
-                                color: '#fff'
-                            }
-                        },
-                        itemStyle:{
-                            color:'#fac858'
-                        },
-                        data: [150, 232, 201, 154]
-                    },
-
+                    }
 
                 ]
             },
@@ -711,7 +607,7 @@ export default {
             heixinciTop2: this.getHeiXinCi(2),
             heixinciTop3: this.getHeiXinCi(3),
             heixinciTop10: this.getHeiXinCiTop10(),
-            chexi: {
+            statusData: {
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -727,7 +623,7 @@ export default {
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['A车', 'B车', 'C车', 'D车', 'E车', 'F车', 'G车'],
+                        data: ['已建议', '转接后解决', '已解决', '核实中'],
                         axisTick: {
                             alignWithLabel: true
                         }
@@ -740,9 +636,9 @@ export default {
                 ],
                 series: [
                     {
-                        name: '车型',
+                        name: '状态',
                         type: 'bar',
-                        barWidth: '60%',
+                         barWidth: '50px',
                         label: {
                             normal: {
                                 show: true,
@@ -751,7 +647,7 @@ export default {
                                 color: '#000'
                             }
                         },
-                        data: [10, 52, 200, 334, 390, 330, 220]
+                        data: [110, 252, 500, 222]
                     }
                 ]
             },
@@ -765,17 +661,9 @@ export default {
         },
         getxifen (title = '') {
             let xLabel = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-            let dataValue = [20, 30, 40, 35, 34, 15, 56, 15, 12, 25, 34, 42];
+            let dataValue = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
             dataValue = dataValue.map(item => {
-                return this.randomNumBoth(10, 40)
-            })
-            let dataValue1 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
-            dataValue1 = dataValue1.map(item => {
                 return this.randomNumBoth(10, 100)
-            })
-            let dataValue2 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
-            dataValue2 = dataValue2.map(item => {
-                return this.randomNumBoth(10, 300)
             })
             let option = {
                 title: {
@@ -879,67 +767,7 @@ export default {
                     },
                 ],
                 series: [
-                    {
-                        name: '咨询',
-                        type: 'line',
-                        symbol: 'circle', // 默认是空心圆（中间是白色的），改成实心圆
-                        smooth: true,
-                        lineStyle: {
-                            normal: {
-                                width: 3,
-                                color: '#00ffa2', // 线条颜色
-                            },
-                        },
-                        itemStyle: {
-                            normal: {
-                                color: '#00f0ff',//拐点颜色
-                                // borderColor: '#fff600',//拐点边框颜色
-                                // borderWidth: 13//拐点边框大小
-                                label: {
-                                    show: true, //开启显示
-                                    color: '#fff',
-                                    position: 'top', //在上方显示
-                                    formatter: function (res) {
-                                        if (res.value) {
-                                            return res.value
-                                        } else {
-                                            return 0
-                                        }
-                                    },
-                                },
-                            },
-
-                        },
-                        symbolSize: 8,   //设定实心点的大小
-                        areaStyle: {
-                            normal: {
-                                //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
-                                color: new echarts.graphic.LinearGradient(
-                                    0,
-                                    0,
-                                    0,
-                                    1,
-                                    [
-                                        {
-                                            offset: 0,
-                                            color: '#00ffa230',
-                                        },
-                                        {
-                                            offset: 0.6,
-                                            color: '#00ffa220',
-                                        },
-                                        {
-                                            offset: 1,
-                                            color: '#00ffa210',
-                                        },
-                                    ],
-                                    false
-                                ),
-                            },
-                        },
-                        data: dataValue,
-                    },
-                    {
+                {
                         name: '投诉',
                         type: 'line',
                         symbol: 'circle', // 默认是空心圆（中间是白色的），改成实心圆
@@ -997,67 +825,7 @@ export default {
                                 ),
                             },
                         },
-                        data: dataValue1,
-                    },
-                    {
-                        name: '预警',
-                        type: 'line',
-                        symbol: 'circle', // 默认是空心圆（中间是白色的），改成实心圆
-                        smooth: true,
-                        lineStyle: {
-                            normal: {
-                                width: 3,
-                                color: '#ffba00', // 线条颜色
-                            },
-                        },
-                        itemStyle: {
-                            normal: {
-                                color: '#fff600',//拐点颜色
-                                // borderColor: '#fff600',//拐点边框颜色
-                                // borderWidth: 13//拐点边框大小
-                                label: {
-                                    show: true, //开启显示
-                                    color: '#fff',
-                                    position: 'top', //在上方显示
-                                    formatter: function (res) {
-                                        if (res.value) {
-                                            return res.value
-                                        } else {
-                                            return 0
-                                        }
-                                    },
-                                },
-                            },
-
-                        },
-                        symbolSize: 8,   //设定实心点的大小
-                        areaStyle: {
-                            normal: {
-                                //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
-                                color: new echarts.graphic.LinearGradient(
-                                    0,
-                                    0,
-                                    0,
-                                    1,
-                                    [
-                                        {
-                                            offset: 0,
-                                            color: '#ffba0030',
-                                        },
-                                        {
-                                            offset: 0.6,
-                                            color: '#ffba0020',
-                                        },
-                                        {
-                                            offset: 1,
-                                            color: '#ffba0010',
-                                        },
-                                    ],
-                                    false
-                                ),
-                            },
-                        },
-                        data: dataValue2,
+                        data: dataValue,
                     }
                 ]
             }
@@ -1921,11 +1689,11 @@ export default {
         getciyun (num) {
        
 
-            let nameList = ["亲切", "疑难解答", "启发", "友好", "扩展思维", "思考能力", "知识", "关心", "平易近人", "认真负责"];
+            let nameList =[]
             if(num==1){
-                nameList=['机油','刹车片','挡风玻璃','玻璃水','汽车','气囊','手机','配件','大灯','轮胎']
+                nameList=['漏油','刹车失灵','挡风玻璃破裂','玻璃水没了','启动慢','气囊破了','手机','配件','大灯','轮胎']
             }else{
-                nameList=['五星','保养-预约保养','维修-保养','调节-检测问题-维修-使用-如何调节',,'中央服务','销售','电力问题','车道保持','商店','语音']
+                nameList=['服务不到位','预约保养太慢','维修成本高','调节-检测问题',,'中央服务','销售','电力问题','车道保持','商店','语音']
             }
             let valueList = [30, 50, 60, 65, 70, 80, 90, 100, 120, 150];
 

@@ -58,15 +58,30 @@ export const constantRoutes = [
       component: () => import('@/views/pages/DataOverview/index.vue'),
       meta: { title: '数据总览', icon: 'dataOverview' }
     },{
-      path: 'kehu',
-      name: 'kehu',
-      component: () => import('@/views/pages/kehu.vue'),
-      meta: { title: '客户', icon: 'kehu' }
+      path: 'customer',
+      name: 'customer',
+      component: () => import('@/views/pages/customer.vue'),
+      meta: { title: '客户', icon: 'customer' }
     },{
-      path: 'guanli',
-      name: 'guanli',
-      component: () => import('@/views/pages/guanli.vue'),
-      meta: { title: '管理', icon: 'guanli' }
+      path: 'management',
+      name: 'management',
+      component: () => import('@/views/pages/management.vue'),
+      meta: { title: '管理', icon: 'management' }
+    },{
+      path: 'consult',
+      name: 'consult',
+      component: () => import('@/views/pages/crm/consult.vue'),
+      meta: { title: '咨询', icon: 'consult' }
+    },{
+      path: 'warning',
+      name: 'warning',
+      component: () => import('@/views/pages/crm/warning.vue'),
+      meta: { title: '预警', icon: 'warning' }
+    },{
+      path: 'complaint',
+      name: 'complaint',
+      component: () => import('@/views/pages/crm/complaint.vue'),
+      meta: { title: '投诉', icon: '投诉' }
     }]
   },
   {

@@ -56,56 +56,77 @@ export default {
         meta: { title: '数据总览', icon: 'dataOverview' }
       },
       {
-        path: '/kehu',
-        meta: { title: '客户', icon: 'kehu' }
+        path: '/customer',
+        meta: { title: '客户', icon: 'customer' }
       },{
-        path: '/guanli',
-        meta: { title: '管理', icon: 'guanli' }
+        path: '/management',
+        meta: { title: '管理', icon: 'management' }
       }, {
-        path: '/bumen',
-        name: 'bumen',
-        meta: { title: '部门', icon: 'bumen' },
+        path: '/crm',
+        name: 'crm',
+        meta: { title: 'CRM', icon: 'crm' },
         children: [
           {
-            path: 'xiaoshoubumen',
-            name: 'xiaoshoubumen',
-            meta: { title: '销售部门', icon: 'xiaoshoubumen' }
+            path: '/consult',
+            name: 'consult',
+            meta: { title: '咨询', icon: 'consult' }
           },
           {
-            path: 'shichangbumen',
-            name: 'shichangbumen',
-            meta: { title: '市场部门', icon: 'shichangbumen' }
+            path: '/warning',
+            name: 'warning',
+            meta: { title: '预警', icon: 'warning' }
           },
           {
-            path: 'chanpin',
-            name: 'chanpinbumen',
-            meta: { title: '产品部门', icon: 'chanpinbumen' }
+            path: '/complaint',
+            name: 'complaint',
+            meta: { title: '投诉', icon: 'complaint' }
           }
         ]
       }, {
-        path: '/数据类型',
-        name: 'shujuleixing',
-        meta: { title: '数据类型', icon: 'shujuleixing' },
+        path: '/department',
+        name: 'department',
+        meta: { title: '部门', icon: 'department' },
         children: [
           {
-            path: 'zixunlei',
-            name: 'zixunlei',
-            meta: { title: '咨询类', icon: 'zixunlei' }
+            path: 'marketingDepartment',
+            name: 'marketingDepartment',
+            meta: { title: '市场部门', icon: 'marketingDepartment' }
           },
           {
-            path: 'baojinglei',
-            name: 'baojinglei',
-            meta: { title: '报警类', icon: 'baojinglei' }
+            path: 'salesDepartment',
+            name: 'salesDepartment',
+            meta: { title: '销售部门', icon: 'salesDepartment' }
           },
           {
-            path: 'tousulei',
-            name: 'tousulei',
-            meta: { title: '投诉类', icon: 'tousulei' }
+            path: 'productDepartment',
+            name: 'productDepartment',
+            meta: { title: '产品部门', icon: 'productDepartment' }
+          }
+        ]
+      }, {
+        path: '/dataType',
+        name: 'dataType',
+        meta: { title: '数据类型', icon: 'dataType' },
+        children: [
+          {
+            path: 'consultType',
+            name: 'consultType',
+            meta: { title: '咨询类', icon: 'consultType' }
+          },
+          {
+            path: 'warningType',
+            name: 'warningType',
+            meta: { title: '报警类', icon: 'warningType' }
+          },
+          {
+            path: 'complaintType',
+            name: 'complaintType',
+            meta: { title: '投诉类', icon: 'complaintType' }
           }
         ]
       },{
-        path: '/shezhi',
-        meta: { title: '设置', icon: 'shezhi' }
+        path: '/set',
+        meta: { title: '设置', icon: 'set' }
       }]
     }
   },
