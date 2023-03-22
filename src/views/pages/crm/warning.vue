@@ -163,7 +163,7 @@ export default {
             zixunIcon,
             itemDetailVisible: false,
             allDataView: {
-                backgroundColor: '#333',
+                backgroundColor: '#fff',
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -172,7 +172,7 @@ export default {
                     backgroundColor: 'rgba(11, 41, 116, 0.7)',
                     borderColor: 'rgba(11, 41, 116, 0.7)',
                     textStyle: {
-                        color: '#fff',
+                        color: '#000',
                     }
                 },
                 legend: {
@@ -182,11 +182,11 @@ export default {
                     itemWidth: 14,
                     itemHeight: 14,
                     textStyle: {
-                        color: '#fff',
+                        color: '#000',
                     }
                 },
                 textStyle: {
-                    color: '#fff',
+                    color: '#000',
                 },
                 grid: {
                     left: '3%',
@@ -200,26 +200,17 @@ export default {
                         type: 'category',
                         data: ['2020', '2021', '2022', '2023'],
                         nameTextStyle: {
-                            color: '#fff',
+                            color: '#000',
                         },
-                        splitLine: {
-                            show: true,
-                            lineStyle: {
-                                color: '#0F163C'
-                            }
-                        }
+
                     }
                 ],
                 yAxis: [
                     {
                         name: '总数',
                         type: 'value',
-                        splitLine: {
-                            show: true,
-                            lineStyle: {
-                                color: '#0F163C'
-                            }
-                        }
+                        axisLine: { show: true },
+                        axisTick: { show: true },
                     }
                 ],
                 series: [
@@ -237,7 +228,7 @@ export default {
                                 show: true,
                                 position: "top",
                                 formatter: "{c}",
-                                color: '#fff'
+                                color: '#000',
                             }
                         },
                         itemStyle:{

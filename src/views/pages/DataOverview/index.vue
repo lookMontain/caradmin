@@ -232,7 +232,7 @@ export default {
             zixunIcon,
             itemDetailVisible: false,
             allDataView: {
-                backgroundColor: '#333',
+                backgroundColor: '#fff',
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -241,7 +241,7 @@ export default {
                     backgroundColor: 'rgba(11, 41, 116, 0.7)',
                     borderColor: 'rgba(11, 41, 116, 0.7)',
                     textStyle: {
-                        color: '#fff',
+                        color: '#000',
                     }
                 },
                 legend: {
@@ -251,11 +251,11 @@ export default {
                     itemWidth: 14,
                     itemHeight: 14,
                     textStyle: {
-                        color: '#fff',
+                        color: '#000',
                     }
                 },
                 textStyle: {
-                    color: '#fff',
+                    color: '#000',
                 },
                 grid: {
                     left: '3%',
@@ -269,26 +269,16 @@ export default {
                         type: 'category',
                         data: ['2020', '2021', '2022', '2023'],
                         nameTextStyle: {
-                            color: '#fff',
+                            color: '#000',
                         },
-                        splitLine: {
-                            show: true,
-                            lineStyle: {
-                                color: '#0F163C'
-                            }
-                        }
                     }
                 ],
                 yAxis: [
                     {
                         name: '总数',
                         type: 'value',
-                        splitLine: {
-                            show: true,
-                            lineStyle: {
-                                color: '#0F163C'
-                            }
-                        }
+                        axisLine: { show: true },
+                        axisTick: { show: true },
                     }
                 ],
                 series: [
@@ -306,11 +296,11 @@ export default {
                                 show: true,
                                 position: "top",
                                 formatter: "{c}",
-                                color: '#fff'
+                                color: '#000'
                             }
                         },
-                        itemStyle:{
-                            color:'#5e9bef'
+                        itemStyle: {
+                            color: '#5e9bef'
                         },
                         data: [120, 132, 101, 134]
                     },
@@ -327,11 +317,11 @@ export default {
                                 show: true,
                                 position: "top",
                                 formatter: "{c}",
-                                color: '#fff'
+                                color: '#000'
                             }
                         },
-                        itemStyle:{
-                            color:'#66bb5f'
+                        itemStyle: {
+                            color: '#66bb5f'
                         },
                         data: [220, 182, 191, 234]
                     },
@@ -348,11 +338,11 @@ export default {
                                 show: true,
                                 position: "top",
                                 formatter: "{c}",
-                                color: '#fff'
+                                color: '#000'
                             }
                         },
-                        itemStyle:{
-                            color:'#fac858'
+                        itemStyle: {
+                            color: '#fac858'
                         },
                         data: [150, 232, 201, 154]
                     },
@@ -1919,13 +1909,13 @@ export default {
 
         },
         getciyun (num) {
-       
+
 
             let nameList = ["亲切", "疑难解答", "启发", "友好", "扩展思维", "思考能力", "知识", "关心", "平易近人", "认真负责"];
-            if(num==1){
-                nameList=['机油','刹车片','挡风玻璃','玻璃水','汽车','气囊','手机','配件','大灯','轮胎']
-            }else{
-                nameList=['五星','保养-预约保养','维修-保养','调节-检测问题-维修-使用-如何调节',,'中央服务','销售','电力问题','车道保持','商店','语音']
+            if (num == 1) {
+                nameList = ['机油', '刹车片', '挡风玻璃', '玻璃水', '汽车', '气囊', '手机', '配件', '大灯', '轮胎']
+            } else {
+                nameList = ['五星', '保养-预约保养', '维修-保养', '调节-检测问题-维修-使用-如何调节', , '中央服务', '销售', '电力问题', '车道保持', '商店', '语音']
             }
             let valueList = [30, 50, 60, 65, 70, 80, 90, 100, 120, 150];
 
