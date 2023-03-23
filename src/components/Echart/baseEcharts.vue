@@ -22,6 +22,11 @@
         default: "300px",
       },
     },
+    computed:{
+      echart(){
+        return this.$refs.echartsRef
+      }
+    },
     data(){
      return {
        echartsInstance:null
@@ -50,6 +55,9 @@
       }
     },
     methods:{
+      getEchart(){
+        return  this.echartsInstance
+      },
       reload(){
         this.echartsInstance.resize();
       },

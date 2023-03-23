@@ -8,16 +8,16 @@
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
                     <div style="display: flex;width: 100%;">
-                        <base-echarts ref="allDataViewRef" :options="threeLineOptions" style="flex: 1;"
+                        <base-echarts ref="allDataViewRef" :options="allDataView" style="flex: 1;"
                             @click="showItemDetail"></base-echarts>
-                        <base-echarts ref="allDataViewDetailRef" width="600px" v-if="itemDetailVisible"
-                            :options="threeLine_serie_ItemOptions"></base-echarts>
+                        <base-echarts ref="allDataViewDetailRef" style="flex: 1;" v-if="itemDetailVisible"
+                            :options="allDataViewDetail"></base-echarts>
                     </div>
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="24" :md="7" :lg="7" :xl="7">
                 <el-card class="box-card">
-                    <el-tabs v-model="activeName">
+                    <el-tabs v-model="activeName" @tab-click="handleClick">
                         <el-tab-pane label="搜索" name="first">
                             <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
                                 <el-button slot="append" icon="el-icon-search"></el-button>
@@ -98,7 +98,7 @@
                         </el-form>
 
                     </div>
-                    <base-echarts ref="myChartSearch" height="500px" :options="searchOptions"></base-echarts>
+                    <base-echarts :options="xifen"></base-echarts>
                 </el-card>
             </el-col>
         </el-row>
@@ -180,7 +180,7 @@
                         <span>车系统计</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="chexiOption"></base-echarts>
+                    <base-echarts :options="chexi"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -192,7 +192,7 @@
                         <span>产品词云</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="ciyun1"></base-echarts>
+                    <base-echarts :options="chanpingCiyun"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -202,7 +202,7 @@
                         <span>概况词云</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="ciyun2"></base-echarts>
+                    <base-echarts :options="gaikuangCiyun"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -211,7 +211,6 @@
 </template>
   
 <script>
-import '@/utils/echarts-wordcloud.min.js'
 import PieEcharts from "@/components/Echart/pieEcharts.vue";
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
 import * as echarts from "echarts";
@@ -219,7 +218,6 @@ import fankuiIcon from '@/assets/fankui.png'
 import guanliIcon from '@/assets/guanli.png'
 import fenxiIcon from '@/assets/fenxi.png'
 import zixunIcon from '@/assets/zixun.png'
-import { threeLineOptions, threeLine_serie_ItemOptions, searchOptions,heixinciTop1,heixinciTop2,heixinciTop3,gexinciTop10,ciyun1,ciyun2,chexiOption } from './mockData'
 export default {
     name: "dataOverview",// 数据总览
     components: {
@@ -228,18 +226,164 @@ export default {
     },
     data () {
         return {
-            threeLineOptions,// 第一个图
-            threeLine_serie_ItemOptions,// 第一个图的详情
-            input3: '',
-            searchOptions:searchOptions,
-            ciyun1,
-            ciyun2,
-            chexiOption,
             fankuiIcon,
             guanliIcon,
             fenxiIcon,
             zixunIcon,
             itemDetailVisible: false,
+            allDataView: {
+                backgroundColor: '#fff',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    backgroundColor: 'rgba(11, 41, 116, 0.7)',
+                    borderColor: 'rgba(11, 41, 116, 0.7)',
+                    textStyle: {
+                        color: '#000',
+                    }
+                },
+                legend: {
+                    right: '5% ',
+                    top: '10%',
+                    itemGap: 20,
+                    itemWidth: 14,
+                    itemHeight: 14,
+                    textStyle: {
+                        color: '#000',
+                    }
+                },
+                textStyle: {
+                    color: '#000',
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+
+                    {
+                        type: 'category',
+                        data: ['2020', '2021', '2022', '2023'],
+                        nameTextStyle: {
+                            color: '#000',
+                        },
+                    }
+                ],
+                yAxis: [
+                    {
+                        name: '总数',
+                        type: 'value',
+                        axisLine: { show: true },
+                        axisTick: { show: true },
+                    }
+                ],
+                series: [
+
+                    {
+                        name: '咨询',
+                        type: 'bar',
+                        stack: 'Ad',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        barWidth: '50px',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: "top",
+                                formatter: "{c}",
+                                color: '#000'
+                            }
+                        },
+                        itemStyle: {
+                            color: '#5e9bef'
+                        },
+                        data: [120, 132, 101, 134]
+                    },
+                    {
+                        name: '投诉',
+                        type: 'bar',
+                        stack: 'Ad',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        barWidth: '50px',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: "top",
+                                formatter: "{c}",
+                                color: '#000'
+                            }
+                        },
+                        itemStyle: {
+                            color: '#66bb5f'
+                        },
+                        data: [220, 182, 191, 234]
+                    },
+                    {
+                        name: '预警',
+                        type: 'bar',
+                        stack: 'Ad',
+                        barWidth: '50px',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                position: "top",
+                                formatter: "{c}",
+                                color: '#000'
+                            }
+                        },
+                        itemStyle: {
+                            color: '#fac858'
+                        },
+                        data: [150, 232, 201, 154]
+                    },
+
+
+                ]
+            },
+            allDataViewDetail: {
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    top: '5%',
+                    left: 'center',
+                },
+                series: [
+                    {
+                        name: 'level1定级',
+                        type: 'pie',
+                        radius: ["50%", "30%"],
+                        center: ["50%", "50%"],
+                        // adjust the start angle
+                        startAngle: 180,
+                        label: {
+                            show: true,
+                            formatter (param) {
+                                // correct the percentage
+                                return param.name + ' (' + param.percent + '%)';
+                            }
+                        },
+                        data: [
+                            { value: 1048, name: '售后' },
+                            { value: 735, name: '产品' },
+                            { value: 580, name: '活动' },
+                            { value: 484, name: '中央服务' },
+                            { value: 300, name: '销售' },
+
+                        ]
+                    }
+                ]
+            },
             activeName: 'first',
             searchParam: {
                 area: '',
@@ -553,10 +697,10 @@ export default {
             miaosuciTop1: this.getMiaosuci2(),
             linshici: this.getMiasuci3(),
             xifen: this.getxifen(),
-            heixinciTop1: heixinciTop1,
-            heixinciTop2: heixinciTop2,
-            heixinciTop3: heixinciTop3,
-            heixinciTop10: gexinciTop10,
+            heixinciTop1: this.getHeiXinCi(1),
+            heixinciTop2: this.getHeiXinCi(2),
+            heixinciTop3: this.getHeiXinCi(3),
+            heixinciTop10: this.getHeiXinCiTop10(),
             chexi: {
                 tooltip: {
                     trigger: 'axis',
@@ -605,38 +749,7 @@ export default {
             gaikuangCiyun: this.getciyun(2),
         };
     },
-    mounted () {
-        setTimeout(() => {
-            this.$nextTick(() => {
-                this.handleSearchOptions()
-            })
-        })
-
-    },
     methods: {
-        handleSearchOptions () {
-            const echarts = this.$refs.myChartSearch.getEchart()
-            echarts.on('updateAxisPointer', (event) => {
-                const xAxisInfo = event.axesInfo[0];
-                if (xAxisInfo) {
-                    const dimension = xAxisInfo.value + 1;
-                    echarts.setOption({
-                        series: {
-                            name:'minxi',
-                            id: 'pie',
-                            label: {
-                                formatter: '{b}: {@[' + dimension + ']} ({d}%)'
-                            },
-                            encode: {
-                                value: dimension,
-                                tooltip: dimension
-                            }
-                        }
-                    });
-                }
-            });
-            echarts.setOption(searchOptions);
-        },
         onSubmit () {
             this.xifen = this.getxifen(this.searchParam.area + '-' + this.searchParam.year + '-' + this.searchParam.dealer)
         },
@@ -947,15 +1060,10 @@ export default {
             return num;
         },
         showItemDetail (parmas) {
-            debugger
             this.itemDetailVisible = true
-            this.threeLine_serie_ItemOptions.series.forEach(item => {
-                item.data.forEach(x => {
-                    x.value = this.randomNumBoth(10, 500)
-                })
-                item.name = parmas.seriesName
+            this.allDataViewDetail.series[0].data.forEach(item => {
+                item.value = this.randomNumBoth(10, 500)
             })
-            debugger
             this.$nextTick(() => {
                 this.$refs.allDataViewRef.reload()
                 this.$refs.allDataViewDetailRef.reload()
