@@ -614,95 +614,122 @@ export const ciyun2 = {
 
 export const chexiOption = {
     tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
     },
-    legend: {
-        show:false,
-    },
+    legend: {},
     grid: {
-        top:10,
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
     },
     xAxis: [
-        {
-            type: 'category',
-            data: ['A', 'B', 'C', 'D', 'E', 'F']
-        }
+      {
+        type: 'category',
+        data: ['A', 'B', 'C','D','E']
+      }
     ],
     yAxis: [
-        {
-            type: 'value'
-        }
+      {
+        type: 'value'
+      }
     ],
     series: [
-        {
-            name: '车系1',
-            type: 'bar',
-            stack: 'Ad',
-            emphasis: {
-                focus: 'series'
-            },
-            barWidth: '20px',
-            data: [320, 332, 301, 334, 390, 330, 320]
+      {
+        name: 'a1',
+        type: 'bar',
+         stack: 'Ad',
+        emphasis: {
+          focus: 'series'
         },
-        {
-            name: '车系2',
-            type: 'bar',
-            stack: 'Ad',
-            emphasis: {
-                focus: 'series'
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
+        data: [320, 0, 0, 0, 0]
+      },
+      {
+        name: 'a2',
+        type: 'bar',
+        stack: 'Ad',
+        emphasis: {
+          focus: 'series'
         },
-        {
-            name: '车系3',
-            type: 'bar',
-            stack: 'Ad',
-            emphasis: {
-                focus: 'series'
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
+        data: [120, 0, 0,0, 0]
+      },
+      {
+        name: 'b1',
+        type: 'bar',
+        stack: 'bd',
+        emphasis: {
+          focus: 'series'
         },
-        {
-            name: '车系4',
-            type: 'bar',
-            stack: 'Ad',
-            emphasis: {
-                focus: 'series'
-            },
-            data: [150, 232, 201, 154, 190, 330, 410]
+        data: [0, 182, 0,0, 0]
+      },
+      {
+        name: 'b2',
+        type: 'bar',
+        stack: 'bd',
+        emphasis: {
+          focus: 'series'
         },
-        {
-            name: '车系5',
-            type: 'bar',
-            stack: 'Ad',
-            data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-            emphasis: {
-                focus: 'series'
-            },
-            markLine: {
-                lineStyle: {
-                    type: 'dashed'
-                },
-                data: [[{ type: 'min' }, { type: 'max' }]]
-            }
+        data: [0, 232, 0,0, 0]
+      },
+      {
+        name: 'c1',
+        type: 'bar',
+        data: [0, 0, 964,0, 0],
+        emphasis: {
+          focus: 'series'
         },
+         stack: 'cd'
+      },
+      {
+        name: 'c2',
+        type: 'bar',
+        barWidth: 15,
+               stack: 'cd',
+        emphasis: {
+          focus: 'series'
+        },
+        data: [0, 0, 701,0, 0]
+      },
         {
-            name: '车系6',
-            type: 'bar',
-            barWidth: 5,
-            stack: 'Search Engine',
-            emphasis: {
-                focus: 'series'
-            }, stack: 'Ad',
-            data: [620, 732, 701, 734, 1090, 1130, 1120]
-
-        }
+        name: 'd1',
+        type: 'bar',
+        data: [0, 0, 0,100, 0],
+        emphasis: {
+          focus: 'series'
+        },
+         stack: 'dd'
+      },
+      {
+        name: 'd2',
+        type: 'bar',
+        barWidth: 15,
+               stack: 'dd',
+        emphasis: {
+          focus: 'series'
+        },
+        data: [0, 0, 0,540, 0]
+      },
+        {
+        name: 'e1',
+        type: 'bar',
+        data: [0, 0, 0,0, 400],
+        emphasis: {
+          focus: 'series'
+        },
+         stack: 'e'
+      },
+      {
+        name: 'e2',
+        type: 'bar',
+        barWidth: 15,
+               stack: 'e',
+        emphasis: {
+          focus: 'series'
+        },
+        data: [0, 0, 0,0, 550]
+      }
     ]
-}
+  }
