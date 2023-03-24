@@ -219,7 +219,7 @@ import fankuiIcon from '@/assets/fankui.png'
 import guanliIcon from '@/assets/guanli.png'
 import fenxiIcon from '@/assets/fenxi.png'
 import zixunIcon from '@/assets/zixun.png'
-import { threeLineOptions, threeLine_serie_ItemOptions, searchOptions,heixinciTop1,heixinciTop2,heixinciTop3,gexinciTop10,ciyun1,ciyun2,chexiOption } from './mockData'
+import { threeLineOptions, threeLine_serie_ItemOptions, searchOptions, heixinciTop1, heixinciTop2, heixinciTop3, gexinciTop10, ciyun1, ciyun2, chexiOption } from './mockData'
 export default {
     name: "dataOverview",// 数据总览
     components: {
@@ -231,7 +231,7 @@ export default {
             threeLineOptions,// 第一个图
             threeLine_serie_ItemOptions,// 第一个图的详情
             input3: '',
-            searchOptions:searchOptions,
+            searchOptions: searchOptions,
             ciyun1,
             ciyun2,
             chexiOption,
@@ -608,13 +608,13 @@ export default {
     mounted () {
         setTimeout(() => {
             this.$nextTick(() => {
-                this.handleSearchOptions()
+                this.handleSearchOptions(searchOptions)
             })
         })
 
     },
     methods: {
-        handleSearchOptions () {
+        handleSearchOptions (searchOptions) {
             const echarts = this.$refs.myChartSearch.getEchart()
             echarts.on('updateAxisPointer', (event) => {
                 const xAxisInfo = event.axesInfo[0];
@@ -622,7 +622,7 @@ export default {
                     const dimension = xAxisInfo.value + 1;
                     echarts.setOption({
                         series: {
-                            name:'minxi',
+                            name: 'minxi',
                             id: 'pie',
                             label: {
                                 formatter: '{b}: {@[' + dimension + ']} ({d}%)'
@@ -638,7 +638,30 @@ export default {
             echarts.setOption(searchOptions);
         },
         onSubmit () {
-            this.xifen = this.getxifen(this.searchParam.area + '-' + this.searchParam.year + '-' + this.searchParam.dealer)
+            // 改变
+
+            let dataValue = [20, 30, 40, 35, 34, 15, 56, 15, 12, 25, 34, 42];
+            dataValue = dataValue.map(item => {
+                return this.randomNumBoth(10, 40)
+            })
+            let dataValue1 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
+            dataValue1 = dataValue1.map(item => {
+                return this.randomNumBoth(10, 100)
+            })
+            let dataValue2 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
+            dataValue2 = dataValue2.map(item => {
+                return this.randomNumBoth(10, 300)
+            })
+            const data = [
+                ['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                ['咨询', ...dataValue],
+                ['投诉', ...dataValue1],
+                ['预警', ...dataValue2]
+            ]
+            searchOptions.title.text =`${this.searchParam.area}-${this.searchParam.year}-${this.searchParam.dealer}`
+            searchOptions.dataset.source=data
+            this.handleSearchOptions(searchOptions)
+            //this.xifen = this.getxifen(this.searchParam.area + '-' + this.searchParam.year + '-' + this.searchParam.dealer)
         },
         getxifen (title = '') {
             let xLabel = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];

@@ -164,6 +164,14 @@ export const threeLine_serie_ItemOptions = {
 };
 
 export const searchOptions = {
+    title: {
+        show: true,
+        text: '',
+        textStyle: {
+            color: '#000',
+            fontSize: 14,
+        }
+    },
     legend: {},
     tooltip: {
         trigger: 'axis',
