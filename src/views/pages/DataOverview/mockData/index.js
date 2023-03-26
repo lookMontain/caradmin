@@ -750,18 +750,21 @@ export const chexiOption = {
 //情感系数
 export const affectiveCoefficientOption = {
     legend: {
-        data: ['咨询', '投诉', '预警']
+        data: ['咨询', '投诉', '预警'],
+        orient:'vertical',
+        left:0
     },
     radar: {
         //shape: 'circle',
         indicator: [
-            { name: '产品', max: 100 },
-            { name: '活动', max: 100 },
-            { name: '售后', max: 100 },
-            { name: '中央服务', max: 100 },
-            { name: '销售', max: 100 },
-            { name: '综合', max: 100 }
-        ]
+            { name: '产品', max: 100,color: 'red' },
+            { name: '活动', max: 100,color: 'blue' },
+            { name: '售后', max: 100,color: '#879bd7' },
+            { name: '中央服务', max: 100,color: '#20a827' },
+            { name: '销售', max: 100,color:'#00d8fe' },
+            { name: '综合', max: 100,color:'#f76f00' }
+        ],
+        color:'#c0171e'
     },
     series: [
         {
@@ -772,16 +775,16 @@ export const affectiveCoefficientOption = {
             },
             data: [
                 {
-                    value: [95, 98, 89, 91, 85, 99],
+                    value: [80, 78, 67, 77, 80, 59],
                     name: '咨询',
 
                 },
                 {
-                    value: [98, 89, 91, 99, 94, 90],
+                    value: [90, 91, 92, 91, 91, 90],
                     name: '投诉'
                 },
                 {
-                    value: [80, 81, 84, 85, 78, 69],
+                    value: [30, 34, 40, 32, 40, 50],
                     name: '预警'
                 }
             ]
