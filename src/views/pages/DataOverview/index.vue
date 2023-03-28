@@ -72,21 +72,21 @@
                     <div slot="header" class="clearfix">
                         <el-form :inline="true" :model="searchParam" style="height: 24px;">
                             <el-form-item label="区域">
-                                <el-select v-model="searchParam.area" placeholder="请选择区域" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.area" placeholder="请选择区域" size="mini">
                                     <el-option v-for="item in optionsArea" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="年份">
-                                <el-select v-model="searchParam.year" placeholder="请选择年份" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.year" placeholder="请选择年份" size="mini">
                                     <el-option v-for="item in optionsYear" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="经销商">
-                                <el-select v-model="searchParam.dealer" placeholder="请选择经销商" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.dealer" placeholder="请选择经销商" size="mini">
                                     <el-option v-for="item in optionsDealer" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
