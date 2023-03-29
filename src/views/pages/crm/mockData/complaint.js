@@ -1,4 +1,6 @@
+const color = ['#37A2FF', '#FFBF00', '#00DDFF', '#80FFA5', '#FF0087']
 export const totalOptions = {
+    color: color,
     tooltip: {
         trigger: 'axis',
         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -6,11 +8,11 @@ export const totalOptions = {
         }
     },
     legend: {
-        show:false,
-        data: ['咨询']
+        show: false,
+        data: ['预警']
     },
     grid: {
-        top:'10px',
+        top: '20px',
         left: '0%',
         right: '0%',
         bottom: '0%',
@@ -41,7 +43,7 @@ export const totalOptions = {
                 ]
             },
             barWidth: '20px',
-            data: [120, 332, 301, 100]
+            data: [220, 10, 700, 200]
         }
     ]
 }
@@ -132,6 +134,7 @@ export const totalOptions_serie_ItemOptions = {
 };
 
 export const searchOptions = {
+    color: color,
     title: {
         show: true,
         text: '',
@@ -141,28 +144,28 @@ export const searchOptions = {
         }
     },
     legend: {
-        show:false
+        show: false
     },
     tooltip: {
         trigger: 'axis',
         showContent: false
     },
-    xAxis: { type: 'category',data:['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'] },
+    xAxis: { type: 'category', data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'] },
     yAxis: { gridIndex: 0 },
     series: [
         {
-            "name":'咨询',
+            "name": '咨询',
             type: 'line',
-            data: [20, 30, 40, 35, 34, 15, 56, 15, 12, 25, 34, 42],
-             emphasis: { focus: 'series' },
-             label: {
+            data: [10, 60, 42, 50, 24, 35, 16, 35, 32, 65, 14, 22],
+            emphasis: { focus: 'series' },
+            label: {
                 normal: {
-                  show: true,
-                  position: "top",
-                  formatter: "{c}",
-                  color: '#00C0FF'
+                    show: true,
+                    position: "top",
+                    formatter: "{c}",
+                    color: '#00C0FF'
                 }
-              },
+            },
         },
     ]
 }
@@ -359,7 +362,7 @@ export const gexinciTop10 = {
     ]
 };
 
-const ci = ['空调滤芯','后座','发动机','保养','里程','边框','贴膜','配件','大灯','轮胎']
+const ci = ['天线', '电子手刹', '辅助驾驶', '公里数', '机油', '燃油', '能耗', '发动机', '大灯', '轮胎']
 
 const list1 = ci.map((x, index) => {
     if (index === 5) {
@@ -458,7 +461,7 @@ export const ciyun1 = {
     ],
 };
 
-const c2 = ['地址','保养-预约保养','维修-保养','调节-检测问题-维修-使用-如何调节',,'中央服务如何','销售量怎么样','电力问题如何解决','车道保持什么距离','商店多少钱','语音好用吗']
+const c2 = ['地址', '保养-预约保养', '维修-保养', '调节-检测问题-维修-使用-如何调节', , '中央服务如何', '销售量怎么样', '电力问题如何解决', '车道保持什么距离', '商店多少钱', '语音好用吗']
 
 const list2 = c2.map((x, index) => {
     if (index === 5) {
@@ -687,22 +690,22 @@ export const chexiOption = {
 //情感系数
 export const affectiveCoefficientOption = {
     legend: {
-        show:false,
+        show: false,
         data: ['咨询'],
-        orient:'vertical',
-        left:0
+        orient: 'vertical',
+        left: 0
     },
     radar: {
         //shape: 'circle',
         indicator: [
-            { name: '产品', max: 100,color: 'red' },
-            { name: '活动', max: 100,color: 'blue' },
-            { name: '售后', max: 100,color: '#879bd7' },
-            { name: '中央服务', max: 100,color: '#20a827' },
-            { name: '销售', max: 100,color:'#00d8fe' },
-            { name: '综合', max: 100,color:'#f76f00' }
+            { name: '产品', max: 100, color: 'red' },
+            { name: '活动', max: 100, color: 'blue' },
+            { name: '售后', max: 100, color: '#879bd7' },
+            { name: '中央服务', max: 100, color: '#20a827' },
+            { name: '销售', max: 100, color: '#00d8fe' },
+            { name: '综合', max: 100, color: '#f76f00' }
         ],
-        color:'#c0171e'
+        color: '#c0171e'
     },
     series: [
         {
@@ -713,7 +716,7 @@ export const affectiveCoefficientOption = {
             },
             data: [
                 {
-                    value: [80, 78, 67, 77, 80, 59],
+                    value: getListlength(6, [20, 97]),
                     name: '咨询',
 
                 }
@@ -721,7 +724,7 @@ export const affectiveCoefficientOption = {
         }
     ]
 }
-export function initD3Option()  {
+export function initD3Option () {
 
     /*************************
 pie3D 尝试
@@ -1149,289 +1152,299 @@ pie3D 尝试
     };
     return option
 }
-export const d3Option=initD3Option()
+export const d3Option = initD3Option()
 
-function getResultStatus(){
+function getResultStatus () {
     let datas = [
-        { value: 40,value1: 188.82, name: '已建议', rate: '94.41%' },
-        { value: 24,value1: 33.45, name: '转接后解决', rate: '66.9%' },
-        { value: 32,value1: 228.1, name: '已解决', rate: '87.06%' },
-         { value: 22,value1: 128.1, name: '核实中', rate: '12.06%' },
-      ];
-      
-      let datap = [];
-      let colorList = ['#3399ff', '#85c285', '#ffc266', '#ff8585', '#c299ff'];
-      let color = colorList.splice(0, datas.length);
-      for (let i = 0; i < datas.length; i++) {
+        { value: 44, value1: 178.82, name: '已建议', rate: '90.41%' },
+        { value: 14, value1: 43.45, name: '转接后解决', rate: '66.9%' },
+        { value: 22, value1: 128.1, name: '已解决', rate: '87.06%' },
+        { value: 12, value1: 148.1, name: '核实中', rate: '12.06%' },
+    ];
+
+    let datap = [];
+    let colorList = ['#3399ff', '#85c285', '#ffc266', '#ff8585', '#c299ff'];
+    let color = colorList.splice(0, datas.length);
+    for (let i = 0; i < datas.length; i++) {
         datap.push({
-          value: datas[i].value,
-          name: 'rosetemp' + i,
+            value: datas[i].value,
+            name: 'rosetemp' + i,
         });
         color.push('#FFFFFF');
-      }
-      datap = datas.concat(datap);
-      
-      return {
+    }
+    datap = datas.concat(datap);
+
+    return {
         backgroundColor: '#fff',
         legend: {
-          bottom: '2%',
-        //   left: 'center',
-          orient: 'vertical',
-          data: datas,
-          icon: 'circle',
-          itemWith: 8,
-          itemHeight: 8,
-          itemGap: 10,
-          // padding: [5, 10, 5, 0],
-          formatter(name) {
-            const item = datas.filter((item) => item.name === name)[0];
-            return `{name|${name}}{value1| ${item.value1+'（条）}'}{name2|${item.rate}}`;
-          },
-          textStyle: {
-            rich: {
-              name: {
-                color: '#595959',
-                fontSize: 14,
-                width: 150,
-                fontWeight:600
-              },
-              name2: {
-                color: '#595959',
-                fontSize: 14,
-                width: 200,
-                fontWeight:600
-              },
-              value1: {
-                color: '#595959',
-                fontSize: 14,
-                width: 170,
-                fontWeight:600
-              },
+            bottom: '2%',
+            //   left: 'center',
+            orient: 'vertical',
+            data: datas,
+            icon: 'circle',
+            itemWith: 8,
+            itemHeight: 8,
+            itemGap: 10,
+            // padding: [5, 10, 5, 0],
+            formatter (name) {
+                const item = datas.filter((item) => item.name === name)[0];
+                return `{name|${name}}{value1| ${item.value1 + '（条）}'}{name2|${item.rate}}`;
             },
-          },
+            textStyle: {
+                rich: {
+                    name: {
+                        color: '#595959',
+                        fontSize: 14,
+                        width: 150,
+                        fontWeight: 600
+                    },
+                    name2: {
+                        color: '#595959',
+                        fontSize: 14,
+                        width: 200,
+                        fontWeight: 600
+                    },
+                    value1: {
+                        color: '#595959',
+                        fontSize: 14,
+                        width: 170,
+                        fontWeight: 600
+                    },
+                },
+            },
         },
         title: {
-          text: '处理结果状态指标',
-          show:false,
-          top: '17%',
-          textAlign: 'center',
-          left: '49.5%',
-          textStyle: {
-            color: '#262626',
-            fontSize: 18,
-            fontWeight: '600',
-          },
+            text: '处理结果状态指标',
+            show: false,
+            top: '17%',
+            textAlign: 'center',
+            left: '49.5%',
+            textStyle: {
+                color: '#262626',
+                fontSize: 18,
+                fontWeight: '600',
+            },
         },
         color: color,
         series: [
-          {
-            name: 'Nightingale Chart',
-            type: 'pie',
-            radius: [40, 200],
-            center: ['50%', '65%'],
-            roseType: 'radius',
-            silent: true,
-            startAngle: 180,
-            legendHoverLink: false,
-            itemStyle: {
-              borderRadius: 0,
+            {
+                name: 'Nightingale Chart',
+                type: 'pie',
+                radius: [40, 200],
+                center: ['50%', '65%'],
+                roseType: 'radius',
+                silent: true,
+                startAngle: 180,
+                legendHoverLink: false,
+                itemStyle: {
+                    borderRadius: 0,
+                },
+                label: {
+                    show: false,
+                },
+                emphasis: {
+                    label: {
+                        show: false,
+                    },
+                },
+                color: ['#f6f8fe', '#ffffff'],
+                data: [
+                    { value: 10, name: 'r' },
+                    { value: 10, name: 'ro' },
+                ],
             },
-            label: {
-              show: false,
+            {
+                name: 'Nightingale Chart',
+                type: 'pie',
+                radius: [40, 190],
+                center: ['50%', '65%'],
+                roseType: 'radius',
+                startAngle: 180,
+                legendHoverLink: false,
+                itemStyle: {
+                    borderRadius: 0,
+                    borderColor: '#fff',
+                    borderWidth: 1,
+                },
+                label: {
+                    show: true,
+                    position: 'inside',
+                    color: '#fff',
+                    formatter (params) {
+                        return params.data.rate;
+                    },
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                    },
+                },
+                data: datap,
             },
-            emphasis: {
-              label: {
-                show: false,
-              },
-            },
-            color: ['#f6f8fe', '#ffffff'],
-            data: [
-              { value: 10, name: 'r' },
-              { value: 10, name: 'ro' },
-            ],
-          },
-          {
-            name: 'Nightingale Chart',
-            type: 'pie',
-            radius: [40, 190],
-            center: ['50%', '65%'],
-            roseType: 'radius',
-            startAngle: 180,
-            legendHoverLink: false,
-            itemStyle: {
-              borderRadius: 0,
-              borderColor: '#fff',
-              borderWidth: 1,
-            },
-            label: {
-              show: true,
-              position: 'inside',
-              color: '#fff',
-              formatter(params) {
-                return params.data.rate;
-              },
-            },
-            emphasis: {
-              label: {
-                show: true,
-              },
-            },
-            data: datap,
-          },
         ],
-      };
+    };
 }
-export const handleResultStatus=getResultStatus()
+export const handleResultStatus = getResultStatus()
 
-export function get30Day(){
+export function get30Day () {
     var xData = (function () {
         var data = [];
         for (var i = 1; i < 31; i++) {
-          data.push(i);
+            data.push(i);
         }
         return data;
-      })();
-      var arr = new Array(30).fill(0);
-      let s1=[]
-      let s2=[]
-      let s3=[]
-      arr.forEach(x=>{
-        s1.push(randomNumBoth(20,30))
-        s2.push(randomNumBoth(10,20))
-        s3.push(randomNumBoth(1,10))
-      })
+    })();
+    var arr = new Array(30).fill(0);
+    let s1 = []
+    let s2 = []
+    let s3 = []
+    arr.forEach(x => {
+        s1.push(randomNumBoth(20, 30))
+        s2.push(randomNumBoth(10, 20))
+        s3.push(randomNumBoth(1, 10))
+    })
     return {
+        color: color,
         backgroundColor: "#fff",
         title: {
-          show:false,
-          text: "本年商场顾客男女人数统计",
-          subtext: "BY Wang Dingding",
-          x: "4%",
-      
-          textStyle: {
-            color: "#fff",
-            fontSize: "22",
-          },
-          subtextStyle: {
-            color: "#90979c",
-            fontSize: "16",
-          },
+            show: false,
+            text: "",
+            subtext: "BY Wang Dingding",
+            x: "4%",
+
+            textStyle: {
+                color: "#fff",
+                fontSize: "22",
+            },
+            subtextStyle: {
+                color: "#90979c",
+                fontSize: "16",
+            },
         },
         tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-            textStyle: {
-              color: "#fff",
+            trigger: "axis",
+            axisPointer: {
+                type: "shadow",
+                textStyle: {
+                    color: "#fff",
+                },
             },
-          },
         },
         grid: {
-          borderWidth: 0,
+            borderWidth: 0,
 
-          bottom: 95,
-          textStyle: {
-            color: "#fff",
-          },
+            bottom: 95,
+            textStyle: {
+                color: "#fff",
+            },
         },
         legend: {
-            show:false,
-          data: ['咨询'],
+            show: false,
+            data: ['咨询'],
         },
-      
+
         calculable: true,
         xAxis: [
-          {
-            type: "category",
-            axisLine: {
-              lineStyle: {
-                color: "#000",
-              },
+            {
+                type: "category",
+                axisLine: {
+                    lineStyle: {
+                        color: "#000",
+                    },
+                },
+                splitLine: {
+                    show: false,
+                },
+                axisTick: {
+                    show: false,
+                },
+                splitArea: {
+                    show: false,
+                },
+                axisLabel: {
+                    interval: 0,
+                },
+                data: xData,
             },
-            splitLine: {
-              show: false,
-            },
-            axisTick: {
-              show: false,
-            },
-            splitArea: {
-              show: false,
-            },
-            axisLabel: {
-              interval: 0,
-            },
-            data: xData,
-          },
         ],
         yAxis: [
-          {
-            type: "value",
-            splitLine: {
-              show: false,
+            {
+                type: "value",
+                splitLine: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: "#000",
+                    },
+                },
+                axisTick: {
+                    show: false,
+                },
+                axisLabel: {
+                    interval: 0,
+                },
+                splitArea: {
+                    show: false,
+                },
             },
-            axisLine: {
-              lineStyle: {
-                color: "#000",
-              },
-            },
-            axisTick: {
-              show: false,
-            },
-            axisLabel: {
-              interval: 0,
-            },
-            splitArea: {
-              show: false,
-            },
-          },
         ],
         dataZoom: [
-          {
-            show: true,
-            height: 30,
-            xAxisIndex: [0],
-            bottom: 30,
-            // start: 10,
-            // end: 80,
-            startValue: 0,
-            handleIcon:
-              "path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z",
-            handleSize: "110%",
-            handleStyle: {
-              color: "#d3dee5",
+            {
+                show: true,
+                height: 30,
+                xAxisIndex: [0],
+                bottom: 30,
+                // start: 10,
+                // end: 80,
+                startValue: 0,
+                handleIcon:
+                    "path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z",
+                handleSize: "110%",
+                handleStyle: {
+                    color: "#d3dee5",
+                },
+                textStyle: {
+                    color: "#000",
+                },
+                borderColor: "#90979c",
             },
-            textStyle: {
-              color: "#000",
+            {
+                type: "inside",
+                show: true,
+                height: 15,
+                // start: 1,
+                // end: 35,
+                startValue: 0
             },
-            borderColor: "#90979c",
-          },
-          {
-            type: "inside",
-            show: true,
-            height: 15,
-            // start: 1,
-            // end: 35,
-            startValue: 0
-          },
         ],
         series: [
-          {
-            name: '咨询',
-            type: 'line',
-            stack: 'a',
-            areaStyle: {},
-            emphasis: {
-              focus: 'series'
-            },
-            data: s1
-          }
+            {
+                name: '咨询',
+                type: 'line',
+                stack: 'a',
+                areaStyle: {},
+                emphasis: {
+                    focus: 'series'
+                },
+                data: s1
+            }
         ],
-      };
-      
-}
-export const day30Option=get30Day()
+    };
 
-export const level1={
+}
+export const day30Option = get30Day()
+function getListlength (length, range = [20, 30]) {
+    var arr4 = new Array(length).fill(0);
+    const level1Series = []
+    arr4.forEach(x => {
+        level1Series.push(randomNumBoth(...range))
+    })
+    return level1Series
+}
+
+
+export const level1 = {
     angleAxis: {
         type: 'category',
         data: ['保养', '售后', '系统', '气囊']
@@ -1442,12 +1455,12 @@ export const level1={
     },
     series: [{
         type: 'bar',
-        data: [10, 12, 31, 41, 32, 52, 19],
+        data: getListlength(4),
         coordinateSystem: 'polar',
         name: '定级',
         stack: 'a',
-        itemStyle:{
-            color:'#5470c6'
+        itemStyle: {
+            color: '#5470c6'
         }
     }],
     legend: {
@@ -1455,7 +1468,7 @@ export const level1={
         data: ['定级']
     }
 };
-export const level2={
+export const level2 = {
     angleAxis: {
         type: 'category',
         data: ['救援', '刹车', '配件', '仪表盘']
@@ -1466,12 +1479,12 @@ export const level2={
     },
     series: [{
         type: 'bar',
-        data: [20, 23, 47, 65, 32, 39, 99],
+        data: getListlength(4),
         coordinateSystem: 'polar',
         name: '定级',
         stack: 'a',
-        itemStyle:{
-            color:'#91cc75'
+        itemStyle: {
+            color: '#91cc75'
         }
     }],
     legend: {
@@ -1479,10 +1492,10 @@ export const level2={
         data: ['定级']
     }
 };
-export const level3={
+export const level3 = {
     angleAxis: {
         type: 'category',
-        data: ['道路', '维修', '售后', '手机','驾驶','地址']
+        data: ['道路', '维修', '售后', '手机', '驾驶', '地址']
     },
     radiusAxis: {
     },
@@ -1490,12 +1503,12 @@ export const level3={
     },
     series: [{
         type: 'bar',
-        data: [1, 3, 23, 15, 28, 49, 29,],
+        data: getListlength(6),
         coordinateSystem: 'polar',
         name: '定级',
         stack: 'a',
-        itemStyle:{
-            color:'#fac858'
+        itemStyle: {
+            color: '#fac858'
         }
     }],
     legend: {
@@ -1503,16 +1516,16 @@ export const level3={
         data: ['定级']
     }
 };
-function inithexinciTop10(){
+function inithexinciTop10 () {
     const data = [
-        { value: 800, name: '维修' },
-        { value: 635, name: '车载' },
-        { value: 580, name: '后视镜' },
-        { value: 484, name: '大灯' },
-        { value: 300, name: '方向盘' },
-        { value: 200, name: '尾灯' }
-      ];
-      const defaultPalette = [
+        { value: 80, name: '维修' },
+        { value: 65, name: '车载' },
+        { value: 58, name: '后视镜' },
+        { value: 44, name: '大灯' },
+        { value: 30, name: '方向盘' },
+        { value: 20, name: '尾灯' }
+    ];
+    const defaultPalette = [
         // '#51689b', '#ce5c5c', '#fbc357', '#8fbf8f', '#659d84', '#fb8e6a', '#c77288', '#786090', '#91c4c5', '#6890ba'
         '#5470c6',
         '#91cc75',
@@ -1523,114 +1536,114 @@ function inithexinciTop10(){
         '#fc8452',
         '#9a60b4',
         '#ea7ccc'
-      ];
-      const radius = ['30%', '80%'];
-      const pieOption = {
+    ];
+    const radius = ['30%', '80%'];
+    const pieOption = {
         series: [
-          {
-            type: 'pie',
-            id: 'distribution',
-            radius: radius,
-               label: {
-                      normal: {
+            {
+                type: 'pie',
+                id: 'distribution',
+                radius: radius,
+                label: {
+                    normal: {
                         show: true,
                         position: "top",
                         formatter: "{b} {c} {d}%",
                         color: '#00C0FF'
-                      }
-                    },
-            universalTransition: true,
-            animationDurationUpdate: 1000,
-            data: data
-          }
+                    }
+                },
+                universalTransition: true,
+                animationDurationUpdate: 1000,
+                data: data
+            }
         ]
-      };
-      const parliamentOption = (function () {
+    };
+    const parliamentOption = (function () {
         let sum = data.reduce(function (sum, cur) {
-          return sum + cur.value;
+            return sum + cur.value;
         }, 0);
         let angles = [];
         let startAngle = -Math.PI / 2;
         let curAngle = startAngle;
         data.forEach(function (item) {
-          angles.push(curAngle);
-          curAngle += (item.value / sum) * Math.PI * 2;
+            angles.push(curAngle);
+            curAngle += (item.value / sum) * Math.PI * 2;
         });
         angles.push(startAngle + Math.PI * 2);
-        function parliamentLayout(startAngle, endAngle, totalAngle, r0, r1, size) {
-          let rowsCount = Math.ceil((r1 - r0) / size);
-          let points = [];
-          let r = r0;
-          for (let i = 0; i < rowsCount; i++) {
-            // Recalculate size
-            let totalRingSeatsNumber = Math.round((totalAngle * r) / size);
-            let newSize = (totalAngle * r) / totalRingSeatsNumber;
-            for (
-              let k = Math.floor((startAngle * r) / newSize) * newSize;
-              k < Math.floor((endAngle * r) / newSize) * newSize - 1e-6;
-              k += newSize
-            ) {
-              let angle = k / r;
-              let x = Math.cos(angle) * r;
-              let y = Math.sin(angle) * r;
-              points.push([x, y]);
+        function parliamentLayout (startAngle, endAngle, totalAngle, r0, r1, size) {
+            let rowsCount = Math.ceil((r1 - r0) / size);
+            let points = [];
+            let r = r0;
+            for (let i = 0; i < rowsCount; i++) {
+                // Recalculate size
+                let totalRingSeatsNumber = Math.round((totalAngle * r) / size);
+                let newSize = (totalAngle * r) / totalRingSeatsNumber;
+                for (
+                    let k = Math.floor((startAngle * r) / newSize) * newSize;
+                    k < Math.floor((endAngle * r) / newSize) * newSize - 1e-6;
+                    k += newSize
+                ) {
+                    let angle = k / r;
+                    let x = Math.cos(angle) * r;
+                    let y = Math.sin(angle) * r;
+                    points.push([x, y]);
+                }
+                r += size;
             }
-            r += size;
-          }
-          return points;
+            return points;
         }
         return {
-          series: {
-            type: 'custom',
-            id: 'distribution',
-            data: data,
-            coordinateSystem: undefined,
-            universalTransition: true,
-            animationDurationUpdate: 1000,
-            renderItem: function (params, api) {
-              var idx = params.dataIndex;
-              var viewSize = Math.min(api.getWidth(), api.getHeight());
-              var r0 = ((parseFloat(radius[0]) / 100) * viewSize) / 2;
-              var r1 = ((parseFloat(radius[1]) / 100) * viewSize) / 2;
-              var cx = api.getWidth() * 0.5;
-              var cy = api.getHeight() * 0.5;
-              var size = viewSize / 50;
-              var points = parliamentLayout(
-                angles[idx],
-                angles[idx + 1],
-                Math.PI * 2,
-                r0,
-                r1,
-                size + 3
-              );
-              return {
-                type: 'group',
-                children: points.map(function (pt) {
-                  return {
-                    type: 'circle',
-                    autoBatch: true,
-                    shape: {
-                      cx: cx + pt[0],
-                      cy: cy + pt[1],
-                      r: size / 2
-                    },
-                    style: {
-                      fill: defaultPalette[idx % defaultPalette.length]
-                    }
-                  };
-                })
-              };
+            series: {
+                type: 'custom',
+                id: 'distribution',
+                data: data,
+                coordinateSystem: undefined,
+                universalTransition: true,
+                animationDurationUpdate: 1000,
+                renderItem: function (params, api) {
+                    var idx = params.dataIndex;
+                    var viewSize = Math.min(api.getWidth(), api.getHeight());
+                    var r0 = ((parseFloat(radius[0]) / 100) * viewSize) / 2;
+                    var r1 = ((parseFloat(radius[1]) / 100) * viewSize) / 2;
+                    var cx = api.getWidth() * 0.5;
+                    var cy = api.getHeight() * 0.5;
+                    var size = viewSize / 50;
+                    var points = parliamentLayout(
+                        angles[idx],
+                        angles[idx + 1],
+                        Math.PI * 2,
+                        r0,
+                        r1,
+                        size + 3
+                    );
+                    return {
+                        type: 'group',
+                        children: points.map(function (pt) {
+                            return {
+                                type: 'circle',
+                                autoBatch: true,
+                                shape: {
+                                    cx: cx + pt[0],
+                                    cy: cy + pt[1],
+                                    r: size / 2
+                                },
+                                style: {
+                                    fill: defaultPalette[idx % defaultPalette.length]
+                                }
+                            };
+                        })
+                    };
+                }
             }
-          }
         };
-      })();
-      const option=pieOption
-      let currentOption =pieOption
-      return {
+    })();
+    const option = pieOption
+    let currentOption = pieOption
+    return {
         currentOption,
         option,
         pieOption,
         parliamentOption
-      }
+    }
 }
-export const defaultHexinciTop10Params=inithexinciTop10()
+export const defaultHexinciTop10Params = inithexinciTop10()

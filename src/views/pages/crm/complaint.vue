@@ -1,42 +1,53 @@
 <template>
     <div>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+            <el-col :xs="24" :sm="16" :md="16" :lg="16" :xl="16">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>总览</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
                     <div style="display: flex;width: 100%;">
-                        <base-echarts ref="allDataViewRef" :options="allDataView" style="flex: 1;"
+                        <base-echarts ref="allDataViewRef" :options="totalOptions" style="flex: 1;"
                             @click="showItemDetail"></base-echarts>
                         <base-echarts ref="allDataViewDetailRef" style="flex: 1;" v-if="itemDetailVisible"
-                            :options="allDataViewDetail"></base-echarts>
+                            :options="totalOptions_serie_ItemOptions"></base-echarts>
                     </div>
                 </el-card>
             </el-col>
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                        <span>核心词</span>
+                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
+                    </div>
+                    <base-echarts ref="heixinciTop10"
+                            :options="defaultHexinciTop10Params.currentOption"></base-echarts>
+                </el-card>
+            </el-col>
         </el-row>
-        <el-row class="row">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <el-row :gutter="10" class="row">
+            <el-col :xs="24" :sm="24" :md="14" :lg="14" :xl="14">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <el-form :inline="true" :model="searchParam" style="height: 24px;">
                             <el-form-item label="区域">
-                                <el-select v-model="searchParam.area" placeholder="请选择区域" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.area" placeholder="请选择区域" size="mini">
                                     <el-option v-for="item in optionsArea" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="年份">
-                                <el-select v-model="searchParam.year" placeholder="请选择年份" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.year" placeholder="请选择年份" size="mini">
                                     <el-option v-for="item in optionsYear" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="经销商">
-                                <el-select v-model="searchParam.dealer" placeholder="请选择经销商" size="mini">
+                                <el-select style="width:120px" v-model="searchParam.dealer" placeholder="请选择经销商"
+                                    size="mini">
                                     <el-option v-for="item in optionsDealer" :key="item.value" :label="item.label"
                                         :value="item.value">
                                     </el-option>
@@ -48,11 +59,20 @@
                         </el-form>
 
                     </div>
-                    <base-echarts :options="xifen"></base-echarts>
+                    <base-echarts ref="myChartSearch" height="300px" :options="searchOptions"></base-echarts>
                 </el-card>
             </el-col>
+            <el-col :xs="24" :sm="24" :md="10" :lg="10" :xl="10">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                        <span>近一个月变化数据</span>
+                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
+                    </div>
+                    <base-echarts height="300px" :options="day30Option"></base-echarts>
+                </el-card>
+
+            </el-col>
         </el-row>
-  
         <el-row :gutter="10" class="row">
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
                 <el-card class="box-card">
@@ -60,7 +80,7 @@
                         <span>level1定级</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="hexinciTop1"></base-echarts>
+                    <base-echarts :options="level1"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -70,7 +90,7 @@
                         <span>level2定级</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="hexinciTop2"></base-echarts>
+                    <base-echarts :options="level2"></base-echarts>
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
@@ -79,12 +99,12 @@
                         <span>level3定级</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="hexinciTop3"></base-echarts>
+                    <base-echarts :options="level3"></base-echarts>
                 </el-card>
             </el-col>
         </el-row>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+            <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>核心词Top1</span>
@@ -94,7 +114,7 @@
                 </el-card>
 
             </el-col>
-            <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+            <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>核心词Top2</span>
@@ -105,13 +125,23 @@
             </el-col>
         </el-row>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+            <el-col :xs="24" :sm="12" :md="14" :lg="14" :xl="14">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
-                        <span>状态</span>
+                        <span>状态指标</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="statusData"></base-echarts>
+                    <base-echarts :options="handleResultStatus"></base-echarts>
+                </el-card>
+
+            </el-col>
+            <el-col :xs="24" :sm="12" :md="10" :lg="10" :xl="10">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                        <span>情感系数</span>
+                        <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
+                    </div>
+                    <base-echarts :options="affectiveCoefficientOption"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -123,7 +153,7 @@
                         <span>产品词云</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="chanpingCiyun"></base-echarts>
+                    <base-echarts :options="ciyun1"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -133,7 +163,7 @@
                         <span>概况词云</span>
                         <i class="el-icon-more" style="float: right; padding: 3px 0"></i>
                     </div>
-                    <base-echarts :options="gaikuangCiyun"></base-echarts>
+                    <base-echarts :options="ciyun2"></base-echarts>
                 </el-card>
 
             </el-col>
@@ -142,6 +172,7 @@
 </template>
   
 <script>
+import '@/utils/echarts-wordcloud.min.js'
 import PieEcharts from "@/components/Echart/pieEcharts.vue";
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
 import * as echarts from "echarts";
@@ -149,6 +180,7 @@ import fankuiIcon from '@/assets/fankui.png'
 import guanliIcon from '@/assets/guanli.png'
 import fenxiIcon from '@/assets/fenxi.png'
 import zixunIcon from '@/assets/zixun.png'
+import { totalOptions, totalOptions_serie_ItemOptions, searchOptions, day30Option, heixinciTop1, heixinciTop2, handleResultStatus, affectiveCoefficientOption, ciyun1, ciyun2, level1, level2, level3, defaultHexinciTop10Params } from './mockData/complaint'
 export default {
     name: "consult",// 咨询
     components: {
@@ -157,6 +189,21 @@ export default {
     },
     data () {
         return {
+            defaultHexinciTop10Params,
+            totalOptions,
+            totalOptions_serie_ItemOptions,
+            searchOptions,
+            day30Option,
+            heixinciTop1,
+            heixinciTop2,
+            handleResultStatus,
+            affectiveCoefficientOption,
+            ciyun1,
+            ciyun2,
+            level1,
+            level2,
+            level3,
+            heixinciTop10: {},
             fankuiIcon,
             guanliIcon,
             fenxiIcon,
@@ -202,7 +249,7 @@ export default {
                         nameTextStyle: {
                             color: '#000',
                         },
-             
+
                     }
                 ],
                 yAxis: [
@@ -215,10 +262,9 @@ export default {
                 ],
                 series: [
 
-                {
-                        name: '投诉',
+                    {
+                        name: '咨询',
                         type: 'bar',
-                        stack: 'Ad',
                         emphasis: {
                             focus: 'series'
                         },
@@ -231,10 +277,7 @@ export default {
                                 color: '#000',
                             }
                         },
-                        itemStyle:{
-                            color:'#66bb5f'
-                        },
-                        data: [220, 182, 191, 234]
+                        data: [120, 132, 101, 134]
                     }
 
                 ]
@@ -430,7 +473,7 @@ export default {
             hexinciTop1: {
                 title: {
                     show: false,
-                    text: 'levele1'
+                    text: '核心词Top1'
                 },
                 xAxis: {
                     type: 'category',
@@ -439,14 +482,14 @@ export default {
                         // interval: 0,
                         // rotate: 70,
                     },
-                    data: ['售后服务', '销售服务', '中央服务']
+                    data: ['保养', '驾驶', '售后', '记录仪', '系统', '救援', '气囊']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [120, 200, 150],
+                        data: [120, 200, 150, 80, 70, 110, 130],
                         type: 'line',
                         label: {
                             normal: {
@@ -462,7 +505,7 @@ export default {
                         }
                     },
                     {
-                        data: [120, 200, 150],
+                        data: [120, 200, 150, 80, 70, 110, 130],
                         type: 'bar',
                         label: {
                             normal: {
@@ -488,17 +531,17 @@ export default {
                     type: 'category',
                     axisLabel: {
 
-                        interval: 0,
-                        rotate: 70,
+                        // interval: 0,
+                        // rotate: 70,
                     },
-                    data: ['售后服务产品', '人员和服务质量', '流程和进度', '道路救援']
+                    data: ['救援', '车型', '刹车', '保养', '配件', '道路', '仪表盘']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [90, 100, 50, 180],
+                        data: [90, 100, 50, 180, 20, 90, 70],
                         type: 'line',
                         label: {
                             normal: {
@@ -514,7 +557,7 @@ export default {
                         }
                     },
                     {
-                        data: [90, 100, 50, 180],
+                        data: [90, 100, 50, 180, 20, 90, 70],
                         type: 'bar',
                         label: {
                             normal: {
@@ -540,17 +583,17 @@ export default {
                     type: 'category',
                     axisLabel: {
 
-                        interval: 0,
-                        rotate: 70,
+                        // interval: 0,
+                        // rotate: 70,
                     },
-                    data: ['零件质量', '售后服务态度', '销售服务态度', '维修保养']
+                    data: ['道路', '售后', '维修', '手机', '车型', '驾驶', '地址']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [10, 80, 30, 10],
+                        data: [10, 80, 30, 10, 20, 70, 20],
                         type: 'line',
                         label: {
                             normal: {
@@ -566,7 +609,7 @@ export default {
                         }
                     },
                     {
-                        data: [10, 80, 30, 10],
+                        data: [10, 80, 30, 10, 20, 70, 20],
                         type: 'bar',
                         label: {
                             normal: {
@@ -586,8 +629,6 @@ export default {
             miaosuciTop1: this.getMiaosuci2(),
             linshici: this.getMiasuci3(),
             xifen: this.getxifen(),
-            heixinciTop1: this.getHeiXinCi(1),
-            heixinciTop2: this.getHeiXinCi(2),
             heixinciTop3: this.getHeiXinCi(3),
             heixinciTop10: this.getHeiXinCiTop10(),
             statusData: {
@@ -621,7 +662,7 @@ export default {
                     {
                         name: '状态',
                         type: 'bar',
-                         barWidth: '50px',
+                        barWidth: '50px',
                         label: {
                             normal: {
                                 show: true,
@@ -630,7 +671,7 @@ export default {
                                 color: '#000'
                             }
                         },
-                        data: [110, 252, 500, 222]
+                        data: [10, 52, 200, 334, 390, 330, 220]
                     }
                 ]
             },
@@ -638,15 +679,71 @@ export default {
             gaikuangCiyun: this.getciyun(2),
         };
     },
+    mounted(){
+        this.initHeixinciTop10()
+    },
     methods: {
+        initHeixinciTop10 () {
+            setInterval( ()=> {
+                this.defaultHexinciTop10Params.currentOption = this.defaultHexinciTop10Params.currentOption === this.defaultHexinciTop10Params.pieOption ? this.defaultHexinciTop10Params.parliamentOption : this.defaultHexinciTop10Params.pieOption;
+                this.$refs.heixinciTop10.setOption(this.defaultHexinciTop10Params.currentOption)
+            }, 2000);
+
+        },
+        handleSearchOptions (searchOptions) {
+            const echarts = this.$refs.myChartSearch.getEchart()
+            echarts.on('updateAxisPointer', (event) => {
+                const xAxisInfo = event.axesInfo[0];
+                if (xAxisInfo) {
+                    const dimension = xAxisInfo.value + 1;
+                    echarts.setOption({
+                        series: {
+                            name: 'minxi',
+                            id: 'pie',
+                            label: {
+                                formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                            },
+                            encode: {
+                                value: dimension,
+                                tooltip: dimension
+                            }
+                        }
+                    });
+                }
+            });
+            echarts.setOption(searchOptions);
+        },
         onSubmit () {
-            this.xifen = this.getxifen(this.searchParam.area + '-' + this.searchParam.year + '-' + this.searchParam.dealer)
+            // 改变
+
+            let dataValue = [20, 30, 40, 35, 34, 15, 56, 15, 12, 25, 34, 42];
+            dataValue = dataValue.map(item => {
+                return this.randomNumBoth(10, 40)
+            })
+            let dataValue1 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
+            dataValue1 = dataValue1.map(item => {
+                return this.randomNumBoth(10, 100)
+            })
+            let dataValue2 = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
+            dataValue2 = dataValue2.map(item => {
+                return this.randomNumBoth(10, 300)
+            })
+            const data = [
+                ['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                ['咨询', ...dataValue],
+                ['投诉', ...dataValue1],
+                ['预警', ...dataValue2]
+            ]
+            searchOptions.title.text = `${this.searchParam.area}-${this.searchParam.year}-${this.searchParam.dealer}`
+            searchOptions.dataset.source = data
+            this.handleSearchOptions(searchOptions)
+            //this.xifen = this.getxifen(this.searchParam.area + '-' + this.searchParam.year + '-' + this.searchParam.dealer)
         },
         getxifen (title = '') {
             let xLabel = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-            let dataValue = [40, 35, 34, 15, 56, 15, 12, 25, 34, 42, 20, 30,];
+            let dataValue = [20, 30, 40, 35, 34, 15, 56, 15, 12, 25, 34, 42];
             dataValue = dataValue.map(item => {
-                return this.randomNumBoth(10, 100)
+                return this.randomNumBoth(10, 40)
             })
             let option = {
                 title: {
@@ -750,20 +847,20 @@ export default {
                     },
                 ],
                 series: [
-                {
-                        name: '投诉',
+                    {
+                        name: '咨询',
                         type: 'line',
                         symbol: 'circle', // 默认是空心圆（中间是白色的），改成实心圆
                         smooth: true,
                         lineStyle: {
                             normal: {
                                 width: 3,
-                                color: '#f80505', // 线条颜色
+                                color: '#00ffa2', // 线条颜色
                             },
                         },
                         itemStyle: {
                             normal: {
-                                color: '#f80505',//拐点颜色
+                                color: '#00f0ff',//拐点颜色
                                 // borderColor: '#fff600',//拐点边框颜色
                                 // borderWidth: 13//拐点边框大小
                                 label: {
@@ -822,9 +919,12 @@ export default {
         },
         showItemDetail (parmas) {
             this.itemDetailVisible = true
-            this.allDataViewDetail.series[0].data.forEach(item => {
-                item.value = this.randomNumBoth(10, 500)
+            this.totalOptions_serie_ItemOptions.series.forEach(item => {
+                item.data.forEach(x => {
+                    x.value = this.randomNumBoth(10, 100)
+                })
             })
+
             this.$nextTick(() => {
                 this.$refs.allDataViewRef.reload()
                 this.$refs.allDataViewDetailRef.reload()
@@ -1670,13 +1770,11 @@ export default {
 
         },
         getciyun (num) {
-       
-
-            let nameList =[]
-            if(num==1){
-                nameList=['漏油','刹车失灵','挡风玻璃破裂','玻璃水没了','启动慢','气囊破了','手机','配件','大灯','轮胎']
-            }else{
-                nameList=['服务不到位','预约保养太慢','维修成本高','调节-检测问题',,'中央服务','销售','电力问题','车道保持','商店','语音']
+            let nameList = []
+            if (num == 1) {
+                nameList = ['空调滤芯', '后座', '发动机', '保养', '里程', '边框', '贴膜', '配件', '大灯', '轮胎']
+            } else {
+                nameList = ['地址', '保养-预约保养', '维修-保养', '调节-检测问题-维修-使用-如何调节', , '中央服务如何', '销售量怎么样', '电力问题如何解决', '车道保持什么距离', '商店多少钱', '语音好用吗']
             }
             let valueList = [30, 50, 60, 65, 70, 80, 90, 100, 120, 150];
 
