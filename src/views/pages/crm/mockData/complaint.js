@@ -31,7 +31,7 @@ export const totalOptions = {
     ],
     series: [
         {
-            name: '咨询',
+            name: '投诉',
             type: 'bar',
             markLine: {
                 show: false,
@@ -154,7 +154,7 @@ export const searchOptions = {
     yAxis: { gridIndex: 0 },
     series: [
         {
-            "name": '咨询',
+            "name": '投诉',
             type: 'line',
             data: [10, 60, 42, 50, 24, 35, 16, 35, 32, 65, 14, 22],
             emphasis: { focus: 'series' },
@@ -691,7 +691,7 @@ export const chexiOption = {
 export const affectiveCoefficientOption = {
     legend: {
         show: false,
-        data: ['咨询'],
+        data: ['投诉'],
         orient: 'vertical',
         left: 0
     },
@@ -717,7 +717,7 @@ export const affectiveCoefficientOption = {
             data: [
                 {
                     value: getListlength(6, [20, 97]),
-                    name: '咨询',
+                    name: '投诉',
 
                 }
             ]
@@ -1340,7 +1340,7 @@ export function get30Day () {
         },
         legend: {
             show: false,
-            data: ['咨询'],
+            data: ['投诉'],
         },
 
         calculable: true,
@@ -1420,7 +1420,7 @@ export function get30Day () {
         ],
         series: [
             {
-                name: '咨询',
+                name: '投诉',
                 type: 'line',
                 stack: 'a',
                 areaStyle: {},
