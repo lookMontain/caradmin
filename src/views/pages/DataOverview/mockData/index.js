@@ -40,7 +40,7 @@ export const threeLineOptions = {
                 ]
             },
             barWidth: '20px',
-            data: [120, 332, 301, 100]
+            data: [97000, 82310, 62340, 20123]
         },
         {
             name: '投诉',
@@ -57,14 +57,14 @@ export const threeLineOptions = {
                 ]
             },
             barWidth: '20px',
-            data: [120, 110, 111, 150]
+            data:  [65000, 53000, 70000, 32000]
         },
 
         {
             name: '预警',
             type: 'bar',
             stack: 'AD',
-            data: [820, 1018, 964, 1400],
+            data:  [45000, 93000, 34900, 20000],
             barWidth: '20px',
             markLine: {
                 lineStyle: {
@@ -84,13 +84,14 @@ export const threeLine_serie_ItemOptions = {
     },
     legend: {
         data: [
+            '咨询',
+            '投诉',
+            '预警',
             '售后',
             '产品',
             '活动',
-            '营销',
             '中央服务',
-            '流程',
-            '方案'
+            '营销'
         ]
     },
     series: [
@@ -108,9 +109,9 @@ export const threeLine_serie_ItemOptions = {
                 show: false
             },
             data: [
-                { value: 1548, name: '售后' },
-                { value: 775, name: '产品' },
-                { value: 679, name: '活动', selected: true }
+                { value: 158, name: '咨询' },
+                { value: 775, name: '预警' },
+                { value: 679, name: '投诉' }
             ]
         },
         {
@@ -154,10 +155,11 @@ export const threeLine_serie_ItemOptions = {
                 }
             },
             data: [
-                { value: 1048, name: '营销' },
-                { value: 335, name: '中央服务' },
-                { value: 310, name: '流程' },
-                { value: 251, name: '方案' }
+                { value: 558, name: '售后' },
+                { value: 334, name: '产品' },
+                { value: 223, name: '活动' },
+                { value: 112, name: '中央服务' },
+                { value: 334, name: '营销' }
             ]
         }
     ]
@@ -422,7 +424,7 @@ export const gexinciTop10 = {
     ]
 };
 
-const ci = ['机油', '刹车片', '挡风玻璃', '玻璃水', '汽车', '气囊', '手机', '配件', '大灯', '轮胎']
+const ci = ['停止运作（SOS、ESP）', '故障灯消除方式', '油表灯亮剩余行驶能力咨询', '蓄电池故障', '警示灯报警提示（主动制动辅助系统）', '警示灯报警提示（冷却液）', '警示灯报警提示（发动机） ', '警示灯报警提示（气囊）', '警示灯报警提示（胎压）', '警示灯报警提示（防侧滑/ABS故障）','警示灯报警提示（驻车制动器）']
 
 const list1 = ci.map((x, index) => {
     if (index === 5) {
@@ -521,9 +523,9 @@ export const ciyun1 = {
     ],
 };
 
-const c2 = ['五星', '保养-预约保养', '维修-保养', '调节-检测问题-维修-使用-如何调节', , '中央服务', '销售', '电力问题', '车道保持', '商店', '语音']
+const c2 = ['警示灯种类咨询', '胎压信息显示咨询', '仪表盘信息显示种类咨询', '里程数信息显示咨询（复位，查看等）','保养提示信息显示咨询' , '油表信息显示咨询', '如何关闭仪表盘信息提示咨询', '辅助系统图示咨询', '信息显示错误/不准确', '导航信息显示咨询', '电话信息显示咨询','水温表信息显示咨询','音频信息显示咨询','定速巡航/智能领航/电子限速设置']
 
-const list2 = ci.map((x, index) => {
+const list2 = c2.map((x, index) => {
     if (index === 5) {
         return {
             value: randomNumBoth(10, 40),

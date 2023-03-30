@@ -43,7 +43,7 @@ export const totalOptions = {
                 ]
             },
             barWidth: '20px',
-            data: [220, 10, 700, 200]
+            data: [32000, 89000, 54000, 13000]
         }
     ]
 }
@@ -54,13 +54,12 @@ export const totalOptions_serie_ItemOptions = {
     },
     legend: {
         data: [
+            '投诉',
             '售后',
             '产品',
             '活动',
-            '营销',
             '中央服务',
-            '流程',
-            '方案'
+            '营销'
         ]
     },
     series: [
@@ -78,9 +77,9 @@ export const totalOptions_serie_ItemOptions = {
                 show: false
             },
             data: [
-                { value: 1548, name: '售后' },
-                { value: 775, name: '产品' },
-                { value: 679, name: '活动', selected: true }
+                { value: 1548, name: '投诉' },
+                // { value: 775, name: '产品' },
+                // { value: 679, name: '活动', selected: true }
             ]
         },
         {
@@ -124,10 +123,11 @@ export const totalOptions_serie_ItemOptions = {
                 }
             },
             data: [
-                { value: 1048, name: '营销' },
-                { value: 335, name: '中央服务' },
-                { value: 310, name: '流程' },
-                { value: 251, name: '方案' }
+                { value: 108, name: '售后' },
+                { value: 148, name: '产品' },
+                { value: 335, name: '活动' },
+                { value: 310, name: '中央服务' },
+                { value: 251, name: '营销' }
             ]
         }
     ]
@@ -362,7 +362,7 @@ export const gexinciTop10 = {
     ]
 };
 
-const ci = ['天线', '电子手刹', '辅助驾驶', '公里数', '机油', '燃油', '能耗', '发动机', '大灯', '轮胎']
+const ci = ['专业水平问题反馈', '服务态度问题反馈', '$环境与设施问题反馈', '$维修保养价格问题反馈', '售后服务内容问题反馈', '专业水平问题反馈']
 
 const list1 = ci.map((x, index) => {
     if (index === 5) {
@@ -461,7 +461,7 @@ export const ciyun1 = {
     ],
 };
 
-const c2 = ['地址', '保养-预约保养', '维修-保养', '调节-检测问题-维修-使用-如何调节', , '中央服务如何', '销售量怎么样', '电力问题如何解决', '车道保持什么距离', '商店多少钱', '语音好用吗']
+const c2 = ['服务态度问题反馈', '$维修环境不满问题反馈', '投诉案件进展问询', '调节-检测问题-维修-使用-如何调节', , '通讯录相关咨询', '收音机声音调节', '导航卡顿', '导航路径规划', '雨刮设置', '雨刮异响']
 
 const list2 = c2.map((x, index) => {
     if (index === 5) {

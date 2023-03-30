@@ -687,7 +687,7 @@ export default {
             setInterval( ()=> {
                 this.defaultHexinciTop10Params.currentOption = this.defaultHexinciTop10Params.currentOption === this.defaultHexinciTop10Params.pieOption ? this.defaultHexinciTop10Params.parliamentOption : this.defaultHexinciTop10Params.pieOption;
                 this.$refs.heixinciTop10.setOption(this.defaultHexinciTop10Params.currentOption)
-            }, 2000);
+            }, 9000);
 
         },
         handleSearchOptions (searchOptions) {
