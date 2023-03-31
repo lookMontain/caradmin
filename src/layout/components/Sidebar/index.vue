@@ -88,17 +88,17 @@ export default {
         meta: { title: '部门', icon: 'department' },
         children: [
           {
-            path: 'marketingDepartment',
+            path: '/marketingDepartment',
             name: 'marketingDepartment',
             meta: { title: '市场部门', icon: 'marketingDepartment' }
           },
           {
-            path: 'salesDepartment',
+            path: '/salesDepartment',
             name: 'salesDepartment',
             meta: { title: '销售部门', icon: 'salesDepartment' }
           },
           {
-            path: 'productDepartment',
+            path: '/productDepartment',
             name: 'productDepartment',
             meta: { title: '产品部门', icon: 'productDepartment' }
           }

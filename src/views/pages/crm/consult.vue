@@ -125,7 +125,7 @@
             </el-col>
         </el-row>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="12" :md="14" :lg="14" :xl="14">
+            <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>状态指标</span>
@@ -135,7 +135,7 @@
                 </el-card>
 
             </el-col>
-            <el-col :xs="24" :sm="12" :md="10" :lg="10" :xl="10">
+            <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>情感系数</span>

@@ -82,6 +82,11 @@ export const constantRoutes = [
       name: 'complaint',
       component: () => import('@/views/pages/crm/complaint.vue'),
       meta: { title: '投诉', icon: '投诉' }
+    },{
+      path: 'productDepartment',
+      name: 'productDepartment',
+      component: () => import('@/views/pages/department/productDepartment.vue'),
+      meta: { title: '投诉', icon: '投诉' }
     }]
   },
   {
