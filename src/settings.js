@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'CRM',
+  title: 'VOCGPT数字面板',
 
   /**
    * @type {boolean} true | false

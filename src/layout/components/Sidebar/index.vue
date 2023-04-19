@@ -47,7 +47,7 @@ export default {
   },
   data () {
     return {
-      menuList: [{
+      menuList1: [{
         path: '/',
         meta: { title: '首页', icon: 'shouye' }
       },
@@ -127,6 +127,99 @@ export default {
       },{
         path: '/set',
         meta: { title: '设置', icon: 'set' }
+      }],
+      menuList: [{
+        path: '/',
+        meta: { title: '首页', icon: 'shouye' }
+      },
+      {
+        path: '/dataOverview',
+        meta: { title: '数据总览', icon: 'dataOverview' }
+      }, {
+        path: '/xonsultingBusinessLineAnalysis',
+        name: 'xonsultingBusinessLineAnalysis',
+        meta: { title: '咨询业务线分析', icon: 'crm' },
+        children: [
+          {
+            path: '/productFocus',
+            name: 'productFocus',
+            meta: { title: '产品关注', icon: 'consult' }
+          },
+          {
+            path: '/marketingFocus',
+            name: 'marketingFocus',
+            meta: { title: '营销关注', icon: 'warning' }
+          },
+          {
+            path: '/activityInterest',
+            name: 'activityInterest',
+            meta: { title: '活动兴趣', icon: 'complaint' }
+          },
+          {
+            path: '/serviceFocus',
+            name: 'serviceFocus',
+            meta: { title: '服务焦点', icon: 'complaint' }
+          },
+          
+        ]
+      }, {
+        path: '/complaintBusinessLineAnalysis',
+        name: 'complaintBusinessLineAnalysis',
+        meta: { title: '投诉业务线分析', icon: 'crm' },
+        children: [
+          {
+            path: '/productProblem',
+            name: 'productProblem',
+            meta: { title: '产品问题', icon: 'consult' }
+          },
+          {
+            path: '/dealerProblem',
+            name: 'dealerProblem',
+            meta: { title: '经销商问题', icon: 'warning' }
+          },
+          {
+            path: '/headquartersProblem',
+            name: 'headquartersProblem',
+            meta: { title: '总部问题', icon: 'complaint' }
+          } 
+        ]
+      },{
+        path: '/bu',
+        name: 'bu',
+        meta: { title: 'BU', icon: 'crm' },
+        children: [
+          {
+            path: '/productDepartment',
+            name: 'productDepartment',
+            meta: { title: '产品部门', icon: 'consult' }
+          },
+          {
+            path: '/salesDepartment',
+            name: 'salesDepartment',
+            meta: { title: '销售部门', icon: 'warning' }
+          },
+          {
+            path: '/marketDepartment',
+            name: 'marketDepartment',
+            meta: { title: '市场部门', icon: 'complaint' }
+          },
+          {
+            path: '/networktDepartment',
+            name: 'networkDepartment',
+            meta: { title: '网络部门', icon: 'complaint' }
+          },
+          {
+            path: '/serviceDepartment',
+            name: 'serviceDepartment',
+            meta: { title: '服务部门', icon: 'complaint' }
+          } 
+        ]
+      },{
+        path: '/set',
+        meta: { title: '设置', icon: 'set' }
+      },{
+        path: '/management',
+        meta: { title: '管理', icon: 'set' }
       }]
     }
   },

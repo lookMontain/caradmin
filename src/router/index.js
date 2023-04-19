@@ -57,7 +57,16 @@ export const constantRoutes = [
       name: 'dataOverview',
       component: () => import('@/views/pages/DataOverview/index.vue'),
       meta: { title: '数据总览', icon: 'dataOverview' }
-    },{
+    },
+    {
+      path: 'productFocus',
+      name: 'productFocus',
+      component: () => import('@/views/pages/xonsultingBusinessLineAnalysis/productFocus/index.vue'),
+      meta: { title: '产品关注', icon: 'productFocus' }
+    },
+    
+    
+    {
       path: 'customer',
       name: 'customer',
       component: () => import('@/views/pages/customer.vue'),
