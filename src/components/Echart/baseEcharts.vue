@@ -35,6 +35,7 @@ export default {
     }
   },
   mounted () {
+    this.echartsInstance&&this.echartsInstance.dispose()
     const el = this.$refs["echartsRef"];
     //创建实例
     this.echartsInstance = echarts.init(el);
@@ -51,6 +52,7 @@ export default {
     options: {
       handler () {
         //监听options的改变，重新调用setOption方法
+
         this.echartsInstance.setOption(this.options);
       },
       deep: true

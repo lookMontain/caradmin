@@ -7,91 +7,54 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '仪表盘',
-        value: 1320,
+        name: '市场营销，传播与活动',
+        value: 1620,
         id: 1,
         children: [
-            { name: '警示灯', value: 112 },
-            { name: '信息显示', value: 206 },
-            { name: '操作设置', value: 298 },
-            { name: '智能辅助操作系统', value: 432 },
-            { name: '雨刮操作', value: 112 },
+            { name: '车主认证类', value: 112 },
+            { name: '五星服务', value: 206 },
+
 
         ]
     },
     {
-        name: '车辆召回',
+        name: '调研',
         value: 3320,
         id: 2,
         children: [
-            { name: '咨询召回原因和范围', value: 111 },
-            { name: '咨询召回时间', value: 112 },
-            { name: '咨询召回费用', value: 123 },
-            { name: '咨询召回政策', value: 146 }
+            { name: '产品类', value: 112 },
+            { name: '服务类', value: 112 },
         ]
     },
     {
-        name: 'COMAND系统',
+        name: '销售活动',
         id: 3,
         value: 5320,
         children: [
-            { name: '导航', value: 203 },
-            { name: '收音机', value: 208 },
-            { name: '电话', value: 321 },
-            { name: '媒体', value: 124 },
-            { name: '车辆', value: 132 },
-            { name: '辅助', value: 169 },
-            { name: '系统', value: 177 },
-            { name: '空调', value: 115 },
-            { name: '蓝牙', value: 214 },
-            { name: '车联网相关', value: 301 },
-            { name: '行车记录仪', value: 121 },
-            { name: '常用选项', value: 212 },
-            { name: '背景主题', value: 115 },
-            { name: '屏幕显示', value: 118 }
+            { name: '金融', value: 203 },
+            { name: '电商平台', value: 208 },
+            { name: '售后服务措施', value: 321 }
         ]
     },
     {
-        name: '外部',
+        name: '经销商活动',
         id: 4,
         value: 3320,
         children: [
-            { name: '前机舱', value: 112 },
-            { name: '后尾部', value: 143 },
-            { name: '外部后视镜', value: 176 },
-            { name: '底盘', value: 124 },
-            { name: '车钥匙和锁', value: 203 },
-            { name: '轮毂和轮胎', value: 178 },
-            { name: '车外部照明', value: 187 },
-            { name: '三电系统', value: 214 },
-            { name: '整车相关', value: 132 }
+            { name: '经销商销售活动', value: 112 },
+            { name: '经销商售后活动', value: 143 }
         ]
     },
     {
-        name: '内部',
+        name: '其他活动',
         id: 5,
         value: 2320,
         children: [
-            { name: '方向盘', value: 114 },
-            { name: '天窗及前后风挡玻璃', value: 112 },
-            { name: '座椅', value: 124 },
-            { name: '车内后视镜', value: 203 },
-            { name: '车内照明', value: 333 },
-            { name: '音响', value: 68 },
-            { name: '随车配件及供电设备', value: 179 },
-            { name: '后排娱乐系统', value: 180 },
-            { name: '内部相关', value: 200 }
+            { name: '其他活动1', value: 114 },
+            { name: '其他活动2', value: 112 },
+
         ]
     },
-    {
-        name: '墙盒',
-        id: 6,
-        value: 1320,
-        children: [
-            { name: '墙盒售后问题', value: 142 },
-            { name: '墙盒安装问题', value: 78 }
-        ]
-    }
 ]
 export const echartsConfig = {
     title: {
@@ -156,61 +119,37 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '警示灯',
-        value: 1390,
+        name: '五星服务',
+        value: 630,
         id: 1,
         children: [
-            { name: '停止运作(SOS、ESP)', value: 100 },
-            { name: '故障灯消除方式', value: 200 },
-            { name: '油表灯亮剩余行驶能力咨询', value: 320 },
-            { name: '蓄电池故障', value: 120 },
-            { name: '警示灯报警提示(主动制动辅助系统)', value: 110 },
-            { name: '警示灯报警提示(冷却液)', value: 100 },
-            { name: '警示灯报警提示(发动机)', value: 119 },
-            { name: '警示灯报警提示(气囊)', value: 128 },
-            { name: '警示灯报警提示(胎压)', value: 148 },
-            { name: '警示灯报警提示(防侧滑/ABS故障)', value: 88 },
-            { name: '警示灯报警提示(驻车制动器)', value: 68 },
-            { name: '警示灯种类咨询', value: 218 },
+            { name: '星驿站咨询', value: 100 },
+            { name: '星助理咨询', value: 200 },
+            { name: '机场停车服务相关咨询', value: 320 },
 
         ]
     },
 
     {
-        name: '车联网相关',
+        name: '金融',
         value: 1390,
         id: 1,
         children: [
-            { name: 'baidu coffe问题咨询', value: 108 },
-            { name: 'carplay投屏问题', value: 219 },
-            { name: 'carplay连接问题', value: 179 },
-            { name: '咨询是否有carplay功能', value: 279 },
-            { name: '应用商店咨询', value: 65 },
-            { name: '微信互联咨询', value: 125 },
-            { name: '投屏问题咨询', value: 139 },
-            { name: '浏览器咨询', value: 35 }
+            { name: '购置税相关咨询', value: 108 },
+            { name: '重购政策咨询', value: 219 },
+            { name: '金融置换服务咨询（置换补贴）', value: 179 },
+            { name: '金融购车相关（贷款/还款）', value: 279 },
         ]
     },
 
     {
-        name: '车钥匙和锁',
+        name: '其他活动',
         value: 1390,
         id: 1,
         children: [
-            { name: '儿童锁问题咨询', value: 85 },
-            { name: '定位问题', value: 135 },
-            { name: '开启/关闭问题', value: 203 },
-            { name: '无钥匙进入咨询', value: 109 },
-            { name: '电力问题', value: 209 },
-            { name: '车钥匙功能咨询', value: 111 },
-            { name: '车钥匙损坏', value: 209 },
-            { name: '车钥匙维修', value: 143 },
-            { name: '车钥匙询价', value: 129 },
-            { name: '车钥匙锁在车内的解决办法', value: 69 },
-            { name: '远程解锁/操作问询', value: 96 },
-            { name: '配钥匙相关咨询', value: 128 },
-            { name: '钥匙丢失问题咨询', value: 201 },
-            { name: '钥匙检测问题咨询', value: 106 }
+            { name: '星友荟活动相关咨询', value: 85 },
+            { name: "She's Mercedes活动", value: 135 },
+            { name: 'AMG Club活动', value: 85 },
         ]
     },
 
@@ -262,7 +201,7 @@ export const l2_l3pie = {
 
 
 
-const ciyuanList = '发动机,变速器,离合器,燃油泵,点火器,散热器,空气滤清器,燃油滤清器,机油滤清器,防冻液箱,刹车盘,刹车片,刹车油管,刹车液,刹车助力器,方向机,车灯,尾灯,前雾灯,后雾灯,转向灯,雨刷器,雨刷片,轮胎,轮毂,轮轴,悬挂系统,减震器,弹簧,手刹,座椅,安全带,玻璃,车门,车顶,空调,空调滤清器,空调压缩机,空调冷凝器,空调蒸发器,空调风扇,空调控制器,节气门,油门,换挡杆,油箱,轿车,跑车,越野车,货车,客车,敞篷车,救护车,消防车,警车,校车,巴士,车身,底盘,汽油,柴油,电动车,涡轮增压器,后桥,前桥,驱动轴,离合器片,离合器盘,摩擦片,离合器离合器,润滑油,传动轴,万向节,凸轮轴,连杆,曲轴,活塞,缸套,气门,火花塞,缸盖,缸底盘,气门导管,气门弹簧,摩擦片,摩擦垫,制动灯,制动鼓,驻车制动,制动踏板,真空泵,进气歧管,排气管,催化转化器,轮轴承,发电机,电瓶,电机,前叉,后叉,车把,车床,车轮,车把手,车铃,车篮,链条,链轮,行车电脑,驾驶员信息显示器,排气系统,排气歧管,排气管中段,排气消声器,排气管末端,加速踏板,刹车踏板,离合器踏板,制动器,制动盘,转向盘,方向机传动装置,前避震器,后避震器,空气弹簧,膨胀水箱,发动机支撑装置,螺旋弹簧,吸气管'
+const ciyuanList = '车主认证类,五星服务,产品类,服务类,金融,电商平台,售后服务措施,经销商销售活动,经销商售后活动,其他活动'
 
 
 const c1list = ciyuanList.split(',').map((x, index) => {

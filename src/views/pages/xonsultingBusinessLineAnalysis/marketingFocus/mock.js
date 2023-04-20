@@ -7,89 +7,120 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '仪表盘',
-        value: 1320,
+        name: '特殊购买类型',
+        value: 1620,
         id: 1,
         children: [
-            { name: '警示灯', value: 112 },
-            { name: '信息显示', value: 206 },
-            { name: '操作设置', value: 298 },
-            { name: '智能辅助操作系统', value: 432 },
-            { name: '雨刮操作', value: 112 },
+            { name: '大客户购车', value: 112 },
+            { name: '二手车购置', value: 206 },
+            { name: '留学生购车', value: 298 },
+            { name: '使馆购车', value: 432 },
+
 
         ]
     },
     {
-        name: '车辆召回',
+        name: '购买与交付',
         value: 3320,
         id: 2,
         children: [
-            { name: '咨询召回原因和范围', value: 111 },
-            { name: '咨询召回时间', value: 112 },
-            { name: '咨询召回费用', value: 123 },
-            { name: '咨询召回政策', value: 146 }
+            { name: '试乘试驾/新车上市时间', value: 112 },
+            { name: '配置查询', value: 112 },
+            { name: '预订', value: 123 },
+            { name: '物流运输', value: 146 },
+
+            { name: '上牌事宜', value: 112 },
+            { name: '保险事宜', value: 123 },
+            { name: 'PDI', value: 146 },
+            { name: '合同相关', value: 123 },
+            { name: '新车交车环节', value: 146 },
         ]
     },
     {
-        name: 'COMAND系统',
+        name: '车辆价格',
         id: 3,
         value: 5320,
         children: [
-            { name: '导航', value: 203 },
-            { name: '收音机', value: 208 },
-            { name: '电话', value: 321 },
-            { name: '媒体', value: 124 },
-            { name: '车辆', value: 132 },
-            { name: '辅助', value: 169 },
-            { name: '系统', value: 177 },
-            { name: '空调', value: 115 },
-            { name: '蓝牙', value: 214 },
-            { name: '车联网相关', value: 301 },
-            { name: '行车记录仪', value: 121 },
-            { name: '常用选项', value: 212 },
-            { name: '背景主题', value: 115 },
-            { name: '屏幕显示', value: 118 }
+            { name: '市场指导价', value: 203 },
+            { name: '选装套餐价格', value: 208 },
+            { name: '购车产生的额外费用', value: 321 }
         ]
     },
     {
-        name: '外部',
+        name: '金融与租赁',
         id: 4,
         value: 3320,
         children: [
-            { name: '前机舱', value: 112 },
-            { name: '后尾部', value: 143 },
-            { name: '外部后视镜', value: 176 },
-            { name: '底盘', value: 124 },
-            { name: '车钥匙和锁', value: 203 },
-            { name: '轮毂和轮胎', value: 178 },
-            { name: '车外部照明', value: 187 },
-            { name: '三电系统', value: 214 },
-            { name: '整车相关', value: 132 }
+            { name: '审批流程', value: 112 },
+            { name: '贷款利率及计算/金融服务费', value: 143 },
+            { name: '解押相关', value: 176 },
+            { name: '还款事宜', value: 124 },
+            { name: '租赁相关', value: 203 },
         ]
     },
     {
-        name: '内部',
+        name: '售前信息反馈',
         id: 5,
         value: 2320,
         children: [
-            { name: '方向盘', value: 114 },
-            { name: '天窗及前后风挡玻璃', value: 112 },
-            { name: '座椅', value: 124 },
-            { name: '车内后视镜', value: 203 },
-            { name: '车内照明', value: 333 },
-            { name: '音响', value: 68 },
-            { name: '随车配件及供电设备', value: 179 },
-            { name: '后排娱乐系统', value: 180 },
-            { name: '内部相关', value: 200 }
+            { name: '销售流程建议', value: 114 },
+            { name: '精品相关', value: 112 },
+            { name: '索要产品手册/杂志', value: 124 },
+ 
         ]
     },
     {
-        name: '墙盒',
+        name: '维修与保修咨询',
         id: 6,
-        value: 1320,
+        value: 1820,
         children: [
-            { name: '墙盒售后问题', value: 142 },
-            { name: '墙盒安装问题', value: 78 }
+            { name: '三包&保修政策', value: 203 },
+            { name: '自费零部件保修', value: 333 },
+            { name: '维修进度查询', value: 333 },
+        ]
+    },
+    {
+        name: '保养咨询',
+        id: 6,
+        value: 1560,
+        children: [
+            { name: '保养政策', value: 203 },
+            { name: '保养相关', value: 333 },
+        ]
+    },
+    {
+        name: '售后产品购买',
+        id: 6,
+        value: 1782,
+        children: [
+            { name: '修养套餐购买', value: 203 },
+            { name: '延保购买', value: 333 }
+        ]
+    },
+    {
+        name: '道路救援',
+        id: 6,
+        value: 1980,
+        children: [
+            { name: '紧急道路救援', value: 203 },
+            { name: '道路救援报销', value: 333 }
+        ]
+    },
+    {
+        name: '保险相关',
+        id: 6,
+        value: 1562,
+        children: [
+            { name: '咨询车辆续保', value: 203 },
+            { name: '车辆事故出保', value: 333 }
+        ]
+    },
+    {
+        name: '售后信息反馈',
+        id: 6,
+        value: 1980,
+        children: [
+            { name: '售后流程建议', value: 203 },
         ]
     }
 ]
@@ -156,61 +187,44 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '警示灯',
+        name: '预订',
         value: 1390,
         id: 1,
         children: [
-            { name: '停止运作(SOS、ESP)', value: 100 },
-            { name: '故障灯消除方式', value: 200 },
-            { name: '油表灯亮剩余行驶能力咨询', value: 320 },
-            { name: '蓄电池故障', value: 120 },
-            { name: '警示灯报警提示(主动制动辅助系统)', value: 110 },
-            { name: '警示灯报警提示(冷却液)', value: 100 },
-            { name: '警示灯报警提示(发动机)', value: 119 },
-            { name: '警示灯报警提示(气囊)', value: 128 },
-            { name: '警示灯报警提示(胎压)', value: 148 },
-            { name: '警示灯报警提示(防侧滑/ABS故障)', value: 88 },
-            { name: '警示灯报警提示(驻车制动器)', value: 68 },
-            { name: '警示灯种类咨询', value: 218 },
+            { name: '预订购买车辆', value: 100 },
+            { name: '预订购买零部件', value: 200 },
+            { name: '特殊要求车辆预订', value: 320 },
+            { name: '特殊要求零部件预订', value: 120 },
+            { name: '现车咨询', value: 110 }
 
         ]
     },
 
     {
-        name: '车联网相关',
+        name: '配置查询',
         value: 1390,
         id: 1,
         children: [
-            { name: 'baidu coffe问题咨询', value: 108 },
-            { name: 'carplay投屏问题', value: 219 },
-            { name: 'carplay连接问题', value: 179 },
-            { name: '咨询是否有carplay功能', value: 279 },
-            { name: '应用商店咨询', value: 65 },
-            { name: '微信互联咨询', value: 125 },
-            { name: '投屏问题咨询', value: 139 },
-            { name: '浏览器咨询', value: 35 }
+            { name: '配置咨询', value: 108 },
+            { name: '车型对比咨询', value: 219 },
+            { name: '配置加装咨询', value: 179 },
+            { name: '配置选装咨询', value: 279 },
         ]
     },
 
     {
-        name: '车钥匙和锁',
+        name: '上牌事宜',
         value: 1390,
         id: 1,
         children: [
-            { name: '儿童锁问题咨询', value: 85 },
-            { name: '定位问题', value: 135 },
-            { name: '开启/关闭问题', value: 203 },
-            { name: '无钥匙进入咨询', value: 109 },
-            { name: '电力问题', value: 209 },
-            { name: '车钥匙功能咨询', value: 111 },
-            { name: '车钥匙损坏', value: 209 },
-            { name: '车钥匙维修', value: 143 },
-            { name: '车钥匙询价', value: 129 },
-            { name: '车钥匙锁在车内的解决办法', value: 69 },
-            { name: '远程解锁/操作问询', value: 96 },
-            { name: '配钥匙相关咨询', value: 128 },
-            { name: '钥匙丢失问题咨询', value: 201 },
-            { name: '钥匙检测问题咨询', value: 106 }
+            { name: '上牌相关流程咨询', value: 85 },
+            { name: '环保清单相关咨询', value: 135 },
+            { name: '发动机拓印相关咨询', value: 203 },
+            { name: '车架号拓印相关咨询', value: 109 },
+            { name: '补办购车发票', value: 209 },
+            { name: '进京证相关咨询', value: 111 },
+            { name: '排放标准相关咨询', value: 209 },
+            { name: '补办合格证', value: 143 }
         ]
     },
 
@@ -262,7 +276,7 @@ export const l2_l3pie = {
 
 
 
-const ciyuanList = '发动机,变速器,离合器,燃油泵,点火器,散热器,空气滤清器,燃油滤清器,机油滤清器,防冻液箱,刹车盘,刹车片,刹车油管,刹车液,刹车助力器,方向机,车灯,尾灯,前雾灯,后雾灯,转向灯,雨刷器,雨刷片,轮胎,轮毂,轮轴,悬挂系统,减震器,弹簧,手刹,座椅,安全带,玻璃,车门,车顶,空调,空调滤清器,空调压缩机,空调冷凝器,空调蒸发器,空调风扇,空调控制器,节气门,油门,换挡杆,油箱,轿车,跑车,越野车,货车,客车,敞篷车,救护车,消防车,警车,校车,巴士,车身,底盘,汽油,柴油,电动车,涡轮增压器,后桥,前桥,驱动轴,离合器片,离合器盘,摩擦片,离合器离合器,润滑油,传动轴,万向节,凸轮轴,连杆,曲轴,活塞,缸套,气门,火花塞,缸盖,缸底盘,气门导管,气门弹簧,摩擦片,摩擦垫,制动灯,制动鼓,驻车制动,制动踏板,真空泵,进气歧管,排气管,催化转化器,轮轴承,发电机,电瓶,电机,前叉,后叉,车把,车床,车轮,车把手,车铃,车篮,链条,链轮,行车电脑,驾驶员信息显示器,排气系统,排气歧管,排气管中段,排气消声器,排气管末端,加速踏板,刹车踏板,离合器踏板,制动器,制动盘,转向盘,方向机传动装置,前避震器,后避震器,空气弹簧,膨胀水箱,发动机支撑装置,螺旋弹簧,吸气管'
+const ciyuanList = '大客户购车,二手车购置,留学生购车,使馆购车,试乘试驾/新车上市时间,配置查询,预订,物流运输,上牌事宜,保险事宜,PDI,合同相关,新车交车环节,市场指导价,选装套餐价格,购车产生的额外费用,审批流程,贷款利率及计算/金融服务费,解押相关,还款事宜,租赁相关,销售流程建议,精品相关,索要产品手册/杂志,三包&保修政策,自费零部件保修,维修进度查询,保养政策,保养相关,修养套餐购买,延保购买,紧急道路救援,道路救援报销,道路救援相关政策,咨询车辆续保,车辆事故出保,售后流程建议'
 
 
 const c1list = ciyuanList.split(',').map((x, index) => {

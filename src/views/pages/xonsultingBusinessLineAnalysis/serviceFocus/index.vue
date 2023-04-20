@@ -1,19 +1,15 @@
 <template>
     <el-container>
+     
         <el-header class="header-box">
-
             <div>
-                <div>
-                    <span style="color: #409eff;font-weight: 800;">产品:共18071条有效数据,包含6个二级指标，44个三级指标</span>
-                </div>
-                <div style="margin-top: 5px;color: #909399;">
-                    产品重点的三级指标分别为车钥匙和锁、车联网相关和警示灯
-                </div>
-            </div>
-            <div>
-                <el-button type="danger" @click="goIndex">指标分析</el-button>
-            </div>
+                <span style="color: #409eff;font-weight: 800;">中央服务:共3514条有效数据，包含7个二级指标，28个三级指标
 
+                </span>
+            </div>
+            <div style="margin-top: 5px;color: #909399;">
+                中央服务重点的三级指标分别为经销商信息、功能使用相关和车辆绑定
+            </div>
         </el-header>
         <el-main>
             <div>
@@ -38,7 +34,7 @@
                                 <div class="l3-l45-title">
                                     三级指标:{{ item.name }}_{{ item.value }}
                                 </div>
-                                <el-table :data="item.children" style="width: 100%" stripe height="500" border>
+                                <el-table :data="item.children" style="width: 100%" stripe height="300" border>
                                     <el-table-column prop="name" label="名称" width="180" show-overflow-tooltip>
                                     </el-table-column>
                                     <el-table-column prop="percent" label="百分比" width="80">
@@ -141,9 +137,6 @@ export default {
         }
     },
     methods: {
-        goIndex(){
-            this.$router.push('indexAnalysis')
-        },
         clickL2Item (params) {
             const { name } = params
             const target = this.list.find(item => item.name == name)
@@ -167,10 +160,9 @@ export default {
 .header-box {
     height: 60px;
     display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     background: aliceblue;
-    align-items: center;
 }
 
 .l2-box {

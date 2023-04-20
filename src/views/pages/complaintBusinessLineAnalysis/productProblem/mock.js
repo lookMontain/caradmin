@@ -7,91 +7,65 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '仪表盘',
-        value: 1320,
+        name: '信守承诺',
+        value: 1123,
         id: 1,
         children: [
-            { name: '警示灯', value: 112 },
-            { name: '信息显示', value: 206 },
-            { name: '操作设置', value: 298 },
-            { name: '智能辅助操作系统', value: 432 },
-            { name: '雨刮操作', value: 112 },
+            { name: '承诺赠送未兑现', value: 112 },
+            { name: '承诺购车优惠未兑现', value: 206 },
+            { name: '未按照约定提供相应配置或按时交车', value: 134 },
+            { name: '承诺退费未兑现', value: 121 },
+            { name: '承诺的加装未兑现', value: 145 },
+            { name: '附加服务承诺纠纷', value: 132 },
+            { name: '其他', value: 145 },
 
         ]
     },
     {
-        name: '车辆召回',
-        value: 3320,
+        name: '售前服务态度',
+        value: 1245,
         id: 2,
         children: [
-            { name: '咨询召回原因和范围', value: 111 },
-            { name: '咨询召回时间', value: 112 },
-            { name: '咨询召回费用', value: 123 },
-            { name: '咨询召回政策', value: 146 }
+            { name: '态度', value: 112 },
+            { name: '无人接待/无人理睬', value: 112 },
+            { name: '沟通/服务意识/销售技巧', value: 112 },
+            { name: '电话/微信', value: 112 },
+            { name: '其他', value: 112 }
         ]
     },
     {
-        name: 'COMAND系统',
+        name: '退还订/定金',
         id: 3,
-        value: 5320,
+        value: 1233,
         children: [
-            { name: '导航', value: 203 },
-            { name: '收音机', value: 208 },
-            { name: '电话', value: 321 },
-            { name: '媒体', value: 124 },
-            { name: '车辆', value: 132 },
-            { name: '辅助', value: 169 },
-            { name: '系统', value: 177 },
-            { name: '空调', value: 115 },
-            { name: '蓝牙', value: 214 },
-            { name: '车联网相关', value: 301 },
-            { name: '行车记录仪', value: 121 },
-            { name: '常用选项', value: 212 },
-            { name: '背景主题', value: 115 },
-            { name: '屏幕显示', value: 118 }
+            { name: '签订合同', value: 203 },
+            { name: '明确表示未签订合同', value: 208 },
+            { name: '未提及合同', value: 321 },
+            { name: '有收据/发票', value: 321 }
         ]
     },
     {
-        name: '外部',
+        name: '销售顾问专业水平',
         id: 4,
-        value: 3320,
+        value: 564,
         children: [
-            { name: '前机舱', value: 112 },
-            { name: '后尾部', value: 143 },
-            { name: '外部后视镜', value: 176 },
-            { name: '底盘', value: 124 },
-            { name: '车钥匙和锁', value: 203 },
-            { name: '轮毂和轮胎', value: 178 },
-            { name: '车外部照明', value: 187 },
-            { name: '三电系统', value: 214 },
-            { name: '整车相关', value: 132 }
+            { name: '销售技能专业水平', value: 112 },
+            { name: '产品介绍专业水平', value: 143 },
+            { name: '金融贷款纠纷', value: 125 },
+            { name: '其他', value: 154 }
         ]
     },
     {
-        name: '内部',
+        name: '服务公约',
         id: 5,
-        value: 2320,
+        value: 456,
         children: [
-            { name: '方向盘', value: 114 },
-            { name: '天窗及前后风挡玻璃', value: 112 },
-            { name: '座椅', value: 124 },
-            { name: '车内后视镜', value: 203 },
-            { name: '车内照明', value: 333 },
-            { name: '音响', value: 68 },
-            { name: '随车配件及供电设备', value: 179 },
-            { name: '后排娱乐系统', value: 180 },
-            { name: '内部相关', value: 200 }
+            { name: '捆绑消费', value: 114 },
+            { name: '强制消费', value: 112 },
+            { name: '发票金额有出入', value: 124 },
+            { name: '未提供发票', value: 231 },
         ]
     },
-    {
-        name: '墙盒',
-        id: 6,
-        value: 1320,
-        children: [
-            { name: '墙盒售后问题', value: 142 },
-            { name: '墙盒安装问题', value: 78 }
-        ]
-    }
 ]
 export const echartsConfig = {
     title: {
@@ -125,7 +99,7 @@ export const echartsConfig = {
     series: [
 
         {
-            name: '产品关注',
+            name: '产品问题',
             type: 'bar',
             barWidth: '30px',
             itemStyle: {
@@ -156,61 +130,43 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '警示灯',
-        value: 1390,
+        name: '信守承诺',
+        value: 630,
         id: 1,
         children: [
-            { name: '停止运作(SOS、ESP)', value: 100 },
-            { name: '故障灯消除方式', value: 200 },
-            { name: '油表灯亮剩余行驶能力咨询', value: 320 },
-            { name: '蓄电池故障', value: 120 },
-            { name: '警示灯报警提示(主动制动辅助系统)', value: 110 },
-            { name: '警示灯报警提示(冷却液)', value: 100 },
-            { name: '警示灯报警提示(发动机)', value: 119 },
-            { name: '警示灯报警提示(气囊)', value: 128 },
-            { name: '警示灯报警提示(胎压)', value: 148 },
-            { name: '警示灯报警提示(防侧滑/ABS故障)', value: 88 },
-            { name: '警示灯报警提示(驻车制动器)', value: 68 },
-            { name: '警示灯种类咨询', value: 218 },
+            { name: '承诺赠送未兑现', value: 112 },
+            { name: '承诺购车优惠未兑现', value: 206 },
+            { name: '未按照约定提供相应配置或按时交车', value: 134 },
+            { name: '承诺退费未兑现', value: 121 },
+            { name: '承诺的加装未兑现', value: 145 },
+            { name: '附加服务承诺纠纷', value: 132 },
+            { name: '其他', value: 145 },
 
         ]
     },
 
     {
-        name: '车联网相关',
+        name: '售前服务态度',
         value: 1390,
         id: 1,
         children: [
-            { name: 'baidu coffe问题咨询', value: 108 },
-            { name: 'carplay投屏问题', value: 219 },
-            { name: 'carplay连接问题', value: 179 },
-            { name: '咨询是否有carplay功能', value: 279 },
-            { name: '应用商店咨询', value: 65 },
-            { name: '微信互联咨询', value: 125 },
-            { name: '投屏问题咨询', value: 139 },
-            { name: '浏览器咨询', value: 35 }
+            { name: '态度', value: 112 },
+            { name: '无人接待/无人理睬', value: 112 },
+            { name: '沟通/服务意识/销售技巧', value: 112 },
+            { name: '电话/微信', value: 112 },
+            { name: '其他', value: 112 }
         ]
     },
 
     {
-        name: '车钥匙和锁',
+        name: '服务公约',
         value: 1390,
         id: 1,
         children: [
-            { name: '儿童锁问题咨询', value: 85 },
-            { name: '定位问题', value: 135 },
-            { name: '开启/关闭问题', value: 203 },
-            { name: '无钥匙进入咨询', value: 109 },
-            { name: '电力问题', value: 209 },
-            { name: '车钥匙功能咨询', value: 111 },
-            { name: '车钥匙损坏', value: 209 },
-            { name: '车钥匙维修', value: 143 },
-            { name: '车钥匙询价', value: 129 },
-            { name: '车钥匙锁在车内的解决办法', value: 69 },
-            { name: '远程解锁/操作问询', value: 96 },
-            { name: '配钥匙相关咨询', value: 128 },
-            { name: '钥匙丢失问题咨询', value: 201 },
-            { name: '钥匙检测问题咨询', value: 106 }
+            { name: '捆绑消费', value: 114 },
+            { name: '强制消费', value: 112 },
+            { name: '发票金额有出入', value: 124 },
+            { name: '未提供发票', value: 231 },
         ]
     },
 
@@ -262,9 +218,7 @@ export const l2_l3pie = {
 
 
 
-const ciyuanList = '发动机,变速器,离合器,燃油泵,点火器,散热器,空气滤清器,燃油滤清器,机油滤清器,防冻液箱,刹车盘,刹车片,刹车油管,刹车液,刹车助力器,方向机,车灯,尾灯,前雾灯,后雾灯,转向灯,雨刷器,雨刷片,轮胎,轮毂,轮轴,悬挂系统,减震器,弹簧,手刹,座椅,安全带,玻璃,车门,车顶,空调,空调滤清器,空调压缩机,空调冷凝器,空调蒸发器,空调风扇,空调控制器,节气门,油门,换挡杆,油箱,轿车,跑车,越野车,货车,客车,敞篷车,救护车,消防车,警车,校车,巴士,车身,底盘,汽油,柴油,电动车,涡轮增压器,后桥,前桥,驱动轴,离合器片,离合器盘,摩擦片,离合器离合器,润滑油,传动轴,万向节,凸轮轴,连杆,曲轴,活塞,缸套,气门,火花塞,缸盖,缸底盘,气门导管,气门弹簧,摩擦片,摩擦垫,制动灯,制动鼓,驻车制动,制动踏板,真空泵,进气歧管,排气管,催化转化器,轮轴承,发电机,电瓶,电机,前叉,后叉,车把,车床,车轮,车把手,车铃,车篮,链条,链轮,行车电脑,驾驶员信息显示器,排气系统,排气歧管,排气管中段,排气消声器,排气管末端,加速踏板,刹车踏板,离合器踏板,制动器,制动盘,转向盘,方向机传动装置,前避震器,后避震器,空气弹簧,膨胀水箱,发动机支撑装置,螺旋弹簧,吸气管'
-
-
+const ciyuanList ='故障,维修,召回,事故,安全,质量问题,保养,保修,退款,服务,保险,索赔,不良品,速度,燃油效率,刹车,方向盘,发动机,排放,电池问题,空调问题,车门问题,电子设备问题,制动系统问题,变速器问题,轮胎问题,车灯问题,悬挂系统问题,冷却系统问题,噪音问题,异味问题,内饰问题,外观问题,停车问题,路感问题,动力系统问题,方向盘问题,车身稳定性问题,燃油系统问题'
 const c1list = ciyuanList.split(',').map((x, index) => {
     if (index === 5) {
         return {

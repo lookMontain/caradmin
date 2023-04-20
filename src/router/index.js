@@ -64,6 +64,36 @@ export const constantRoutes = [
       component: () => import('@/views/pages/xonsultingBusinessLineAnalysis/productFocus/index.vue'),
       meta: { title: '产品关注', icon: 'productFocus' }
     },
+    {
+      path: 'marketingFocus',
+      name: 'marketingFocus',
+      component: () => import('@/views/pages/xonsultingBusinessLineAnalysis/marketingFocus/index.vue'),
+      meta: { title: '营销关注', icon: 'marketingFocus' }
+    },
+    {
+      path: 'activityInterest',
+      name: 'activityInterest',
+      component: () => import('@/views/pages/xonsultingBusinessLineAnalysis/activityInterest/index.vue'),
+      meta: { title: '活动兴趣', icon: 'activityInterest' }
+    },
+    {
+      path: 'serviceFocus',
+      name: 'serviceFocus',
+      component: () => import('@/views/pages/xonsultingBusinessLineAnalysis/serviceFocus/index.vue'),
+      meta: { title: '服务焦点', icon: 'serviceFocus' }
+    },
+    {
+      path: 'productProblem',
+      name: 'productProblem',
+      component: () => import('@/views/pages/complaintBusinessLineAnalysis/productProblem/index.vue'),
+      meta: { title: '产品问题', icon: 'productProblem' }
+    },
+    {
+      path: 'indexAnalysis',
+      name: 'indexAnalysis',
+      component: () => import('@/views/pages/indexAnalysis/index.vue'),
+      meta: { title: '指标分析', icon: 'indexAnalysis' }
+    },
     
     
     {

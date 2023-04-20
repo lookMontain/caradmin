@@ -7,89 +7,122 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '仪表盘',
-        value: 1320,
+        name: '智能互联（互联1.0）',
+        value: 1620,
         id: 1,
         children: [
-            { name: '警示灯', value: 112 },
-            { name: '信息显示', value: 206 },
-            { name: '操作设置', value: 298 },
-            { name: '智能辅助操作系统', value: 432 },
-            { name: '雨刮操作', value: 112 },
+            { name: '软件下载', value: 112 },
+            { name: '注册&登陆', value: 206 },
+            { name: '功能使用相关', value: 298 },
+            { name: '续费', value: 432 },
+
 
         ]
     },
     {
-        name: '车辆召回',
-        value: 3320,
+        name: 'Mercedes me互联商店',
+        value: 112,
         id: 2,
         children: [
-            { name: '咨询召回原因和范围', value: 111 },
-            { name: '咨询召回时间', value: 112 },
-            { name: '咨询召回费用', value: 123 },
-            { name: '咨询召回政策', value: 146 }
+            { name: '购买服务/续费', value: 112 },
         ]
     },
     {
-        name: 'COMAND系统',
+        name: 'Mercedes me 互联/ MMA app（互联2.0）',
         id: 3,
-        value: 5320,
+        value: 1233,
         children: [
-            { name: '导航', value: 203 },
-            { name: '收音机', value: 208 },
-            { name: '电话', value: 321 },
-            { name: '媒体', value: 124 },
-            { name: '车辆', value: 132 },
-            { name: '辅助', value: 169 },
-            { name: '系统', value: 177 },
-            { name: '空调', value: 115 },
-            { name: '蓝牙', value: 214 },
-            { name: '车联网相关', value: 301 },
-            { name: '行车记录仪', value: 121 },
-            { name: '常用选项', value: 212 },
-            { name: '背景主题', value: 115 },
-            { name: '屏幕显示', value: 118 }
+            { name: '软件下载', value: 123 },
+            { name: '注册&登陆', value: 125 },
+            { name: '实名认证', value: 342 },
+            { name: '车辆绑定', value: 124 },
+            { name: '功能使用相关', value: 423 }
         ]
     },
     {
-        name: '外部',
+        name: '梅赛德斯奔驰官方应用程序',
         id: 4,
-        value: 3320,
+        value: 3213,
         children: [
-            { name: '前机舱', value: 112 },
-            { name: '后尾部', value: 143 },
-            { name: '外部后视镜', value: 176 },
-            { name: '底盘', value: 124 },
-            { name: '车钥匙和锁', value: 203 },
-            { name: '轮毂和轮胎', value: 178 },
-            { name: '车外部照明', value: 187 },
-            { name: '三电系统', value: 214 },
-            { name: '整车相关', value: 132 }
+            { name: '软件下载', value: 187 },
+            { name: '注册&登陆', value: 156 },
+            { name: '实名认证', value: 176 },
+            { name: '车辆绑定', value: 122 },
+            { name: '功能使用相关', value: 122 },
         ]
     },
     {
-        name: '内部',
+        name: '其他应用',
         id: 5,
-        value: 2320,
+        value: 123,
         children: [
-            { name: '方向盘', value: 114 },
-            { name: '天窗及前后风挡玻璃', value: 112 },
-            { name: '座椅', value: 124 },
-            { name: '车内后视镜', value: 203 },
-            { name: '车内照明', value: 333 },
-            { name: '音响', value: 68 },
-            { name: '随车配件及供电设备', value: 179 },
-            { name: '后排娱乐系统', value: 180 },
-            { name: '内部相关', value: 200 }
+            { name: '奔驰微信小程序相关咨询', value: 123 },
+ 
         ]
     },
     {
-        name: '墙盒',
+        name: '经销商相关问询',
         id: 6,
-        value: 1320,
+        value: 1820,
         children: [
-            { name: '墙盒售后问题', value: 142 },
-            { name: '墙盒安装问题', value: 78 }
+            { name: '经销商信息', value: 244 },
+            { name: '经销商销售问题反馈', value: 134 },
+            { name: '经销商售后问题反馈', value: 122 },
+            { name: '撤销投诉', value: 123 },
+            { name: '经销商员工问询', value: 145 },
+        ]
+    },
+    {
+        name: '非奔驰乘用车业务',
+        id: 6,
+        value: 1560,
+        children: [
+            { name: '奔驰卡车咨询', value: 198 },
+            { name: '腾势', value: 125 },
+            { name: '巴博斯/劳伦士/卡尔森', value: 234 },
+            { name: '进口商务车', value: 123 },
+        ]
+    },
+    {
+        name: '公司信息和公共关系',
+        id: 6,
+        value: 1782,
+        children: [
+            { name: '个人信息修改', value: 203 },
+            { name: '核实电话真实性', value: 124 },
+            { name: '第三方协查/走私车', value: 203 },
+            { name: '公共关系', value: 248 },
+            { name: '热点事件', value: 203 },
+            { name: '市场合作', value: 333 },
+            { name: '经销商网络开发', value: 123 },
+            { name: '非奔驰车主咨询', value: 321 },
+            { name: '奔驰公司信息咨询', value: 145 },
+        ]
+    },
+    {
+        name: '道路救援',
+        id: 6,
+        value: 1980,
+        children: [
+            { name: '紧急道路救援', value: 203 },
+            { name: '道路救援报销', value: 333 }
+        ]
+    },
+    {
+        name: '保险相关',
+        id: 6,
+        value: 1562,
+        children: [
+            { name: '咨询车辆续保', value: 203 },
+            { name: '车辆事故出保', value: 333 }
+        ]
+    },
+    {
+        name: '售后信息反馈',
+        id: 6,
+        value: 1980,
+        children: [
+            { name: '售后流程建议', value: 203 },
         ]
     }
 ]
@@ -156,61 +189,46 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '警示灯',
-        value: 1390,
+        name: '经销商信息',
+        value: 479,
         id: 1,
         children: [
-            { name: '停止运作(SOS、ESP)', value: 100 },
-            { name: '故障灯消除方式', value: 200 },
-            { name: '油表灯亮剩余行驶能力咨询', value: 320 },
-            { name: '蓄电池故障', value: 120 },
-            { name: '警示灯报警提示(主动制动辅助系统)', value: 110 },
-            { name: '警示灯报警提示(冷却液)', value: 100 },
-            { name: '警示灯报警提示(发动机)', value: 119 },
-            { name: '警示灯报警提示(气囊)', value: 128 },
-            { name: '警示灯报警提示(胎压)', value: 148 },
-            { name: '警示灯报警提示(防侧滑/ABS故障)', value: 88 },
-            { name: '警示灯报警提示(驻车制动器)', value: 68 },
-            { name: '警示灯种类咨询', value: 218 },
+            { name: '客户问询有销售权限经销商信息', value: 123 },
+            { name: '客户问询有售后服务权限经销商信息', value: 456 },
 
         ]
     },
 
     {
-        name: '车联网相关',
+        name: '功能使用相关',
         value: 1390,
         id: 1,
         children: [
-            { name: 'baidu coffe问题咨询', value: 108 },
-            { name: 'carplay投屏问题', value: 219 },
-            { name: 'carplay连接问题', value: 179 },
-            { name: '咨询是否有carplay功能', value: 279 },
-            { name: '应用商店咨询', value: 65 },
-            { name: '微信互联咨询', value: 125 },
-            { name: '投屏问题咨询', value: 139 },
-            { name: '浏览器咨询', value: 35 }
+            { name: '远程定位车辆相关咨询', value: 108 },
+            { name: '远程发送导航目的地相关咨询', value: 219 },
+            { name: '远程解锁车辆相关咨询', value: 179 },
+            { name: 'ME互联功能咨询', value: 279 },
+
+            { name: 'ME互联续费咨询', value: 234 },
+            { name: '互联APP使用问题（绑定等）', value: 123 },
+            { name: '互联APP使用问题（开通、PIN码重置等）', value: 321 },
+            { name: '蓄电池临界点短信咨询', value: 112 },
+
+            { name: '在线购车', value: 241 },
+            { name: '星友荟', value: 134 },
+            { name: '维修保养预约功能', value: 157 },
+            { name: '道路救援功能', value: 132 },
         ]
     },
 
     {
-        name: '车钥匙和锁',
-        value: 1390,
+        name: '车辆绑定',
+        value: 434,
         id: 1,
         children: [
-            { name: '儿童锁问题咨询', value: 85 },
-            { name: '定位问题', value: 135 },
-            { name: '开启/关闭问题', value: 203 },
-            { name: '无钥匙进入咨询', value: 109 },
-            { name: '电力问题', value: 209 },
-            { name: '车钥匙功能咨询', value: 111 },
-            { name: '车钥匙损坏', value: 209 },
-            { name: '车钥匙维修', value: 143 },
-            { name: '车钥匙询价', value: 129 },
-            { name: '车钥匙锁在车内的解决办法', value: 69 },
-            { name: '远程解锁/操作问询', value: 96 },
-            { name: '配钥匙相关咨询', value: 128 },
-            { name: '钥匙丢失问题咨询', value: 201 },
-            { name: '钥匙检测问题咨询', value: 106 }
+            { name: '车辆绑定咨询', value: 123 },
+            { name: '车辆解绑咨询', value: 321 },
+
         ]
     },
 
@@ -262,7 +280,7 @@ export const l2_l3pie = {
 
 
 
-const ciyuanList = '发动机,变速器,离合器,燃油泵,点火器,散热器,空气滤清器,燃油滤清器,机油滤清器,防冻液箱,刹车盘,刹车片,刹车油管,刹车液,刹车助力器,方向机,车灯,尾灯,前雾灯,后雾灯,转向灯,雨刷器,雨刷片,轮胎,轮毂,轮轴,悬挂系统,减震器,弹簧,手刹,座椅,安全带,玻璃,车门,车顶,空调,空调滤清器,空调压缩机,空调冷凝器,空调蒸发器,空调风扇,空调控制器,节气门,油门,换挡杆,油箱,轿车,跑车,越野车,货车,客车,敞篷车,救护车,消防车,警车,校车,巴士,车身,底盘,汽油,柴油,电动车,涡轮增压器,后桥,前桥,驱动轴,离合器片,离合器盘,摩擦片,离合器离合器,润滑油,传动轴,万向节,凸轮轴,连杆,曲轴,活塞,缸套,气门,火花塞,缸盖,缸底盘,气门导管,气门弹簧,摩擦片,摩擦垫,制动灯,制动鼓,驻车制动,制动踏板,真空泵,进气歧管,排气管,催化转化器,轮轴承,发电机,电瓶,电机,前叉,后叉,车把,车床,车轮,车把手,车铃,车篮,链条,链轮,行车电脑,驾驶员信息显示器,排气系统,排气歧管,排气管中段,排气消声器,排气管末端,加速踏板,刹车踏板,离合器踏板,制动器,制动盘,转向盘,方向机传动装置,前避震器,后避震器,空气弹簧,膨胀水箱,发动机支撑装置,螺旋弹簧,吸气管'
+const ciyuanList = '软件下载,注册&登陆,功能使用相关,续费,购买服务/续费,软件下载,注册&登陆,实名认证,车辆绑定,功能使用相关,软件下载,注册&登陆,实名认证,车辆绑定,功能使用相关,奔驰微信小程序相关咨询,经销商信息,经销商销售问题反馈,经销商售后问题反馈,撤销投诉,车门和车窗,经销商员工问询,奔驰卡车咨询,腾势,巴博斯/劳伦士/卡尔森,进口商务车,个人信息修改,核实电话真实性,第三方协查/走私车,公共关系,热点事件,市场合作,经销商网络开发,非奔驰车主咨询,奔驰公司信息咨询'
 
 
 const c1list = ciyuanList.split(',').map((x, index) => {
