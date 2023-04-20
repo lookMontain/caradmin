@@ -28,19 +28,19 @@
                     <el-row :gutter="20" style="margin-top: 10px;">
                         <el-col :span="8" v-for="(item, index) in l3_l45ListComputed">
                             <div class="grid-content bg-purple">
-                                <div>
-                                    <el-link type="primary">L3_{{ item.name + item.value }}</el-link>
-        
+                                <div style="background: #137c7f; color:#ffffff">
+
+                                    L3_{{ item.name + item.value }}
                                 </div>
-                                <el-table :data="item.children" style="width: 100%" stripe height="500">
-                                    <el-table-column prop="name" label="名称" width="180">
+                                <el-table :data="item.children" style="width: 100%" stripe height="500" border>
+                                    <el-table-column prop="name" label="名称" width="180" show-overflow-tooltip>
                                     </el-table-column>
                                     <el-table-column prop="percent" label="百分比" width="80">
                                         <template slot-scope="props">
                                             {{ props.row.percent }} %
                                         </template>
                                     </el-table-column>
-                                    <el-table-column prop="value" label="数值">
+                                    <el-table-column prop="value" label="数值" sortable>
                                     </el-table-column>
                                 </el-table>
                             </div>

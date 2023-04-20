@@ -1,4 +1,5 @@
-export const list = [
+const echarts = require('echarts')
+ export const list = [
     {
         name: '仪表盘',
         value: 1320,
@@ -120,9 +121,28 @@ export const echartsConfig = {
         {
             name: '产品关注',
             type: 'bar',
+            barWidth: '30px',
+            itemStyle: {
+                color: "#137c7f",
+                normal: {
+                    // 设置每个柱状条的颜色为线性渐变
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            { offset: 0, color: '#90cacb' },
+                            { offset: 0.5, color: '#3f8588' },
+                            { offset: 1, color: '#137c7f' }
+                        ]
+                    )
+                }
+            },
             label: {
                 show: true,
                 position: 'inside'
+            },
+            showBackground: true,
+            backgroundStyle: {
+                color: 'rgba(180, 180, 180, 0.2)'
             },
             data: []
         }
@@ -155,14 +175,14 @@ export const l3_l45List = [
         value: 1390,
         id: 1,
         children: [
-            { name: 'baidu coffe问题咨询' , value: 108},
+            { name: 'baidu coffe问题咨询', value: 108 },
             { name: 'carplay投屏问题', value: 219 },
-            { name: 'carplay连接问题',value: 179  },
-            { name: '咨询是否有carplay功能',value: 279  },
-            { name: '应用商店咨询',value: 65  },
-            { name: '微信互联咨询' ,value: 125 },
-            { name: '投屏问题咨询',value: 139  },
-            { name: '浏览器咨询' ,value: 35 }
+            { name: 'carplay连接问题', value: 179 },
+            { name: '咨询是否有carplay功能', value: 279 },
+            { name: '应用商店咨询', value: 65 },
+            { name: '微信互联咨询', value: 125 },
+            { name: '投屏问题咨询', value: 139 },
+            { name: '浏览器咨询', value: 35 }
         ]
     },
 
@@ -171,20 +191,20 @@ export const l3_l45List = [
         value: 1390,
         id: 1,
         children: [
-            { name: '儿童锁问题咨询',value: 85 },
-            { name: '定位问题' ,value: 135},
-            { name: '开启/关闭问题',value: 203 },
-            { name: '无钥匙进入咨询',value: 109 },
-            { name: '电力问题',value: 209 },
-            { name: '车钥匙功能咨询',value: 111 },
-            { name: '车钥匙损坏',value: 209 },
-            { name: '车钥匙维修' ,value: 143},
-            { name: '车钥匙询价' ,value: 129},
-            { name: '车钥匙锁在车内的解决办法',value: 69 },
-            { name: '远程解锁/操作问询',value: 96 },
-            { name: '配钥匙相关咨询' ,value: 128},
-            { name: '钥匙丢失问题咨询' ,value: 201},
-            { name: '钥匙检测问题咨询',value: 106 }
+            { name: '儿童锁问题咨询', value: 85 },
+            { name: '定位问题', value: 135 },
+            { name: '开启/关闭问题', value: 203 },
+            { name: '无钥匙进入咨询', value: 109 },
+            { name: '电力问题', value: 209 },
+            { name: '车钥匙功能咨询', value: 111 },
+            { name: '车钥匙损坏', value: 209 },
+            { name: '车钥匙维修', value: 143 },
+            { name: '车钥匙询价', value: 129 },
+            { name: '车钥匙锁在车内的解决办法', value: 69 },
+            { name: '远程解锁/操作问询', value: 96 },
+            { name: '配钥匙相关咨询', value: 128 },
+            { name: '钥匙丢失问题咨询', value: 201 },
+            { name: '钥匙检测问题咨询', value: 106 }
         ]
     },
 
