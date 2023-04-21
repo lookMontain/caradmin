@@ -98,7 +98,7 @@ export const echartsConfig = {
     series: [
 
         {
-            name: '产品关注',
+            name: '活动兴趣',
             type: 'bar',
             barWidth: '30px',
             itemStyle: {
