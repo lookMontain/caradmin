@@ -1,12 +1,11 @@
 <template>
     <el-table :data="tableData" border style="width: 100%" align="center" :span-method="objectSpanMethod"
-    :cell-style="cellStyle"
-    >
+        :cell-style="cellStyle">
         <el-table-column prop="l1" label="一级指标">
         </el-table-column>
         <el-table-column prop="l2" label="二级指标">
         </el-table-column>
-        <el-table-column prop="l3" label="三级指标">
+        <el-table-column prop="l3" label="三级指标" width="180">
         </el-table-column>
         <el-table-column prop="m1" label="1月" header-align="center">
             <el-table-column prop="m1-value" label="值">
@@ -330,7 +329,7 @@ export default {
                 "m6-value": "123",
                 "m6-proportion": '11.7%',
                 'm6-h': "7.6%",
-            },{
+            }, {
                 l1: '产品',
                 l2: '车辆召回',
                 l3: '咨询召回政策',
@@ -358,7 +357,7 @@ export default {
                 "m6-value": "123",
                 "m6-proportion": '11.7%',
                 'm6-h': "7.6%",
-            },{
+            }, {
                 l1: '产品',
                 l2: '车辆召回',
                 l3: '咨询召回原因和范围',
@@ -386,7 +385,7 @@ export default {
                 "m6-value": "123",
                 "m6-proportion": '11.7%',
                 'm6-h': "7.6%",
-            },{
+            }, {
                 l1: '产品',
                 l2: '车辆召回',
                 l3: '咨询召回时间',
@@ -414,7 +413,7 @@ export default {
                 "m6-value": "123",
                 "m6-proportion": '11.7%',
                 'm6-h': "7.6%",
-            },{
+            }, {
                 l1: '产品',
                 l2: '车辆召回',
                 l3: '咨询召回费用',
@@ -448,17 +447,58 @@ export default {
         }
     },
     mounted () {
+        this.handleTableData()
         this.getSpanArr(this.tableData);
     },
     methods: {
-        cellStyle({row, column, rowIndex, columnIndex}){
-            const property=column.property
-            const endWIh=property.endsWith('-h')// 说明是环比增长率
-            const ou=rowIndex%2===0
-            if(ou&&endWIh){
+        randomNumBothRound (Min = 50, Max = 500) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var num = Min + Math.round(Rand * Range); //四舍五入
+            return num;
+        },
+        randomNumBoth (Min = 2, Max = 20) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var num = Min + Rand * Range; //四舍五入
+            return num.toFixed(2);
+        },
+        handleTableData () {
+            this.tableData.forEach(item => {
+                item['m1-value'] = this.randomNumBothRound()
+                item['m1-proportion'] = this.randomNumBoth() + '%'
+                item['m1-h'] =this.randomNumBoth() + '%'
+
+                item['m2-value'] = this.randomNumBothRound()
+                item['m2-proportion'] = this.randomNumBoth() + '%'
+                item['m2-h'] =this.randomNumBoth() + '%'
+
+                item['m3-value'] = this.randomNumBothRound()
+                item['m3-proportion'] = this.randomNumBoth() + '%'
+                item['m3-h'] =this.randomNumBoth() + '%'
+
+                item['m4-value'] = this.randomNumBothRound()
+                item['m4-proportion'] = this.randomNumBoth() + '%'
+                item['m4-h'] =this.randomNumBoth() + '%'
+
+                item['m5-value'] = this.randomNumBothRound()
+                item['m5-proportion'] = this.randomNumBoth() + '%'
+                item['m5-h'] =this.randomNumBoth() + '%'
+
+                item['m6-value'] = this.randomNumBothRound()
+                item['m6-proportion'] = this.randomNumBoth() + '%'
+                item['m6-h'] =this.randomNumBoth() + '%'
+            })
+
+        },
+        cellStyle ({ row, column, rowIndex, columnIndex }) {
+            const property = column.property
+            const endWIh = property.endsWith('-h')// 说明是环比增长率
+            const ou = rowIndex % 2 === 0
+            if (ou && endWIh) {
                 return {
-                    background:'#137c7f',
-                    color:'#fff'
+                    background: '#137c7f',
+                    color: '#fff'
                 }
             }
         },

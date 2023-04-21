@@ -115,3 +115,15 @@ export function param2Obj(url) {
   })
   return obj
 }
+
+
+export function getGroupData (groupByName,data) {
+  var result = _.chain(data)
+      .groupBy(groupByName)
+      .toPairs()
+      .map(function (currentItem) {
+          return _.zipObject(["name", "children"], currentItem);
+      })
+      .value();
+  return result
+}

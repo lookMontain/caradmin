@@ -1,23 +1,23 @@
 <template>
     <el-container class="page-box">
+
         <el-header class="header-box">
-
             <div>
-                <div>
-                    <span
-                        style="color: #409eff;font-weight: 800;">产品:共{{ totle }}条有效数据,包含{{ totleL2 }}个二级指标，{{ totleL3 }}个三级指标</span>
-                </div>
-                <div style="margin-top: 5px;color: #909399;">
-                    产品重点的三级指标分别为车钥匙和锁、车联网相关和警示灯
-                </div>
+                <span style="color: #409eff;font-weight: 800;">活动:共{{totle}}条有效数据，包含{{totleL2}}个二级指标，{{totleL3}}个三级指标
+                </span>
             </div>
-            <div>
-                <el-button type="danger" @click="goIndex">指标分析</el-button>
+            <div style="margin-top: 5px;color: #909399;">
+                活动重点的三级指标分别为电商平台、金融和其他活动
             </div>
-
         </el-header>
         <el-main>
             <div>
+                <!-- <div class="l2-box">
+                    <div class="l2-item" v-for="(item, index) in list" :key="index">
+                        {{ item.name }}
+                    </div>
+                </div> -->
+
                 <div>
                     <el-row :gutter="20">
                         <el-col :span="8"> <dv-scroll-ranking-board :config="config"
@@ -33,7 +33,7 @@
                                 <div class="l3-l45-title">
                                     三级指标:{{ item.name }}_{{ item.value }}
                                 </div>
-                                <el-table :data="item.children" style="width: 100%" stripe height="500" border>
+                                <el-table :data="item.children" style="width: 100%" stripe height="300" border>
                                     <el-table-column prop="name" label="名称" width="180" show-overflow-tooltip>
                                     </el-table-column>
                                     <el-table-column prop="percent" label="百分比" width="80">
@@ -81,14 +81,15 @@
 </template>
 <script>
 import '@/utils/echarts-wordcloud.min.js'
-import { echartsConfig, l2_l3pie, ciyun } from './mock'
+import { list, echartsConfig, l2_l3pie, ciyun } from './mock'
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
 import { cloneDeep } from 'lodash'
+
 import l1l2l3Data from '@/mock/l1l2l3.js'
 import l4l5Data from '@/mock/l4l5.js'
 import { getGroupData } from '@/utils'
 // 处理一级指标
-const list_l1 = getGroupData('Level 1-中文', l1l2l3Data).find(item => item.name === '产品关注').children || []
+const list_l1 = getGroupData('Level 1-中文', l1l2l3Data).find(item => item.name === '服务焦点').children || []
 const list_l2 = getGroupData('Level 2-中文', list_l1)
 list_l2.forEach(item => {
     const { children } = item
@@ -100,18 +101,19 @@ list_l2.forEach(item => {
 })
 
 // 处理三级指标
-const l3Type = ['警示灯', '车联网相关', '车钥匙和锁']
+const l3Type = ['经销商信息', '功能使用相关', '车辆绑定']
 const l4l5 = getGroupData('L3', l4l5Data).filter(item => l3Type.includes(item.name))
 l4l5.forEach(item => {
     item.children.forEach(x => {
         x.name = x['L4/L5']
     })
 })
-
 export default {
     components: { BaseEcharts },
     data () {
+
         return {
+            
             list: list_l2,
             l3_l45List: l4l5,
             l3Ttile: '二级指标',
@@ -123,22 +125,22 @@ export default {
 
     },
     computed: {
-        totleL3 () {
-            let sum = 0
-            this.list.forEach(item => {
-                sum += item.children.length
-            })
-            return sum
+        totleL3(){
+           let sum =0
+           this.list.forEach(item=>{
+            sum+= item.children.length
+           })
+           return sum
 
         },
-        totleL2 () {
+        totleL2(){
             return this.list.length
         },
-        totle () {
-            let sum = this.list.reduce((prev, cur) => {
-                prev = prev + cur.value
-                return prev
-            }, 0)
+        totle(){
+            let sum =  this.list.reduce((prev, cur) => {
+                    prev = prev + cur.value
+                    return prev
+                }, 0)
             return sum
 
         },
@@ -150,6 +152,7 @@ export default {
                 }
             })
             return {
+
                 data
             }
         },
@@ -176,13 +179,6 @@ export default {
         }
     },
     methods: {
-        getSourceData () {
-
-
-        },
-        goIndex () {
-            this.$router.push('indexAnalysis')
-        },
         clickL2Item (params) {
             const { name } = params
             const target = this.list.find(item => item.name == name)
@@ -190,12 +186,13 @@ export default {
             children.forEach(item => {
                 item.name = item['Level 3-中文']
             })
+            this.l2_l3pie.series[0].data = cloneDeep(children)
             let sum = children.reduce((prev, cur) => {
                 prev = prev + cur.value
                 return prev
             }, 0)
-            this.l2_l3pie.series[0].data = cloneDeep(children)
             this.l3Ttile = '二级指标：' + name + ` (${sum})`
+     
             children.forEach(item => {
                 item.percent = ((item.value / sum) * 100).toFixed(2)
             })
@@ -209,10 +206,9 @@ export default {
 .header-box {
     height: 60px;
     display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     background: aliceblue;
-    align-items: center;
 }
 
 .l2-box {

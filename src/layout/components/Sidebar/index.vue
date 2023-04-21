@@ -212,7 +212,7 @@ export default {
             path: '/serviceDepartment',
             name: 'serviceDepartment',
             meta: { title: '服务部门', icon: 'complaint' }
-          } 
+          }
         ]
       },{
         path: '/set',

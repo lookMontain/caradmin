@@ -150,6 +150,16 @@ export const echartsConfig = {
     xAxis: {
         type: 'category',
         splitLine: { show: false },
+        axisLabel:{
+            interval:0,
+            rotate:0,
+            formatter: function (value) {
+                if (value.length > 6) {
+                  return `${value.slice(0, 6)}...`;
+                }
+                return value;
+              }
+        },
         data: []// 根据list 来生成
     },
     yAxis: {

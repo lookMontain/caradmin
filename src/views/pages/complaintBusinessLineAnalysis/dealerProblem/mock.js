@@ -7,122 +7,65 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '特殊购买类型',
-        value: 1620,
+        name: '信守承诺',
+        value: 1123,
         id: 1,
         children: [
-            { name: '大客户购车', value: 112 },
-            { name: '二手车购置', value: 206 },
-            { name: '留学生购车', value: 298 },
-            { name: '使馆购车', value: 432 },
-
+            { name: '承诺赠送未兑现', value: 112 },
+            { name: '承诺购车优惠未兑现', value: 206 },
+            { name: '未按照约定提供相应配置或按时交车', value: 134 },
+            { name: '承诺退费未兑现', value: 121 },
+            { name: '承诺的加装未兑现', value: 145 },
+            { name: '附加服务承诺纠纷', value: 132 },
+            { name: '其他', value: 145 },
 
         ]
     },
     {
-        name: '购买与交付',
-        value: 3320,
+        name: '售前服务态度',
+        value: 1245,
         id: 2,
         children: [
-            { name: '试乘试驾/新车上市时间', value: 112 },
-            { name: '配置查询', value: 112 },
-            { name: '预订', value: 123 },
-            { name: '物流运输', value: 146 },
-
-            { name: '上牌事宜', value: 112 },
-            { name: '保险事宜', value: 123 },
-            { name: 'PDI', value: 146 },
-            { name: '合同相关', value: 123 },
-            { name: '新车交车环节', value: 146 },
+            { name: '态度', value: 112 },
+            { name: '无人接待/无人理睬', value: 112 },
+            { name: '沟通/服务意识/销售技巧', value: 112 },
+            { name: '电话/微信', value: 112 },
+            { name: '其他', value: 112 }
         ]
     },
     {
-        name: '车辆价格',
+        name: '退还订/定金',
         id: 3,
-        value: 5320,
+        value: 1233,
         children: [
-            { name: '市场指导价', value: 203 },
-            { name: '选装套餐价格', value: 208 },
-            { name: '购车产生的额外费用', value: 321 }
+            { name: '签订合同', value: 203 },
+            { name: '明确表示未签订合同', value: 208 },
+            { name: '未提及合同', value: 321 },
+            { name: '有收据/发票', value: 321 }
         ]
     },
     {
-        name: '金融与租赁',
+        name: '销售顾问专业水平',
         id: 4,
-        value: 3320,
+        value: 564,
         children: [
-            { name: '审批流程', value: 112 },
-            { name: '贷款利率及计算/金融服务费', value: 143 },
-            { name: '解押相关', value: 176 },
-            { name: '还款事宜', value: 124 },
-            { name: '租赁相关', value: 203 },
+            { name: '销售技能专业水平', value: 112 },
+            { name: '产品介绍专业水平', value: 143 },
+            { name: '金融贷款纠纷', value: 125 },
+            { name: '其他', value: 154 }
         ]
     },
     {
-        name: '售前信息反馈',
+        name: '服务公约',
         id: 5,
-        value: 2320,
+        value: 456,
         children: [
-            { name: '销售流程建议', value: 114 },
-            { name: '精品相关', value: 112 },
-            { name: '索要产品手册/杂志', value: 124 },
- 
+            { name: '捆绑消费', value: 114 },
+            { name: '强制消费', value: 112 },
+            { name: '发票金额有出入', value: 124 },
+            { name: '未提供发票', value: 231 },
         ]
     },
-    {
-        name: '维修与保修咨询',
-        id: 6,
-        value: 1820,
-        children: [
-            { name: '三包&保修政策', value: 203 },
-            { name: '自费零部件保修', value: 333 },
-            { name: '维修进度查询', value: 333 },
-        ]
-    },
-    {
-        name: '保养咨询',
-        id: 6,
-        value: 1560,
-        children: [
-            { name: '保养政策', value: 203 },
-            { name: '保养相关', value: 333 },
-        ]
-    },
-    {
-        name: '售后产品购买',
-        id: 6,
-        value: 1782,
-        children: [
-            { name: '修养套餐购买', value: 203 },
-            { name: '延保购买', value: 333 }
-        ]
-    },
-    {
-        name: '道路救援',
-        id: 6,
-        value: 1980,
-        children: [
-            { name: '紧急道路救援', value: 203 },
-            { name: '道路救援报销', value: 333 }
-        ]
-    },
-    {
-        name: '保险相关',
-        id: 6,
-        value: 1562,
-        children: [
-            { name: '咨询车辆续保', value: 203 },
-            { name: '车辆事故出保', value: 333 }
-        ]
-    },
-    {
-        name: '售后信息反馈',
-        id: 6,
-        value: 1980,
-        children: [
-            { name: '售后流程建议', value: 203 },
-        ]
-    }
 ]
 export const echartsConfig = {
     title: {
@@ -148,16 +91,6 @@ export const echartsConfig = {
     xAxis: {
         type: 'category',
         splitLine: { show: false },
-        axisLabel:{
-            interval:0,
-            rotate:10,
-            formatter: function (value) {
-                if (value.length > 6) {
-                  return `${value.slice(0, 6)}...`;
-                }
-                return value;
-              }
-        },
         data: []// 根据list 来生成
     },
     yAxis: {
@@ -166,7 +99,7 @@ export const echartsConfig = {
     series: [
 
         {
-            name: '产品关注',
+            name: '产品问题',
             type: 'bar',
             barWidth: '30px',
             itemStyle: {
@@ -197,44 +130,43 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '预订',
-        value: 1390,
+        name: '信守承诺',
+        value: 630,
         id: 1,
         children: [
-            { name: '预订购买车辆', value: 100 },
-            { name: '预订购买零部件', value: 200 },
-            { name: '特殊要求车辆预订', value: 320 },
-            { name: '特殊要求零部件预订', value: 120 },
-            { name: '现车咨询', value: 110 }
+            { name: '承诺赠送未兑现', value: 112 },
+            { name: '承诺购车优惠未兑现', value: 206 },
+            { name: '未按照约定提供相应配置或按时交车', value: 134 },
+            { name: '承诺退费未兑现', value: 121 },
+            { name: '承诺的加装未兑现', value: 145 },
+            { name: '附加服务承诺纠纷', value: 132 },
+            { name: '其他', value: 145 },
 
         ]
     },
 
     {
-        name: '配置查询',
+        name: '售前服务态度',
         value: 1390,
         id: 1,
         children: [
-            { name: '配置咨询', value: 108 },
-            { name: '车型对比咨询', value: 219 },
-            { name: '配置加装咨询', value: 179 },
-            { name: '配置选装咨询', value: 279 },
+            { name: '态度', value: 112 },
+            { name: '无人接待/无人理睬', value: 112 },
+            { name: '沟通/服务意识/销售技巧', value: 112 },
+            { name: '电话/微信', value: 112 },
+            { name: '其他', value: 112 }
         ]
     },
 
     {
-        name: '上牌事宜',
+        name: '服务公约',
         value: 1390,
         id: 1,
         children: [
-            { name: '上牌相关流程咨询', value: 85 },
-            { name: '环保清单相关咨询', value: 135 },
-            { name: '发动机拓印相关咨询', value: 203 },
-            { name: '车架号拓印相关咨询', value: 109 },
-            { name: '补办购车发票', value: 209 },
-            { name: '进京证相关咨询', value: 111 },
-            { name: '排放标准相关咨询', value: 209 },
-            { name: '补办合格证', value: 143 }
+            { name: '捆绑消费', value: 114 },
+            { name: '强制消费', value: 112 },
+            { name: '发票金额有出入', value: 124 },
+            { name: '未提供发票', value: 231 },
         ]
     },
 
@@ -286,9 +218,7 @@ export const l2_l3pie = {
 
 
 
-const ciyuanList = '大客户购车,二手车购置,留学生购车,使馆购车,试乘试驾/新车上市时间,配置查询,预订,物流运输,上牌事宜,保险事宜,PDI,合同相关,新车交车环节,市场指导价,选装套餐价格,购车产生的额外费用,审批流程,贷款利率及计算/金融服务费,解押相关,还款事宜,租赁相关,销售流程建议,精品相关,索要产品手册/杂志,三包&保修政策,自费零部件保修,维修进度查询,保养政策,保养相关,修养套餐购买,延保购买,紧急道路救援,道路救援报销,道路救援相关政策,咨询车辆续保,车辆事故出保,售后流程建议'
-
-
+const ciyuanList ='故障,维修,召回,事故,安全,质量问题,保养,保修,退款,服务,保险,索赔,不良品,速度,燃油效率,刹车,方向盘,发动机,排放,电池问题,空调问题,车门问题,电子设备问题,制动系统问题,变速器问题,轮胎问题,车灯问题,悬挂系统问题,冷却系统问题,噪音问题,异味问题,内饰问题,外观问题,停车问题,路感问题,动力系统问题,方向盘问题,车身稳定性问题,燃油系统问题'
 const c1list = ciyuanList.split(',').map((x, index) => {
     if (index === 5) {
         return {

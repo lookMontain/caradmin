@@ -89,10 +89,22 @@ export const constantRoutes = [
       meta: { title: '产品问题', icon: 'productProblem' }
     },
     {
+      path: 'dealerProblem',
+      name: 'dealerProblem',
+      component: () => import('@/views/pages/complaintBusinessLineAnalysis/dealerProblem/index.vue'),
+      meta: { title: '经销商问题', icon: 'dealerProblem' }
+    },
+    {
       path: 'indexAnalysis',
       name: 'indexAnalysis',
       component: () => import('@/views/pages/indexAnalysis/index.vue'),
       meta: { title: '指标分析', icon: 'indexAnalysis' }
+    },
+    {
+      path: 'excel',
+      name: 'excel',
+      component: () => import('@/views/pages/excel/index.vue'),
+      meta: { title: 'excel', icon: 'excel' }
     },
     
     

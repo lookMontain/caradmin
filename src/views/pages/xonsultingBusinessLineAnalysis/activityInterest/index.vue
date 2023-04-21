@@ -1,8 +1,9 @@
 <template>
-    <el-container>
+    <el-container class="page-box">
+
         <el-header class="header-box">
             <div>
-                <span style="color: #409eff;font-weight: 800;">活动:共352条有效数据，包含6个二级指标，11个三级指标
+                <span style="color: #409eff;font-weight: 800;">活动:共{{totle}}条有效数据，包含{{totleL2}}个二级指标，{{totleL3}}个三级指标
                 </span>
             </div>
             <div style="margin-top: 5px;color: #909399;">
@@ -80,18 +81,42 @@
 </template>
 <script>
 import '@/utils/echarts-wordcloud.min.js'
-import { list, echartsConfig, l3_l45List, l2_l3pie, ciyun } from './mock'
+import { list, echartsConfig, l2_l3pie, ciyun } from './mock'
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
 import { cloneDeep } from 'lodash'
+
+import l1l2l3Data from '@/mock/l1l2l3.js'
+import l4l5Data from '@/mock/l4l5.js'
+import { getGroupData } from '@/utils'
+// 处理一级指标
+const list_l1 = getGroupData('Level 1-中文', l1l2l3Data).find(item => item.name === '活动兴趣').children || []
+const list_l2 = getGroupData('Level 2-中文', list_l1)
+list_l2.forEach(item => {
+    const { children } = item
+    let sum = children.reduce((prev, cur) => {
+        prev = prev + cur.value
+        return prev
+    }, 0)
+    item.value = sum
+})
+
+// 处理三级指标
+const l3Type = ['五星服务', '金融', '其他活动']
+const l4l5 = getGroupData('L3', l4l5Data).filter(item => l3Type.includes(item.name))
+l4l5.forEach(item => {
+    item.children.forEach(x => {
+        x.name = x['L4/L5']
+    })
+})
 export default {
     components: { BaseEcharts },
     data () {
 
         return {
-            list: list,
-            L3tableData1: [],
-            l3_l45List,
-            l3Ttile: '三级指标',
+            
+            list: list_l2,
+            l3_l45List: l4l5,
+            l3Ttile: '二级指标',
             drawerVisible: false,
             l2_l3pie: l2_l3pie,
             currentl2l3: [],
@@ -100,8 +125,27 @@ export default {
 
     },
     computed: {
+        totleL3(){
+           let sum =0
+           this.list.forEach(item=>{
+            sum+= item.children.length
+           })
+           return sum
+
+        },
+        totleL2(){
+            return this.list.length
+        },
+        totle(){
+            let sum =  this.list.reduce((prev, cur) => {
+                    prev = prev + cur.value
+                    return prev
+                }, 0)
+            return sum
+
+        },
         config () {
-            const data = list.map(item => {
+            const data = this.list.map(item => {
                 return {
                     name: item.name,
                     value: item.value
@@ -113,8 +157,8 @@ export default {
             }
         },
         echartsConfig () {
-            const xAxisData = list.map(item => item.name)
-            const seriesData = list.map(item => item.value)
+            const xAxisData = this.list.map(item => item.name)
+            const seriesData = this.list.map(item => item.value)
             echartsConfig.xAxis.data = xAxisData
             echartsConfig.series[0].data = seriesData
             return echartsConfig
@@ -139,12 +183,16 @@ export default {
             const { name } = params
             const target = this.list.find(item => item.name == name)
             const children = cloneDeep(target.children)
+            children.forEach(item => {
+                item.name = item['Level 3-中文']
+            })
             this.l2_l3pie.series[0].data = cloneDeep(children)
-            this.l3Ttile = '三级指标：' + name
             let sum = children.reduce((prev, cur) => {
                 prev = prev + cur.value
                 return prev
             }, 0)
+            this.l3Ttile = '二级指标：' + name + ` (${sum})`
+     
             children.forEach(item => {
                 item.percent = ((item.value / sum) * 100).toFixed(2)
             })
@@ -179,11 +227,11 @@ export default {
     border-bottom: 1px solid #d4d4d4;
 }
 
-.info-name {
+.page-box>>>.info-name {
     color: black !important;
 }
 
-.ranking-value {
+.page-box>>>.ranking-value {
 
     color: black !important;
 }
