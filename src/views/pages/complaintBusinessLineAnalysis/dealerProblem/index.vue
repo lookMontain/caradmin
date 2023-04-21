@@ -2,7 +2,7 @@
     <el-container class="page-box">
         <el-header class="header-box">
             <div>
-                <span style="color: #409eff;font-weight: 800;">问题:共2320条有效数据，包含5个二级指标
+                <span style="color: #409eff;font-weight: 800;">问题:共{{ totle }}条有效数据，包含5个二级指标
                 </span>
             </div>
             <div style="margin-top: 5px;color: #909399;">
@@ -100,6 +100,13 @@ export default {
 
     },
     computed: {
+        totle () {
+            let sum = this.list.reduce((prev, cur) => {
+                prev = prev + cur.value
+                return prev
+            }, 0)
+            return sum
+        },
         config () {
             const data = list.map(item => {
                 return {
@@ -187,6 +194,7 @@ export default {
 
     color: black !important;
 }
+
 .l3-l45-title {
     background: rgb(19, 124, 127);
     color: rgb(255, 255, 255);

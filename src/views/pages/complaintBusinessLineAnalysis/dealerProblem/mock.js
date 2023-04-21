@@ -8,7 +8,7 @@ function randomNumBoth (Min = 10, Max = 500) {
 export const list = [
     {
         name: '信守承诺',
-        value: 1123,
+        value: randomNumBoth(1000,2000),
         id: 1,
         children: [
             { name: '承诺赠送未兑现', value: 112 },
@@ -23,7 +23,7 @@ export const list = [
     },
     {
         name: '售前服务态度',
-        value: 1245,
+        value:  randomNumBoth(1000,2000),
         id: 2,
         children: [
             { name: '态度', value: 112 },
@@ -36,7 +36,7 @@ export const list = [
     {
         name: '退还订/定金',
         id: 3,
-        value: 1233,
+        value:  randomNumBoth(1000,2000),
         children: [
             { name: '签订合同', value: 203 },
             { name: '明确表示未签订合同', value: 208 },
@@ -47,7 +47,7 @@ export const list = [
     {
         name: '销售顾问专业水平',
         id: 4,
-        value: 564,
+        value: randomNumBoth(1000,2000),
         children: [
             { name: '销售技能专业水平', value: 112 },
             { name: '产品介绍专业水平', value: 143 },
@@ -58,7 +58,7 @@ export const list = [
     {
         name: '服务公约',
         id: 5,
-        value: 456,
+        value: randomNumBoth(1000,2000),
         children: [
             { name: '捆绑消费', value: 114 },
             { name: '强制消费', value: 112 },

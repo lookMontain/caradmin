@@ -8,7 +8,7 @@ function randomNumBoth (Min = 10, Max = 500) {
 export const list = [
     {
         name: '发动机问题',
-        value: 1123,
+        value: randomNumBoth(500,1000),
         id: 1,
         children: [
             { name: '漏油', value: 112 },
@@ -21,7 +21,7 @@ export const list = [
     },
     {
         name: '内部问题',
-        value: 1245,
+        value: randomNumBoth(500,1000),
         id: 2,
         children: [
             { name: '空调系统故障', value: 112 },
@@ -34,7 +34,7 @@ export const list = [
     {
         name: '车载系统',
         id: 3,
-        value: 1233,
+        value: randomNumBoth(500,1000),
         children: [
             { name: '音频娱乐系统无法工作或音质下降', value: 203 },
             { name: '无法连接卫星', value: 208 },
@@ -46,7 +46,7 @@ export const list = [
     {
         name: '质量问题',
         id: 4,
-        value: 564,
+        value: randomNumBoth(500,1000),
         children: [
             { name: '轮胎不耐用', value: 112 },
             { name: '刹车不好使', value: 143 },
@@ -57,7 +57,7 @@ export const list = [
     {
         name: '维修成本',
         id: 5,
-        value: 456,
+        value:randomNumBoth(500,1000),
         children: [
             { name: '费用高', value: 114 },
             { name: '费时间', value: 112 },
