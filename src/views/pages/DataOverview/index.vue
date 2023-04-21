@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row :gutter="10" class="row">
-            <el-col :xs="24" :sm="24" :md="17" :lg="17" :xl="17">
+            <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>总览</span>
@@ -15,7 +15,7 @@
                     </div>
                 </el-card>
             </el-col>
-            <el-col :xs="24" :sm="24" :md="7" :lg="7" :xl="7">
+            <el-col v-if="false" :xs="24" :sm="24" :md="7" :lg="7" :xl="7">
                 <el-card class="box-card" style="height:206px">
                     <el-tabs v-model="activeName">
                         <el-tab-pane label="搜索" name="first">

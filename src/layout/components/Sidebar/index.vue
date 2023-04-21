@@ -128,10 +128,11 @@ export default {
         path: '/set',
         meta: { title: '设置', icon: 'set' }
       }],
-      menuList: [{
-        path: '/',
-        meta: { title: '首页', icon: 'shouye' }
-      },
+      menuList: [
+      //   {
+      //   path: '/',
+      //   meta: { title: '首页', icon: 'shouye' }
+      // },
       {
         path: '/dataOverview',
         meta: { title: '数据总览', icon: 'dataOverview' }

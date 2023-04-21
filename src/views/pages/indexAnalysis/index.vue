@@ -1,65 +1,69 @@
 <template>
-    <el-table :data="tableData" border style="width: 100%" align="center" :span-method="objectSpanMethod"
-        :cell-style="cellStyle">
-        <el-table-column prop="l1" label="一级指标">
-        </el-table-column>
-        <el-table-column prop="l2" label="二级指标">
-        </el-table-column>
-        <el-table-column prop="l3" label="三级指标" width="180">
-        </el-table-column>
-        <el-table-column prop="m1" label="1月" header-align="center">
-            <el-table-column prop="m1-value" label="值">
+    <div>
+        <el-button type="danger" class="export" @click="exportData" size="mini">导出数据</el-button>
+        <el-table :data="tableData" border style="width: 100%" align="center" :span-method="objectSpanMethod"
+            :cell-style="cellStyle">
+            <el-table-column prop="l1" label="一级指标">
             </el-table-column>
-            <el-table-column prop="m1-proportion" label="占比">
+            <el-table-column prop="l2" label="二级指标">
             </el-table-column>
-        </el-table-column>
+            <el-table-column prop="l3" label="三级指标" width="180">
+            </el-table-column>
+            <el-table-column prop="m1" label="1月" header-align="center">
+                <el-table-column prop="m1-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m1-proportion" label="占比">
+                </el-table-column>
+            </el-table-column>
 
-        <el-table-column prop="m1-h" label="环比增长率" width="100">
-        </el-table-column>
-        <el-table-column prop="m2" label="2月" header-align="center">
-            <el-table-column prop="m2-value" label="值">
+            <el-table-column prop="m1-h" label="环比增长率" width="100">
             </el-table-column>
-            <el-table-column prop="m2-proportion" label="占比">
+            <el-table-column prop="m2" label="2月" header-align="center">
+                <el-table-column prop="m2-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m2-proportion" label="占比">
+                </el-table-column>
             </el-table-column>
-        </el-table-column>
-        <el-table-column prop="m2-h" label="环比增长率" width="100">
-        </el-table-column>
-        <el-table-column prop="m3" label="3月" header-align="center">
-            <el-table-column prop="m3-value" label="值">
+            <el-table-column prop="m2-h" label="环比增长率" width="100">
             </el-table-column>
-            <el-table-column prop="m3-proportion" label="占比">
+            <el-table-column prop="m3" label="3月" header-align="center">
+                <el-table-column prop="m3-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m3-proportion" label="占比">
+                </el-table-column>
             </el-table-column>
-        </el-table-column>
-        <el-table-column prop="m3-h" label="环比增长率" width="100">
-        </el-table-column>
-        <el-table-column prop="m4" label="4月" header-align="center">
-            <el-table-column prop="m4-value" label="值">
+            <el-table-column prop="m3-h" label="环比增长率" width="100">
             </el-table-column>
-            <el-table-column prop="m4-proportion" label="占比">
+            <el-table-column prop="m4" label="4月" header-align="center">
+                <el-table-column prop="m4-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m4-proportion" label="占比">
+                </el-table-column>
             </el-table-column>
-        </el-table-column>
-        <el-table-column prop="m4-h" label="环比增长率" width="100">
-        </el-table-column>
-        <el-table-column prop="m5" label="5月" header-align="center">
-            <el-table-column prop="m5-value" label="值">
+            <el-table-column prop="m4-h" label="环比增长率" width="100">
             </el-table-column>
-            <el-table-column prop="m5-proportion" label="占比">
+            <el-table-column prop="m5" label="5月" header-align="center">
+                <el-table-column prop="m5-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m5-proportion" label="占比">
+                </el-table-column>
             </el-table-column>
-        </el-table-column>
-        <el-table-column prop="m5-h" label="环比增长率" width="100">
-        </el-table-column>
-        <el-table-column prop="m6" label="6月" header-align="center">
-            <el-table-column prop="m6-value" label="值">
+            <el-table-column prop="m5-h" label="环比增长率" width="100">
             </el-table-column>
-            <el-table-column prop="m6-proportion" label="占比">
+            <el-table-column prop="m6" label="6月" header-align="center">
+                <el-table-column prop="m6-value" label="值">
+                </el-table-column>
+                <el-table-column prop="m6-proportion" label="占比">
+                </el-table-column>
             </el-table-column>
-        </el-table-column>
-        <el-table-column prop="m6-h" label="环比增长率" width="100">
-        </el-table-column>
-    </el-table>
+            <el-table-column prop="m6-h" label="环比增长率" width="100">
+            </el-table-column>
+        </el-table>
+    </div>
 </template>
 
 <script>
+import  uuT from '@/utils/exportExcel'
 export default {
     props: {
         tableData1: {
@@ -451,6 +455,23 @@ export default {
         this.getSpanArr(this.tableData);
     },
     methods: {
+        exportData(){
+            const data = this.tableData
+            const row=data[0]
+            const tHeader=['l1=l1','l2=l2','l3=l3',
+            
+            '1月=m1-value','1月占比=m1-proportion','1月环比=m1-h',
+            '2月=m2-value','2月占比=m2-proportion','2月环比=m2-h',
+            '3月=m3-value','3月占比=m3-proportion','3月环比=m3-h',
+            '4月=m4-value','4月占比=m4-proportion','4月环比=m4-h',
+            '5月=m5-value','5月占比=m5-proportion','5月环比=m5-h',
+            '6月=m6-value','6月占比=m6-proportion','6月环比=m6-h',
+        ]
+            // Object.keys(row).map(key=>{
+            //     return `${key}=${key}`
+            // })
+            uuT.exportToExcel(tHeader, data, '指标')
+        },
         randomNumBothRound (Min = 50, Max = 500) {
             var Range = Max - Min;
             var Rand = Math.random();
@@ -467,27 +488,27 @@ export default {
             this.tableData.forEach(item => {
                 item['m1-value'] = this.randomNumBothRound()
                 item['m1-proportion'] = this.randomNumBoth() + '%'
-                item['m1-h'] =this.randomNumBoth() + '%'
+                item['m1-h'] = this.randomNumBoth() + '%'
 
                 item['m2-value'] = this.randomNumBothRound()
                 item['m2-proportion'] = this.randomNumBoth() + '%'
-                item['m2-h'] =this.randomNumBoth() + '%'
+                item['m2-h'] = this.randomNumBoth() + '%'
 
                 item['m3-value'] = this.randomNumBothRound()
                 item['m3-proportion'] = this.randomNumBoth() + '%'
-                item['m3-h'] =this.randomNumBoth() + '%'
+                item['m3-h'] = this.randomNumBoth() + '%'
 
                 item['m4-value'] = this.randomNumBothRound()
                 item['m4-proportion'] = this.randomNumBoth() + '%'
-                item['m4-h'] =this.randomNumBoth() + '%'
+                item['m4-h'] = this.randomNumBoth() + '%'
 
                 item['m5-value'] = this.randomNumBothRound()
                 item['m5-proportion'] = this.randomNumBoth() + '%'
-                item['m5-h'] =this.randomNumBoth() + '%'
+                item['m5-h'] = this.randomNumBoth() + '%'
 
                 item['m6-value'] = this.randomNumBothRound()
                 item['m6-proportion'] = this.randomNumBoth() + '%'
-                item['m6-h'] =this.randomNumBoth() + '%'
+                item['m6-h'] = this.randomNumBoth() + '%'
             })
 
         },
@@ -543,3 +564,12 @@ export default {
     }
 }
 </script>
+<style>
+.export{
+
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 9999;
+}
+</style>

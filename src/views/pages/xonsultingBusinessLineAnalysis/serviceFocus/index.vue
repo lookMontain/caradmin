@@ -3,11 +3,21 @@
 
         <el-header class="header-box">
             <div>
-                <span style="color: #409eff;font-weight: 800;">服务焦点:共{{totle}}条有效数据，包含{{totleL2}}个二级指标，{{totleL3}}个三级指标
-                </span>
+                <div>
+                    <span style="color: #409eff;font-weight: 800;">服务焦点:共{{ totle }}条有效数据，包含{{ totleL2 }}个二级指标，{{ totleL3
+                    }}个三级指标
+                    </span>
+                </div>
+                <div style="margin-top: 5px;color: #909399;">
+                    服务焦点重点的三级指标分别为经销商信息、功能使用相关和车辆绑定
+                </div>
             </div>
-            <div style="margin-top: 5px;color: #909399;">
-                服务焦点重点的三级指标分别为经销商信息、功能使用相关和车辆绑定
+
+
+
+            <div>
+                <el-button type="primary" @click="exportData">导出数据</el-button>
+                <el-button type="danger" @click="goIndex">指标分析</el-button>
             </div>
         </el-header>
         <el-main>
@@ -80,6 +90,7 @@
     </el-container>
 </template>
 <script>
+import uuT from '@/utils/exportExcel'
 import '@/utils/echarts-wordcloud.min.js'
 import { list, echartsConfig, l2_l3pie, ciyun } from './mock'
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
@@ -113,7 +124,7 @@ export default {
     data () {
 
         return {
-            
+
             list: list_l2,
             l3_l45List: l4l5,
             l3Ttile: '二级指标',
@@ -125,22 +136,22 @@ export default {
 
     },
     computed: {
-        totleL3(){
-           let sum =0
-           this.list.forEach(item=>{
-            sum+= item.children.length
-           })
-           return sum
+        totleL3 () {
+            let sum = 0
+            this.list.forEach(item => {
+                sum += item.children.length
+            })
+            return sum
 
         },
-        totleL2(){
+        totleL2 () {
             return this.list.length
         },
-        totle(){
-            let sum =  this.list.reduce((prev, cur) => {
-                    prev = prev + cur.value
-                    return prev
-                }, 0)
+        totle () {
+            let sum = this.list.reduce((prev, cur) => {
+                prev = prev + cur.value
+                return prev
+            }, 0)
             return sum
 
         },
@@ -179,6 +190,17 @@ export default {
         }
     },
     methods: {
+        goIndex () {
+            this.$router.push('indexAnalysis')
+        },
+        exportData () {
+            const data = list_l1
+            const row = data[0]
+            const tHeader = Object.keys(row).map(key => {
+                return `${key}=${key}`
+            })
+            uuT.exportToExcel(tHeader, data, '活动兴趣')
+        },
         clickL2Item (params) {
             const { name } = params
             const target = this.list.find(item => item.name == name)
@@ -192,7 +214,7 @@ export default {
                 return prev
             }, 0)
             this.l3Ttile = '二级指标：' + name + ` (${sum})`
-     
+
             children.forEach(item => {
                 item.percent = ((item.value / sum) * 100).toFixed(2)
             })
@@ -206,9 +228,10 @@ export default {
 .header-box {
     height: 60px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* flex-direction: column; */
+    justify-content: space-between;
     background: aliceblue;
+    align-items: center;
 }
 
 .l2-box {
