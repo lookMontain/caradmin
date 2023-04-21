@@ -2,7 +2,7 @@
     <el-container class="page-box">
         <el-header class="header-box">
             <div>
-                <span style="color: #409eff;font-weight: 800;">问题:共4320条有效数据，包含5个二级指标
+                <span style="color: #409eff;font-weight: 800;">问题:共2320条有效数据，包含5个二级指标
                 </span>
             </div>
             <div style="margin-top: 5px;color: #909399;">

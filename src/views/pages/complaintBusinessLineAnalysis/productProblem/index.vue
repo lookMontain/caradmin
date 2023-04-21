@@ -6,7 +6,7 @@
                 </span>
             </div>
             <div style="margin-top: 5px;color: #909399;">
-                问题重点的三级指标分别为信守承诺、售前服务态度和服务公约
+                问题重点的三级指标分别为发动机问题、导航问题和仪表盘问题
             </div>
         </el-header>
         <el-main>
