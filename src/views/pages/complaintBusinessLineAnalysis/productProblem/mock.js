@@ -7,63 +7,62 @@ function randomNumBoth (Min = 10, Max = 500) {
 }
 export const list = [
     {
-        name: '信守承诺',
+        name: '发动机问题',
         value: 1123,
         id: 1,
         children: [
-            { name: '承诺赠送未兑现', value: 112 },
-            { name: '承诺购车优惠未兑现', value: 206 },
-            { name: '未按照约定提供相应配置或按时交车', value: 134 },
-            { name: '承诺退费未兑现', value: 121 },
-            { name: '承诺的加装未兑现', value: 145 },
-            { name: '附加服务承诺纠纷', value: 132 },
-            { name: '其他', value: 145 },
-
+            { name: '漏油', value: 112 },
+            { name: '烧机油', value: 206 },
+            { name: '异响', value: 134 },
+            { name: '燃烧不完全', value: 121 },
+            { name: '过热', value: 145 },
+            { name: '启动困难', value: 132 }
         ]
     },
     {
-        name: '售前服务态度',
+        name: '内部问题',
         value: 1245,
         id: 2,
         children: [
-            { name: '态度', value: 112 },
-            { name: '无人接待/无人理睬', value: 112 },
-            { name: '沟通/服务意识/销售技巧', value: 112 },
-            { name: '电话/微信', value: 112 },
-            { name: '其他', value: 112 }
+            { name: '空调系统故障', value: 112 },
+            { name: '座椅磨损', value: 112 },
+            { name: '电子设备故障', value: 112 },
+            { name: '内饰异味', value: 112 },
+            { name: '车灯问题', value: 112 }
         ]
     },
     {
-        name: '退还订/定金',
+        name: '车载系统',
         id: 3,
         value: 1233,
         children: [
-            { name: '签订合同', value: 203 },
-            { name: '明确表示未签订合同', value: 208 },
-            { name: '未提及合同', value: 321 },
-            { name: '有收据/发票', value: 321 }
+            { name: '音频娱乐系统无法工作或音质下降', value: 203 },
+            { name: '无法连接卫星', value: 208 },
+            { name: '倒车雷达故障或误报', value: 321 },
+            { name: 'USB接口或蓝牙连接问题', value: 321 },
+            { name: '空调或加热系统失灵', value: 321 }
         ]
     },
     {
-        name: '销售顾问专业水平',
+        name: '质量问题',
         id: 4,
         value: 564,
         children: [
-            { name: '销售技能专业水平', value: 112 },
-            { name: '产品介绍专业水平', value: 143 },
-            { name: '金融贷款纠纷', value: 125 },
-            { name: '其他', value: 154 }
+            { name: '轮胎不耐用', value: 112 },
+            { name: '刹车不好使', value: 143 },
+            { name: '车灯太小', value: 125 },
+            { name: '不省油', value: 154 }
         ]
     },
     {
-        name: '服务公约',
+        name: '维修成本',
         id: 5,
         value: 456,
         children: [
-            { name: '捆绑消费', value: 114 },
-            { name: '强制消费', value: 112 },
-            { name: '发票金额有出入', value: 124 },
-            { name: '未提供发票', value: 231 },
+            { name: '费用高', value: 114 },
+            { name: '费时间', value: 112 },
+            { name: '不好修', value: 124 },
+            { name: '修不好', value: 231 },
         ]
     },
 ]
@@ -130,43 +129,45 @@ export const echartsConfig = {
 }
 export const l3_l45List = [
     {
-        name: '信守承诺',
+        name: '发动机问题',
         value: 630,
         id: 1,
         children: [
-            { name: '承诺赠送未兑现', value: 112 },
-            { name: '承诺购车优惠未兑现', value: 206 },
-            { name: '未按照约定提供相应配置或按时交车', value: 134 },
-            { name: '承诺退费未兑现', value: 121 },
-            { name: '承诺的加装未兑现', value: 145 },
-            { name: '附加服务承诺纠纷', value: 132 },
-            { name: '其他', value: 145 },
-
+            { name: '燃油经济性下降', value: 112 },
+            { name: '发动机漏油', value: 206 },
+            { name: '缸体磨损', value: 134 },
+            { name: '发动机启动困难或无法启动', value: 121 },
+            { name: '发动机噪音增加', value: 145 },
+            { name: '发动机抖动', value: 132 },
+            { name: '发动机无法熄火', value: 145 },
         ]
     },
 
     {
-        name: '售前服务态度',
+        name: '导航问题',
         value: 1390,
         id: 1,
         children: [
-            { name: '态度', value: 112 },
-            { name: '无人接待/无人理睬', value: 112 },
-            { name: '沟通/服务意识/销售技巧', value: 112 },
-            { name: '电话/微信', value: 112 },
-            { name: '其他', value: 112 }
+            { name: '定位不准确', value: 112 },
+            { name: '地图数据不完善或过时', value: 231 },
+            { name: '语音指令不清晰或错误', value: 156 },
+            { name: '音量调节问题', value: 234 },
+            { name: '操作方法不熟悉', value: 124 },
+            { name: '不稳定的软件和设备问题', value: 213 },
+            { name: '升级和维护问题', value: 134 }
         ]
     },
 
     {
-        name: '服务公约',
-        value: 1390,
+        name: '仪表盘问题',
+        value: 1123,
         id: 1,
         children: [
-            { name: '捆绑消费', value: 114 },
-            { name: '强制消费', value: 112 },
-            { name: '发票金额有出入', value: 124 },
-            { name: '未提供发票', value: 231 },
+            { name: '电源故障', value: 114 },
+            { name: '传感器故障', value: 112 },
+            { name: '熔断器损坏', value: 124 },
+            { name: '显示屏故障', value: 231 },
+            { name: '机械故障', value: 145 },
         ]
     },
 
