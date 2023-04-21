@@ -68,7 +68,7 @@ export const list = [
         ]
     },
     {
-        name: '内部',
+        name: '座舱',
         id: 5,
         value: 2320,
         children: [
@@ -80,7 +80,7 @@ export const list = [
             { name: '音响', value: 68 },
             { name: '随车配件及供电设备', value: 179 },
             { name: '后排娱乐系统', value: 180 },
-            { name: '内部相关', value: 200 }
+            { name: '座舱相关', value: 200 }
         ]
     },
     {

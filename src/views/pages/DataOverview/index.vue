@@ -239,6 +239,7 @@
 </template>
   
 <script>
+const color=['#7E9680','#79616F','#AE6378',"#D87F81","#EAB959"]
 import '@/utils/echarts-wordcloud.min.js'
 import PieEcharts from "@/components/Echart/pieEcharts.vue";
 import BaseEcharts from "@/components/Echart/baseEcharts.vue";
@@ -288,6 +289,7 @@ export default {
                 { value: 300, name: "Video Ads" },
             ],
             hexinciTop1: {
+                color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'
@@ -340,6 +342,7 @@ export default {
                 ]
             },
             hexinciTop2: {
+                color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'
@@ -392,6 +395,7 @@ export default {
                 ]
             },
             hexinciTop3: {
+                color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'

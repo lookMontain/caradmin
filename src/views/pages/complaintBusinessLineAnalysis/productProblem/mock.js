@@ -20,7 +20,7 @@ export const list = [
         ]
     },
     {
-        name: '内部问题',
+        name: '座舱问题',
         value: randomNumBoth(500,1000),
         id: 2,
         children: [

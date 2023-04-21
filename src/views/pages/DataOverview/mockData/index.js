@@ -1,4 +1,7 @@
+const color=['#7E9680','#79616F','#AE6378',"#D87F81","#EAB959"]
+
 export const threeLineOptions = {
+    color:color,
     tooltip: {
         trigger: 'axis',
         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -78,6 +81,7 @@ export const threeLineOptions = {
     ]
 }
 export const threeLine_serie_ItemOptions = {
+    
     tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b}: {c} ({d}%)'
@@ -166,6 +170,7 @@ export const threeLine_serie_ItemOptions = {
 };
 
 export const searchOptions = {
+    color:color,
     title: {
         show: true,
         text: '',
@@ -232,6 +237,7 @@ export const searchOptions = {
     ]
 }
 export const heixinciTop1 = {
+    color:color,
     title: {
         show: false,
         text: 'Nightingale Chart',
@@ -274,6 +280,7 @@ export const heixinciTop1 = {
     ]
 }
 export const heixinciTop2 = {
+    color:color,
     title: {
         show: false,
         text: '核心词Top2',
@@ -322,6 +329,7 @@ export const heixinciTop2 = {
     ]
 }
 export const heixinciTop3 = {
+    color:color,
     title: {
         show: false,
         text: '核心词Top3',
@@ -754,6 +762,7 @@ export const chexiOption = {
 }
 //情感系数
 export const affectiveCoefficientOption = {
+    color:color,
     legend: {
         data: ['咨询', '投诉', '预警'],
         orient:'vertical',
@@ -1235,7 +1244,7 @@ function getResultStatus(){
       ];
       
       let datap = [];
-      let colorList = ['#3399ff', '#85c285', '#ffc266', '#ff8585', '#c299ff'];
+      let colorList =  ['#3399ff', '#85c285', '#ffc266', '#ff8585', '#c299ff'];
       let color = colorList.splice(0, datas.length);
       for (let i = 0; i < datas.length; i++) {
         datap.push({
@@ -1376,6 +1385,7 @@ export function get30Day(){
         s3.push(randomNumBoth(1,10))
       })
     return {
+        color:color,
         backgroundColor: "#fff",
         title: {
           show:false,
