@@ -189,7 +189,12 @@ export default {
     },
     methods: {
         goIndex () {
-            this.$router.push('indexAnalysis')
+            this.$router.push({
+                path:'indexAnalysis',
+                query: {
+                    index: '2'
+                }
+            })
         },
         exportData(){
             const data = list_l1

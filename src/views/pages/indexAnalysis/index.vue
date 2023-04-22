@@ -1,13 +1,13 @@
 <template>
     <div>
         <el-button type="danger" class="export" @click="exportData" size="mini">导出数据</el-button>
-        <el-table :data="tableData" border style="width: 100%" align="center" :span-method="objectSpanMethod"
-            :cell-style="cellStyle">
-            <el-table-column prop="l1" label="一级指标">
+        <el-table :height="height" :data="tableData" border style="width: 100%" align="center"
+            :span-method="objectSpanMethod" :cell-style="cellStyle">
+            <el-table-column prop="Level 1-中文" label="一级指标" width="100" show-overflow-tooltip>
             </el-table-column>
-            <el-table-column prop="l2" label="二级指标">
+            <el-table-column prop="Level 2-中文" label="二级指标" width="100" show-overflow-tooltip>
             </el-table-column>
-            <el-table-column prop="l3" label="三级指标" width="180">
+            <el-table-column prop="Level 3-中文" label="三级指标" width="160" show-overflow-tooltip>
             </el-table-column>
             <el-table-column prop="m1" label="1月" header-align="center">
                 <el-table-column prop="m1-value" label="值">
@@ -63,7 +63,9 @@
 </template>
 
 <script>
-import  uuT from '@/utils/exportExcel'
+import uuT from '@/utils/exportExcel'
+import mockData from '@/mock/l1l2l3'
+import { getGroupData } from '@/utils'
 export default {
     props: {
         tableData1: {
@@ -77,7 +79,7 @@ export default {
         return {
             tableData: [{
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '座椅',
                 m1: '',
                 "m1-value": "100",
@@ -105,7 +107,7 @@ export default {
                 'm6-h': "7.6%",
             }, {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '音响',
                 m1: '',
                 "m1-value": "100",
@@ -134,7 +136,7 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '天窗及前后风挡玻璃',
                 m1: '',
                 "m1-value": "100",
@@ -163,7 +165,7 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '随车配件及供电设备',
                 m1: '',
                 "m1-value": "100",
@@ -192,8 +194,8 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
-                l3: '内部相关',
+                l2: '座舱',
+                l3: '座舱相关',
                 m1: '',
                 "m1-value": "100",
                 "m1-proportion": '19.7%',
@@ -221,7 +223,7 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '后排娱乐系统',
                 m1: '',
                 "m1-value": "100",
@@ -250,7 +252,7 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '方向盘',
                 m1: '',
                 "m1-value": "100",
@@ -279,7 +281,7 @@ export default {
             },
             {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '车内照明',
                 m1: '',
                 "m1-value": "100",
@@ -307,7 +309,7 @@ export default {
                 'm6-h': "7.6%",
             }, {
                 l1: '产品',
-                l2: '内部',
+                l2: '座舱',
                 l3: '车内后视镜',
                 m1: '',
                 "m1-value": "100",
@@ -447,30 +449,66 @@ export default {
                 'm6-h': "7.6%",
             }],
             mergeObj: {}, // 用来记录需要合并行的下标
-            mergeArr: ['l1', 'l2'] // 表格中的列名
+            mergeArr: ['Level 1-中文', 'Level 2-中文'],// 表格中的列名
+            columnProps: ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'],
+            height: window.innerHeight - 60 + 'px',
+            keyObj: {
+                '1': '产品关注',
+                '2': '营销关注',
+                '3': '活动兴趣',
+                '4': '服务焦点'
+            }, index: 1
         }
     },
     mounted () {
-        this.handleTableData()
+        console.log(this.$route.query)
+
+        const index = this.$route.query.index
+        this.index = index
+        const keyWord = this.keyObj[index]
+        this.tableData = this.handleData(keyWord)
+        // this.handleTableData()
         this.getSpanArr(this.tableData);
+
+
     },
     methods: {
-        exportData(){
+        handleSerieName (serieName) {
+            const data = mockData.filter(item => item['Level 1-中文'] === serieName)
+            data.forEach(item => {
+                this.columnProps.forEach(key => {
+                    item[key] = this.randomNumBothRound()
+                    item[key + '-value'] = this.randomNumBothRound()
+                    item[key + '-proportion'] = this.randomNumBoth() + '%'
+                    item[key + '-h'] = this.randomNumBoth() + '%'
+                })
+            })
+            return data
+        },
+        handleData (keyWord) {
+            const data = this.handleSerieName(keyWord)
+            // 按照分组
+            const list = getGroupData('Level 2-中文', data).reduce((prev, cur) => {
+                prev.push(...cur.children)
+                return prev
+            }, [])
+            return list
+        },
+        exportData () {
             const data = this.tableData
-            const row=data[0]
-            const tHeader=['l1=l1','l2=l2','l3=l3',
-            
-            '1月=m1-value','1月占比=m1-proportion','1月环比=m1-h',
-            '2月=m2-value','2月占比=m2-proportion','2月环比=m2-h',
-            '3月=m3-value','3月占比=m3-proportion','3月环比=m3-h',
-            '4月=m4-value','4月占比=m4-proportion','4月环比=m4-h',
-            '5月=m5-value','5月占比=m5-proportion','5月环比=m5-h',
-            '6月=m6-value','6月占比=m6-proportion','6月环比=m6-h',
-        ]
+            const row = data[0]
+            const tHeader = ['Level 1-中文=Level 1-中文', 'Level 2-中文=Level 2-中文', 'Level 3-中文=Level 3-中文',
+                '1月=m1-value', '1月占比=m1-proportion', '1月环比=m1-h',
+                '2月=m2-value', '2月占比=m2-proportion', '2月环比=m2-h',
+                '3月=m3-value', '3月占比=m3-proportion', '3月环比=m3-h',
+                '4月=m4-value', '4月占比=m4-proportion', '4月环比=m4-h',
+                '5月=m5-value', '5月占比=m5-proportion', '5月环比=m5-h',
+                '6月=m6-value', '6月占比=m6-proportion', '6月环比=m6-h',
+            ]
             // Object.keys(row).map(key=>{
             //     return `${key}=${key}`
             // })
-            uuT.exportToExcel(tHeader, data, '指标')
+            uuT.exportToExcel(tHeader, data, this.keyObj[this.index]+'指标')
         },
         randomNumBothRound (Min = 50, Max = 500) {
             var Range = Max - Min;
@@ -565,7 +603,7 @@ export default {
 }
 </script>
 <style>
-.export{
+.export {
 
     position: absolute;
     top: 0px;

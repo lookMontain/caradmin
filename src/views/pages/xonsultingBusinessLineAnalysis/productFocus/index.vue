@@ -3,8 +3,8 @@
         <el-header class="header-box">
             <div>
                 <div>
-                    <span
-                        style="color: #409eff;font-weight: 800;">产品:共{{ totle }}条有效数据,包含{{ totleL2 }}个二级指标，{{ totleL3 }}个三级指标</span>
+                    <span style="color: #409eff;font-weight: 800;">产品:共{{ totle }}条有效数据,包含{{ totleL2 }}个二级指标，{{ totleL3
+                    }}个三级指标</span>
                 </div>
                 <div style="margin-top: 5px;color: #909399;">
                     产品重点的三级指标分别为车钥匙和锁、车联网相关和警示灯
@@ -87,7 +87,7 @@ import { cloneDeep } from 'lodash'
 import l1l2l3Data from '@/mock/l1l2l3.js'
 import l4l5Data from '@/mock/l4l5.js'
 import { getGroupData } from '@/utils'
-import  uuT from '@/utils/exportExcel'
+import uuT from '@/utils/exportExcel'
 
 // 处理一级指标
 const list_l1 = getGroupData('Level 1-中文', l1l2l3Data).find(item => item.name === '产品关注').children || []
@@ -179,19 +179,24 @@ export default {
     },
     methods: {
 
-        exportData(){
+        exportData () {
             const data = list_l1
 
-            const row=data[0]
-            const tHeader=Object.keys(row).map(key=>{
+            const row = data[0]
+            const tHeader = Object.keys(row).map(key => {
                 return `${key}=${key}`
             })
             uuT.exportToExcel(tHeader, data, '产品关注')
-        // export_json_to_excel(tHeader, exceldata, '西药列表');  //对应下载文件的名字
-        // 调用接口，获取数据
+            // export_json_to_excel(tHeader, exceldata, '西药列表');  //对应下载文件的名字
+            // 调用接口，获取数据
         },
         goIndex () {
-            this.$router.push('indexAnalysis')
+            this.$router.push({
+                path:'indexAnalysis',
+                query: {
+                    index: '1'
+                }
+            })
         },
         clickL2Item (params) {
             const { name } = params
