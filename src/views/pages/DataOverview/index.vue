@@ -289,7 +289,7 @@ export default {
                 { value: 300, name: "Video Ads" },
             ],
             hexinciTop1: {
-                color:color,
+                // color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'
@@ -342,7 +342,7 @@ export default {
                 ]
             },
             hexinciTop2: {
-                color:color,
+                // color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'
@@ -395,7 +395,7 @@ export default {
                 ]
             },
             hexinciTop3: {
-                color:color,
+                // color:color,
                 title: {
                     show: false,
                     text: '核心词Top1'

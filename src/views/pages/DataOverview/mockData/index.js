@@ -1,7 +1,7 @@
-const color=['#7E9680','#79616F','#AE6378',"#D87F81","#EAB959"]
+const color=['#AE6378',"#D87F81","#EAB959",'#7E9680','#79616F']
 
 export const threeLineOptions = {
-    color:color,
+    // color:color,
     tooltip: {
         trigger: 'axis',
         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -170,7 +170,7 @@ export const threeLine_serie_ItemOptions = {
 };
 
 export const searchOptions = {
-    color:color,
+    // color:color,
     title: {
         show: true,
         text: '',
@@ -237,7 +237,7 @@ export const searchOptions = {
     ]
 }
 export const heixinciTop1 = {
-    color:color,
+    // color:color,
     title: {
         show: false,
         text: 'Nightingale Chart',
@@ -280,7 +280,7 @@ export const heixinciTop1 = {
     ]
 }
 export const heixinciTop2 = {
-    color:color,
+    // color:color,
     title: {
         show: false,
         text: '核心词Top2',
@@ -329,7 +329,7 @@ export const heixinciTop2 = {
     ]
 }
 export const heixinciTop3 = {
-    color:color,
+    // color:color,
     title: {
         show: false,
         text: '核心词Top3',
@@ -762,7 +762,7 @@ export const chexiOption = {
 }
 //情感系数
 export const affectiveCoefficientOption = {
-    color:color,
+    // color:color,
     legend: {
         data: ['咨询', '投诉', '预警'],
         orient:'vertical',
@@ -1385,7 +1385,7 @@ export function get30Day(){
         s3.push(randomNumBoth(1,10))
       })
     return {
-        color:color,
+        // color:color,
         backgroundColor: "#fff",
         title: {
           show:false,
